@@ -1,0 +1,6 @@
+Diplomatic literal (structure-mirroring)
+
+Translate as literally as English allows. Preserve word order and clause order. Do not explain; do not smooth.
+
+Greek text:
+<<<PASTE GREEK HERE>>>

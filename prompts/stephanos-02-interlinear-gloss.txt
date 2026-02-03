@@ -1,0 +1,6 @@
+Interlinear gloss (token-aligned)
+
+Output a token table: token | lemma | morphology | gloss | notes; then an aligned gloss translation.
+
+Greek text:
+<<<PASTE GREEK HERE>>>

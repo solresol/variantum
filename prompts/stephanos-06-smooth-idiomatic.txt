@@ -1,0 +1,6 @@
+Smooth idiomatic translation (high readability)
+
+Make it natural modern English while preserving meaning; keep factual slots stable.
+
+Greek text:
+<<<PASTE GREEK HERE>>>

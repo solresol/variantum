@@ -1,0 +1,8 @@
+Alliterative / rhythmic mnemonic (sound as a memory tool)
+
+Produce a rhythmic, alliterative version that preserves facts; keep anchors; avoid adding facts.
+
+Keep a ‘Factual anchors’ box listing headword, location, ethnicon, citations, and any etymology claims verbatim-ish.
+
+Greek text:
+<<<PASTE GREEK HERE>>>

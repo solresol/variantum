@@ -1,0 +1,6 @@
+Minimal-inference conservative translation
+
+Do not add implied details. If inference is unavoidable, mark [INFERENCE]. Preserve vagueness.
+
+Greek text:
+<<<PASTE GREEK HERE>>>

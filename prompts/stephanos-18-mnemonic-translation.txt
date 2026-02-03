@@ -1,0 +1,11 @@
+Mnemonic translation (distinctiveness for recall)
+
+Create a mnemonic rendering optimised for memorability:
+
+Use vivid but non-anachronistic imagery.
+Use distinct phrasing and repetition.
+Keep a ‘Factual anchors’ box listing headword, location, ethnicon, citations, and any etymology claims verbatim-ish.
+Label clearly as MNEMONIC VERSION.
+
+Greek text:
+<<<PASTE GREEK HERE>>>

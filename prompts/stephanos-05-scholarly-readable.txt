@@ -1,0 +1,6 @@
+Scholarly readable translation (commentary-grade)
+
+Produce clear academic English; translate idioms cautiously; consistent terminology; short glossary.
+
+Greek text:
+<<<PASTE GREEK HERE>>>

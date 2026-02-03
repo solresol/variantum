@@ -1,0 +1,6 @@
+Uncertainty-annotated translation (confidence + reasons)
+
+For each sentence: confidence 0–100 + reasons; list top 5 risk phrases with alternatives.
+
+Greek text:
+<<<PASTE GREEK HERE>>>

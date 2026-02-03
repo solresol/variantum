@@ -1,0 +1,6 @@
+Adversarial red-team translation
+
+Produce a deliberately sceptical alternative translation; highlight where it diverges and why.
+
+Greek text:
+<<<PASTE GREEK HERE>>>

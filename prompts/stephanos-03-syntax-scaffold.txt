@@ -1,0 +1,6 @@
+Syntax scaffold (bracketed clauses)
+
+Preserve subordinate structure with brackets; add a syntax map at end.
+
+Greek text:
+<<<PASTE GREEK HERE>>>

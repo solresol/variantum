@@ -1,0 +1,6 @@
+Decision-log apparatus-first translation
+
+List decision points → alternatives → justification → final translation.
+
+Greek text:
+<<<PASTE GREEK HERE>>>

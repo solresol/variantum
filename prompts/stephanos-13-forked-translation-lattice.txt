@@ -1,0 +1,6 @@
+Forked translation lattice (alternative readings)
+
+Identify ambiguous spans; give 2–3 alternatives each; then 2–3 coherent full-passages labelled A/B/C.
+
+Greek text:
+<<<PASTE GREEK HERE>>>

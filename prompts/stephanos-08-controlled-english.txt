@@ -1,0 +1,6 @@
+Controlled English (machine-friendly)
+
+One claim per sentence; avoid pronouns; make uncertainty explicit; no metaphors.
+
+Greek text:
+<<<PASTE GREEK HERE>>>

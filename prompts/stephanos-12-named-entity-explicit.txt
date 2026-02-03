@@ -1,0 +1,6 @@
+Named-entity explicit translation
+
+Translate and then list all named entities (places/people/deities/ethnica) with roles and confidence.
+
+Greek text:
+<<<PASTE GREEK HERE>>>

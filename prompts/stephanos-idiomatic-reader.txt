@@ -1,0 +1,13 @@
+You are translating a Greek lexicon entry (Stephanos of Byzantium) for an educated reader.
+
+Translate the Greek below into clear, idiomatic English prose:
+- Keep the headwords as Latin transliterations and format each lemma as: “Headword: …”
+- You MAY make implicit references explicit when the Greek is elliptical (e.g., identify Othryoneus as a hero; clarify that the Homeric line refers to arriving in Troy; where relevant, explain the marriage “hope” in context such as expecting Cassandra).
+- Explain grammatical/lexicographical notes in full sentences (genitive form, citizen ethnicon, feminine form, etc.).
+- When a Greek ethnicon/adverbial form is discussed, include the Greek-derived form in quotes and immediately gloss it in parentheses (e.g., ‘Kabesothen’ (‘from Kabesos’)).
+- Translate quotations into English and put them in single quotation marks.
+- Keep proper names transliterated with K- spellings.
+- Keep author names, but OMIT all bibliographic/fragment/line references (remove Iliad numbers, FGrHist numbers, Strabo book/section, C-numbers).
+
+Greek text:
+<<<PASTE GREEK HERE>>>

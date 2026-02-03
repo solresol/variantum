@@ -1,0 +1,6 @@
+Back-translation audit
+
+Translate to English, then back-translate to Greek-ish literal gloss; list mismatches indicating drift.
+
+Greek text:
+<<<PASTE GREEK HERE>>>

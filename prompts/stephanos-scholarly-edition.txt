@@ -1,0 +1,17 @@
+You are translating a Greek lexicon entry (Stephanos of Byzantium) for a scholarly edition.
+
+Translate the Greek below into clear, idiomatic English prose, with light explanatory clarification (as in an annotated translation), AND retain/normalise citations:
+- Keep the headwords as Latin transliterations and format each lemma as: “Headword: …”
+- You MAY make implicit references explicit when the Greek is elliptical (e.g., Othryoneus as a hero; arriving in Troy; Cassandra and the marriage expectation), but do not invent unrelated background.
+- Translate quotations into English and put them in single quotation marks.
+- Preserve the Greek-derived forms discussed as quoted items with glosses, e.g. ‘Kabesothen’ (‘from Kabesos’), and explain the ethnonym point.
+- KEEP the scholarly references, but normalise them into a clean modern format:
+  * Homer: convert the Greek book-letter to the numeric book and cite as “(Iliad 13.363)” style.
+  * Preserve FGrHist citations as given (e.g. “(FGrHist 1 F 169)”).
+  * For Strabo, keep the book.section style as plain numbers (e.g. “(13.4.15)”) and omit the bracketed C-page references.
+  * Keep Fowler fragment equivalences if present.
+- Place each citation at the end of the relevant sentence/clause (don’t dump all citations at the end).
+- Keep proper names transliterated with K- spellings.
+
+Greek text:
+<<<PASTE GREEK HERE>>>
