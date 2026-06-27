@@ -1,0 +1,12 @@
+site/
+.venv/
+__pycache__/
+*.pyc
+*.db
+*.sqlite
+*.sqlite3
+cgi/*/*.cgi
+cgi/*/review-*
+!cgi/review-save/
+!cgi/review-state/
+!cgi/review-status/

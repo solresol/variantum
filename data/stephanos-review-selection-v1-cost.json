@@ -1,0 +1,420 @@
+{
+  "generated_at_utc": "2026-06-23T10:09:39+00:00",
+  "selection_slug": "stephanos-review-v1",
+  "selection_seed": 20260623,
+  "pricing": {
+    "model": "gpt-5.5",
+    "source": "https://developers.openai.com/api/docs/pricing",
+    "standard_per_million": {
+      "input": 5.0,
+      "output": 30.0
+    },
+    "batch_per_million": {
+      "input": 2.5,
+      "output": 15.0
+    }
+  },
+  "calibration": {
+    "sample_runs": 551,
+    "median_factor": 1.0167,
+    "p90_factor": 1.1559
+  },
+  "existing_state_for_selected_passages": {
+    "completed_runs": 0,
+    "open_requests": 0
+  },
+  "passage_count": 20,
+  "profile_count": 27,
+  "core_profile_count": 23,
+  "summary": {
+    "all_profiles": {
+      "requests": 540,
+      "expected_input_tokens": 284802,
+      "expected_output_tokens": 221665,
+      "expected_total_tokens": 506467,
+      "lower_output_tokens": 144170,
+      "high_input_tokens": 323741,
+      "high_output_tokens": 343682,
+      "high_total_tokens": 667423,
+      "batch_expected_cost_usd": 4.037,
+      "standard_expected_cost_usd": 8.074,
+      "batch_high_cost_usd": 5.9646,
+      "standard_high_cost_usd": 11.9292
+    },
+    "core_priority_le_4": {
+      "requests": 460,
+      "expected_input_tokens": 242708,
+      "expected_output_tokens": 191538,
+      "expected_total_tokens": 434246,
+      "lower_output_tokens": 124578,
+      "high_input_tokens": 275888,
+      "high_output_tokens": 296975,
+      "high_total_tokens": 572863,
+      "batch_expected_cost_usd": 3.4798,
+      "standard_expected_cost_usd": 6.9597,
+      "batch_high_cost_usd": 5.1443,
+      "standard_high_cost_usd": 10.2887
+    }
+  },
+  "summary_by_tier": {
+    "all_profiles": {
+      "primary_random_review": {
+        "requests": 270,
+        "expected_input_tokens": 144196,
+        "expected_output_tokens": 120946,
+        "expected_total_tokens": 265142,
+        "lower_output_tokens": 78656,
+        "high_input_tokens": 163912,
+        "high_output_tokens": 187511,
+        "high_total_tokens": 351423,
+        "batch_expected_cost_usd": 2.1747,
+        "standard_expected_cost_usd": 4.3494,
+        "batch_high_cost_usd": 3.2224,
+        "standard_high_cost_usd": 6.4449
+      },
+      "secondary_random_review": {
+        "requests": 270,
+        "expected_input_tokens": 140606,
+        "expected_output_tokens": 100719,
+        "expected_total_tokens": 241325,
+        "lower_output_tokens": 65514,
+        "high_input_tokens": 159829,
+        "high_output_tokens": 156171,
+        "high_total_tokens": 316000,
+        "batch_expected_cost_usd": 1.8623,
+        "standard_expected_cost_usd": 3.7246,
+        "batch_high_cost_usd": 2.7421,
+        "standard_high_cost_usd": 5.4843
+      }
+    },
+    "core_priority_le_4": {
+      "primary_random_review": {
+        "requests": 230,
+        "expected_input_tokens": 122884,
+        "expected_output_tokens": 104524,
+        "expected_total_tokens": 227408,
+        "lower_output_tokens": 67978,
+        "high_input_tokens": 139682,
+        "high_output_tokens": 162054,
+        "high_total_tokens": 301736,
+        "batch_expected_cost_usd": 1.8751,
+        "standard_expected_cost_usd": 3.7501,
+        "batch_high_cost_usd": 2.78,
+        "standard_high_cost_usd": 5.56
+      },
+      "secondary_random_review": {
+        "requests": 230,
+        "expected_input_tokens": 119824,
+        "expected_output_tokens": 87014,
+        "expected_total_tokens": 206838,
+        "lower_output_tokens": 56600,
+        "high_input_tokens": 136206,
+        "high_output_tokens": 134921,
+        "high_total_tokens": 271127,
+        "batch_expected_cost_usd": 1.6048,
+        "standard_expected_cost_usd": 3.2095,
+        "batch_high_cost_usd": 2.3643,
+        "standard_high_cost_usd": 4.7287
+      }
+    }
+  },
+  "profiles": [
+    {
+      "profile_name": "parallage_01_diplomatic_literal",
+      "profile_version_id": 1833,
+      "profile_priority": 4,
+      "requests": 20,
+      "expected_input_tokens": 9673,
+      "expected_output_tokens": 4839,
+      "batch_expected_cost_usd": 0.0968,
+      "standard_expected_cost_usd": 0.1935,
+      "output_basis": "single translation component"
+    },
+    {
+      "profile_name": "parallage_02_interlinear_gloss",
+      "profile_version_id": 1834,
+      "profile_priority": 4,
+      "requests": 20,
+      "expected_input_tokens": 9587,
+      "expected_output_tokens": 12525,
+      "batch_expected_cost_usd": 0.2118,
+      "standard_expected_cost_usd": 0.4237,
+      "output_basis": "token-aligned gloss table"
+    },
+    {
+      "profile_name": "parallage_03_syntax_scaffold",
+      "profile_version_id": 1835,
+      "profile_priority": 4,
+      "requests": 20,
+      "expected_input_tokens": 9445,
+      "expected_output_tokens": 8321,
+      "batch_expected_cost_usd": 0.1484,
+      "standard_expected_cost_usd": 0.2969,
+      "output_basis": "analysis-heavy component"
+    },
+    {
+      "profile_name": "parallage_04_minimal_inference",
+      "profile_version_id": 1836,
+      "profile_priority": 4,
+      "requests": 20,
+      "expected_input_tokens": 9600,
+      "expected_output_tokens": 4839,
+      "batch_expected_cost_usd": 0.0966,
+      "standard_expected_cost_usd": 0.1932,
+      "output_basis": "single translation component"
+    },
+    {
+      "profile_name": "parallage_05_scholarly_readable",
+      "profile_version_id": 1837,
+      "profile_priority": 4,
+      "requests": 20,
+      "expected_input_tokens": 9668,
+      "expected_output_tokens": 4839,
+      "batch_expected_cost_usd": 0.0968,
+      "standard_expected_cost_usd": 0.1935,
+      "output_basis": "single translation component"
+    },
+    {
+      "profile_name": "parallage_06_smooth_idiomatic",
+      "profile_version_id": 1838,
+      "profile_priority": 4,
+      "requests": 20,
+      "expected_input_tokens": 9570,
+      "expected_output_tokens": 4839,
+      "batch_expected_cost_usd": 0.0965,
+      "standard_expected_cost_usd": 0.193,
+      "output_basis": "single translation component"
+    },
+    {
+      "profile_name": "parallage_07_message_paraphrase",
+      "profile_version_id": 1839,
+      "profile_priority": 4,
+      "requests": 20,
+      "expected_input_tokens": 9786,
+      "expected_output_tokens": 4839,
+      "batch_expected_cost_usd": 0.0971,
+      "standard_expected_cost_usd": 0.1941,
+      "output_basis": "single translation component"
+    },
+    {
+      "profile_name": "parallage_08_controlled_english",
+      "profile_version_id": 1840,
+      "profile_priority": 4,
+      "requests": 20,
+      "expected_input_tokens": 9506,
+      "expected_output_tokens": 4839,
+      "batch_expected_cost_usd": 0.0964,
+      "standard_expected_cost_usd": 0.1927,
+      "output_basis": "single translation component"
+    },
+    {
+      "profile_name": "parallage_09_analyst_brief",
+      "profile_version_id": 1841,
+      "profile_priority": 4,
+      "requests": 20,
+      "expected_input_tokens": 9688,
+      "expected_output_tokens": 8321,
+      "batch_expected_cost_usd": 0.149,
+      "standard_expected_cost_usd": 0.2981,
+      "output_basis": "analysis-heavy component"
+    },
+    {
+      "profile_name": "parallage_10_plain_language",
+      "profile_version_id": 1842,
+      "profile_priority": 4,
+      "requests": 20,
+      "expected_input_tokens": 9535,
+      "expected_output_tokens": 6711,
+      "batch_expected_cost_usd": 0.1245,
+      "standard_expected_cost_usd": 0.249,
+      "output_basis": "analysis or pedagogy component"
+    },
+    {
+      "profile_name": "parallage_11_learners_translation",
+      "profile_version_id": 1843,
+      "profile_priority": 4,
+      "requests": 20,
+      "expected_input_tokens": 9489,
+      "expected_output_tokens": 10733,
+      "batch_expected_cost_usd": 0.1847,
+      "standard_expected_cost_usd": 0.3694,
+      "output_basis": "teaching notes and vocabulary"
+    },
+    {
+      "profile_name": "parallage_12_named_entity_explicit",
+      "profile_version_id": 1844,
+      "profile_priority": 4,
+      "requests": 20,
+      "expected_input_tokens": 9590,
+      "expected_output_tokens": 8321,
+      "batch_expected_cost_usd": 0.1488,
+      "standard_expected_cost_usd": 0.2976,
+      "output_basis": "analysis-heavy component"
+    },
+    {
+      "profile_name": "parallage_13_forked_lattice",
+      "profile_version_id": 1845,
+      "profile_priority": 4,
+      "requests": 20,
+      "expected_input_tokens": 9673,
+      "expected_output_tokens": 12618,
+      "batch_expected_cost_usd": 0.2135,
+      "standard_expected_cost_usd": 0.4269,
+      "output_basis": "multi-alternative lattice or spectrum"
+    },
+    {
+      "profile_name": "parallage_14_uncertainty_annotated",
+      "profile_version_id": 1846,
+      "profile_priority": 4,
+      "requests": 20,
+      "expected_input_tokens": 9648,
+      "expected_output_tokens": 10455,
+      "batch_expected_cost_usd": 0.1809,
+      "standard_expected_cost_usd": 0.3619,
+      "output_basis": "translation plus audit scaffolding"
+    },
+    {
+      "profile_name": "parallage_15_decision_log",
+      "profile_version_id": 1847,
+      "profile_priority": 4,
+      "requests": 20,
+      "expected_input_tokens": 9479,
+      "expected_output_tokens": 10455,
+      "batch_expected_cost_usd": 0.1805,
+      "standard_expected_cost_usd": 0.361,
+      "output_basis": "translation plus audit scaffolding"
+    },
+    {
+      "profile_name": "parallage_16_adversarial_red_team",
+      "profile_version_id": 1848,
+      "profile_priority": 4,
+      "requests": 20,
+      "expected_input_tokens": 9549,
+      "expected_output_tokens": 8321,
+      "batch_expected_cost_usd": 0.1487,
+      "standard_expected_cost_usd": 0.2974,
+      "output_basis": "analysis-heavy component"
+    },
+    {
+      "profile_name": "parallage_17_back_translation_audit",
+      "profile_version_id": 1849,
+      "profile_priority": 4,
+      "requests": 20,
+      "expected_input_tokens": 9547,
+      "expected_output_tokens": 10455,
+      "batch_expected_cost_usd": 0.1807,
+      "standard_expected_cost_usd": 0.3614,
+      "output_basis": "translation plus audit scaffolding"
+    },
+    {
+      "profile_name": "parallage_audit_pack",
+      "profile_version_id": 1858,
+      "profile_priority": 4,
+      "requests": 20,
+      "expected_input_tokens": 11646,
+      "expected_output_tokens": 15515,
+      "batch_expected_cost_usd": 0.2618,
+      "standard_expected_cost_usd": 0.5237,
+      "output_basis": "reliability audit pack"
+    },
+    {
+      "profile_name": "parallage_compact_literal",
+      "profile_version_id": 1853,
+      "profile_priority": 4,
+      "requests": 20,
+      "expected_input_tokens": 13699,
+      "expected_output_tokens": 4839,
+      "batch_expected_cost_usd": 0.1068,
+      "standard_expected_cost_usd": 0.2137,
+      "output_basis": "single translation component"
+    },
+    {
+      "profile_name": "parallage_idiomatic_reader",
+      "profile_version_id": 1854,
+      "profile_priority": 4,
+      "requests": 20,
+      "expected_input_tokens": 14333,
+      "expected_output_tokens": 4839,
+      "batch_expected_cost_usd": 0.1084,
+      "standard_expected_cost_usd": 0.2168,
+      "output_basis": "single translation component"
+    },
+    {
+      "profile_name": "parallage_lattice_pack",
+      "profile_version_id": 1857,
+      "profile_priority": 4,
+      "requests": 20,
+      "expected_input_tokens": 11410,
+      "expected_output_tokens": 12618,
+      "batch_expected_cost_usd": 0.2178,
+      "standard_expected_cost_usd": 0.4356,
+      "output_basis": "multi-alternative lattice or spectrum"
+    },
+    {
+      "profile_name": "parallage_scholarly_edition",
+      "profile_version_id": 1855,
+      "profile_priority": 4,
+      "requests": 20,
+      "expected_input_tokens": 15768,
+      "expected_output_tokens": 4839,
+      "batch_expected_cost_usd": 0.112,
+      "standard_expected_cost_usd": 0.224,
+      "output_basis": "single translation component"
+    },
+    {
+      "profile_name": "parallage_spectrum_pack",
+      "profile_version_id": 1856,
+      "profile_priority": 4,
+      "requests": 20,
+      "expected_input_tokens": 12819,
+      "expected_output_tokens": 12618,
+      "batch_expected_cost_usd": 0.2213,
+      "standard_expected_cost_usd": 0.4426,
+      "output_basis": "multi-alternative lattice or spectrum"
+    },
+    {
+      "profile_name": "parallage_18_mnemonic_translation",
+      "profile_version_id": 1850,
+      "profile_priority": 5,
+      "requests": 20,
+      "expected_input_tokens": 10643,
+      "expected_output_tokens": 6711,
+      "batch_expected_cost_usd": 0.1273,
+      "standard_expected_cost_usd": 0.2545,
+      "output_basis": "creative memory component"
+    },
+    {
+      "profile_name": "parallage_19_alliterative_mnemonic",
+      "profile_version_id": 1851,
+      "profile_priority": 5,
+      "requests": 20,
+      "expected_input_tokens": 10298,
+      "expected_output_tokens": 6711,
+      "batch_expected_cost_usd": 0.1264,
+      "standard_expected_cost_usd": 0.2528,
+      "output_basis": "creative memory component"
+    },
+    {
+      "profile_name": "parallage_20_rhyming_poetry",
+      "profile_version_id": 1852,
+      "profile_priority": 5,
+      "requests": 20,
+      "expected_input_tokens": 9766,
+      "expected_output_tokens": 6711,
+      "batch_expected_cost_usd": 0.1251,
+      "standard_expected_cost_usd": 0.2502,
+      "output_basis": "creative memory component"
+    },
+    {
+      "profile_name": "parallage_memory_pack",
+      "profile_version_id": 1859,
+      "profile_priority": 5,
+      "requests": 20,
+      "expected_input_tokens": 11387,
+      "expected_output_tokens": 9994,
+      "batch_expected_cost_usd": 0.1784,
+      "standard_expected_cost_usd": 0.3568,
+      "output_basis": "creative memory pack"
+    }
+  ]
+}

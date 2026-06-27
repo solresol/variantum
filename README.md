@@ -9,6 +9,13 @@ At present this repo contains prompt templates for Stephanos translation
 variants. The likely next step is to turn those prompts into a reproducible pack
 generation and evaluation workflow.
 
+## Paper Deadline
+
+- By `2026-07-27`: prepare Greg Baker, Shirley Chan, Vanessa Enriquez Raido, and
+  Greta Hawes, "Into the Parallage: Harnessing Abundance, Plurality and
+  Divergence in AI Translation of Ancient Texts", from the AI4AS 2026 abstract:
+  https://ai4asconference.github.io/2026/abstracts/Session%201/Baker.pdf.
+
 ## Project Idea
 
 Parallage asks whether AI translation should be presented as a single fluent
@@ -186,6 +193,92 @@ A useful first implementation would add:
 - analysis scripts for variant comparison, distrust annotations, confidence,
   time-on-task, and revision distance;
 - documentation for exactly which prompts and model settings were used.
+
+## Stephanos Review App
+
+The first reviewer-facing app lives in this repo and publishes to
+`parallage.symmachus.org`. It is intentionally split into mostly static review
+pages and small authenticated CGI handlers:
+
+- `scripts/generate_stephanos_review_site.py` reads the live Stephanos
+  PostgreSQL database on `raksasa` and writes static pages under `site/`.
+- `static/review.css` and `static/review.js` provide the protected review UI.
+- `cgi/review-save`, `cgi/review-state`, and `cgi/review-status` are Go CGI
+  programs deployed to `merah`.
+- Review state is stored in SQLite at
+  `/var/www/vhosts/parallage.symmachus.org/db/reviews.db`.
+- Basic Auth uses
+  `/var/www/vhosts/parallage.symmachus.org/etc/htpasswd`, and the CGI records
+  the authenticated reviewer from `REMOTE_USER`.
+
+Generate and deploy the current Stephanos review pack:
+
+```bash
+uv run scripts/select_stephanos_review_passages.py
+uv run scripts/estimate_stephanos_review_cost.py
+uv run scripts/generate_stephanos_review_site.py --pack-slug stephanos-review-v1 --selection-file data/stephanos-review-selection-v1.json
+scripts/deploy_static.sh
+scripts/deploy_cgi.sh
+```
+
+The default selection manifest declares ten primary randomized passages and ten
+secondary reserve passages from the approved-human Stephanos pool. Regenerate it
+only when deliberately changing the review set; otherwise treat
+`data/stephanos-review-selection-v1.json` as the scheduled passage set.
+
+Dry-run queueing for the selected passages:
+
+```bash
+uv run scripts/enqueue_stephanos_review_selection.py --tier primary_random_review
+uv run scripts/enqueue_stephanos_review_selection.py --tier secondary_random_review
+```
+
+Regression checks for rating persistence and reviewer navigation:
+
+```bash
+(cd cgi && go test ./...)
+NODE_PATH=/path/to/node_modules node scripts/test_review_ui_flow.mjs
+```
+
+The browser-flow test uses the generated `site/` tree with mocked CGI endpoints.
+It checks that rating clicks create ordered transactions, exposure timing resets
+after each rating click, and the latest rating is highlighted after moving to
+the next passage and back.
+
+For deployed-live smoke tests, create a temporary authenticated reviewer, then:
+
+```bash
+REVIEW_TEST_USERNAME=... REVIEW_TEST_PASSWORD=... \
+NODE_PATH=/path/to/node_modules node scripts/test_deployed_review_flow.mjs
+```
+
+Delete the temporary reviewer and its `variant_ratings` rows after the live test.
+
+After the dedicated OpenAI API key is configured for the translation worker, add
+`--execute` to insert pending `translation_run_requests`. Use
+`--max-profile-priority 4` to queue only the 23 core profiles and leave the four
+priority-5 creative/memory profiles for later.
+
+The default generator selects a deterministic sample of 25 approved
+human-translation passages and includes `parallage_%` translation runs with
+status `approved` or `completed`. Use `--all` to include every approved passage,
+or repeat `--lemma-id <id>` for a hand-picked set.
+
+Provision the vhost directories and review password file:
+
+```bash
+scripts/provision_merah.sh
+scripts/setup_reviewers.sh gregb shirley vanessa
+```
+
+The `httpd` fragment to add on `merah` is in
+`httpd/parallage-httpd.conf`. After adding it to the active OpenBSD `httpd`
+configuration, check and reload:
+
+```bash
+doas httpd -n
+doas rcctl reload httpd
+```
 
 ## Classical Chinese And Slavery
 
