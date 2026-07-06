@@ -1,0 +1,647 @@
+{
+  "schema": "openai.presentation.layout/v4",
+  "unit": "px",
+  "slide": {
+    "aid": "sl/jrng86",
+    "id": "jrng86",
+    "slide": 8,
+    "layoutId": "6ccd6ddc-3b4f-46ec-b17d-8a333e0ea07c",
+    "layoutName": "Title Slide",
+    "layoutType": "title",
+    "masterLayoutId": "c5701aa0-0a43-4168-bd98-2445de17322a",
+    "masterLayoutName": "Master",
+    "backgroundColor": "#FFFFFF",
+    "frame": {
+      "left": 0,
+      "top": 0,
+      "width": 1280,
+      "height": 720
+    }
+  },
+  "theme": {
+    "colorSchemeName": "ChatGPT",
+    "colors": {
+      "accent1": "#156082",
+      "accent2": "#E97132",
+      "accent3": "#196B24",
+      "accent4": "#0F9ED5",
+      "accent5": "#A02B93",
+      "accent6": "#4EA72E",
+      "bg1": "#FFFFFF",
+      "bg2": "#000000",
+      "tx1": "#1F1F1F",
+      "tx2": "#FFFFFF",
+      "dk1": "#000000",
+      "lt1": "#FFFFFF",
+      "dk2": "#0E2841",
+      "lt2": "#E8E8E8",
+      "hlink": "#467886",
+      "folHlink": "#96607D"
+    },
+    "typefaces": [
+      "+mn-lt"
+    ]
+  },
+  "inheritedLayers": [
+    {
+      "scope": "layout",
+      "id": "6ccd6ddc-3b4f-46ec-b17d-8a333e0ea07c",
+      "name": "Title Slide",
+      "type": "title",
+      "parentLayoutId": "c5701aa0-0a43-4168-bd98-2445de17322a",
+      "elements": []
+    },
+    {
+      "scope": "master",
+      "id": "c5701aa0-0a43-4168-bd98-2445de17322a",
+      "name": "Master",
+      "type": "master",
+      "elements": []
+    }
+  ],
+  "elements": [
+    {
+      "order": 1,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/twra5gbq",
+      "id": "1",
+      "name": "eyebrow-8",
+      "bbox": [
+        42,
+        35,
+        520,
+        28
+      ],
+      "geometry": "rect",
+      "text": "ADJUSTED EVIDENCE",
+      "textPreview": "ADJUSTED EVIDENCE",
+      "resolvedFontSize": 16,
+      "resolvedTextStyle": {
+        "fontSize": 16,
+        "typeface": "+mn-lt",
+        "color": "#555555",
+        "bold": true,
+        "alignment": "left",
+        "insets": {
+          "top": 4.8,
+          "right": 9.6,
+          "bottom": 4.8,
+          "left": 9.6
+        }
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "ADJUSTED EVIDENCE"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "ADJUSTED EVIDENCE",
+          "resolvedTextStyle": {
+            "fontSize": 16,
+            "color": "#555555",
+            "bold": true
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "ADJUSTED EVIDENCE",
+              "fontSize": 16,
+              "color": "#555555",
+              "bold": true
+            }
+          ],
+          "marginLeft": 0
+        }
+      ],
+      "lineWidth": 0
+    },
+    {
+      "order": 2,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/m58z25kb",
+      "id": "2",
+      "name": "slide-no-8",
+      "bbox": [
+        1170,
+        35,
+        70,
+        28
+      ],
+      "geometry": "rect",
+      "text": "08",
+      "textPreview": "08",
+      "resolvedFontSize": 16,
+      "resolvedTextStyle": {
+        "fontSize": 16,
+        "typeface": "+mn-lt",
+        "color": "#555555",
+        "bold": true,
+        "alignment": "left",
+        "insets": {
+          "top": 4.8,
+          "right": 9.6,
+          "bottom": 4.8,
+          "left": 9.6
+        }
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "08"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "08",
+          "resolvedTextStyle": {
+            "fontSize": 16,
+            "color": "#555555",
+            "bold": true
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "08",
+              "fontSize": 16,
+              "color": "#555555",
+              "bold": true
+            }
+          ],
+          "marginLeft": 0
+        }
+      ],
+      "lineWidth": 0
+    },
+    {
+      "order": 3,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/bq1oryts",
+      "id": "3",
+      "name": "title-8",
+      "bbox": [
+        42,
+        78,
+        1110,
+        92
+      ],
+      "geometry": "rect",
+      "text": "After length adjustment, the signal becomes cautious",
+      "textPreview": "After length adjustment, the signal becomes cautious",
+      "resolvedFontSize": 40,
+      "resolvedTextStyle": {
+        "fontSize": 40,
+        "typeface": "+mn-lt",
+        "color": "#000000",
+        "bold": true,
+        "alignment": "left",
+        "insets": {
+          "top": 4.8,
+          "right": 9.6,
+          "bottom": 4.8,
+          "left": 9.6
+        }
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "After length adjustment, the signal becomes cautious"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "After length adjustment, the signal becomes cautious",
+          "resolvedTextStyle": {
+            "fontSize": 40,
+            "color": "#000000",
+            "bold": true
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "After length adjustment, the signal becomes cautious",
+              "fontSize": 40,
+              "color": "#000000",
+              "bold": true
+            }
+          ],
+          "marginLeft": 0
+        }
+      ],
+      "lineWidth": 0
+    },
+    {
+      "order": 4,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/4nap4r65",
+      "id": "4",
+      "name": "top-rule-8",
+      "bbox": [
+        42,
+        170,
+        1196,
+        1
+      ],
+      "geometry": "rect",
+      "fillColor": "#B8BCC4",
+      "lineWidth": 0
+    },
+    {
+      "order": 5,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/t83itgfm",
+      "id": "5",
+      "name": "footer-8",
+      "bbox": [
+        42,
+        672,
+        640,
+        26
+      ],
+      "geometry": "rect",
+      "text": "AI4AS 2026 | Into the Parallage | 27 July 2026",
+      "textPreview": "AI4AS 2026 | Into the Parallage | 27 July 2026",
+      "resolvedFontSize": 16,
+      "resolvedTextStyle": {
+        "fontSize": 16,
+        "typeface": "+mn-lt",
+        "color": "#555555",
+        "alignment": "left",
+        "insets": {
+          "top": 4.8,
+          "right": 9.6,
+          "bottom": 4.8,
+          "left": 9.6
+        }
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "AI4AS 2026 | Into the Parallage | 27 July 2026"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "AI4AS 2026 | Into the Parallage | 27 July 2026",
+          "resolvedTextStyle": {
+            "fontSize": 16,
+            "color": "#555555"
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "AI4AS 2026 | Into the Parallage | 27 July 2026",
+              "fontSize": 16,
+              "color": "#555555"
+            }
+          ],
+          "marginLeft": 0
+        }
+      ],
+      "lineWidth": 0
+    },
+    {
+      "order": 6,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/mhk3q5o7",
+      "id": "6",
+      "name": "residual-plot-frame",
+      "bbox": [
+        42,
+        202,
+        760,
+        410
+      ],
+      "geometry": "rect",
+      "fillColor": "#FFFFFF",
+      "lineColor": "#B8BCC4",
+      "lineWidth": 1
+    },
+    {
+      "order": 7,
+      "kind": "image",
+      "scope": "slide",
+      "aid": "im/m1cfa9w3",
+      "id": "7",
+      "bbox": [
+        54,
+        214,
+        736,
+        386
+      ],
+      "alt": "Length-adjusted residual scatter plots against Vanessa rating",
+      "contentType": "image/png",
+      "imageFit": "contain",
+      "asset": {
+        "assetId": "63de06b8-0a90-48fd-9324-3acc06979866",
+        "contentType": "image/png",
+        "byteLength": 173775
+      }
+    },
+    {
+      "order": 8,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/4vmtwra5",
+      "id": "8",
+      "name": "adjusted-readout",
+      "bbox": [
+        842,
+        202,
+        396,
+        410
+      ],
+      "geometry": "rect",
+      "fillColor": "#EDEDED",
+      "lineWidth": 0
+    },
+    {
+      "order": 9,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/tgfmlkjm",
+      "id": "9",
+      "name": "adjusted-readout-title",
+      "bbox": [
+        872,
+        230,
+        330,
+        82
+      ],
+      "geometry": "rect",
+      "text": "Spearman r\nrating vs residual badness",
+      "textPreview": "Spearman r | rating vs residual badness",
+      "resolvedFontSize": 26,
+      "resolvedTextStyle": {
+        "fontSize": 26,
+        "typeface": "+mn-lt",
+        "color": "#000000",
+        "bold": true,
+        "alignment": "left",
+        "insets": {
+          "top": 4.8,
+          "right": 9.6,
+          "bottom": 4.8,
+          "left": 9.6
+        }
+      },
+      "textLayout": {
+        "lineCount": 2,
+        "lines": [
+          {
+            "index": 1,
+            "text": "Spearman r"
+          },
+          {
+            "index": 2,
+            "text": "rating vs residual badness"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "Spearman r",
+          "resolvedTextStyle": {
+            "fontSize": 26,
+            "color": "#000000",
+            "bold": true
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "Spearman r",
+              "fontSize": 26,
+              "color": "#000000",
+              "bold": true
+            }
+          ],
+          "marginLeft": 0
+        },
+        {
+          "index": 2,
+          "text": "rating vs residual badness",
+          "resolvedTextStyle": {
+            "fontSize": 26,
+            "color": "#000000",
+            "bold": true
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "rating vs residual badness",
+              "fontSize": 26,
+              "color": "#000000",
+              "bold": true
+            }
+          ],
+          "marginLeft": 0
+        }
+      ],
+      "lineWidth": 0
+    },
+    {
+      "order": 10,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/xc3ylc7u",
+      "id": "10",
+      "name": "adjusted-readout-values",
+      "bbox": [
+        872,
+        352,
+        320,
+        128
+      ],
+      "geometry": "rect",
+      "text": "BLEU: 0.20\nROUGE-L: 0.22\n3-gram F1: 0.35",
+      "textPreview": "BLEU: 0.20 | ROUGE-L: 0.22 | 3-gram F1: 0.35",
+      "resolvedFontSize": 34,
+      "resolvedTextStyle": {
+        "fontSize": 34,
+        "typeface": "+mn-lt",
+        "color": "#000000",
+        "bold": true,
+        "alignment": "left",
+        "insets": {
+          "top": 4.8,
+          "right": 9.6,
+          "bottom": 4.8,
+          "left": 9.6
+        }
+      },
+      "textLayout": {
+        "lineCount": 3,
+        "lines": [
+          {
+            "index": 1,
+            "text": "BLEU: 0.20"
+          },
+          {
+            "index": 2,
+            "text": "ROUGE-L: 0.22"
+          },
+          {
+            "index": 3,
+            "text": "3-gram F1: 0.35"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "BLEU: 0.20",
+          "resolvedTextStyle": {
+            "fontSize": 34,
+            "color": "#000000",
+            "bold": true
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "BLEU: 0.20",
+              "fontSize": 34,
+              "color": "#000000",
+              "bold": true
+            }
+          ],
+          "marginLeft": 0
+        },
+        {
+          "index": 2,
+          "text": "ROUGE-L: 0.22",
+          "resolvedTextStyle": {
+            "fontSize": 34,
+            "color": "#000000",
+            "bold": true
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "ROUGE-L: 0.22",
+              "fontSize": 34,
+              "color": "#000000",
+              "bold": true
+            }
+          ],
+          "marginLeft": 0
+        },
+        {
+          "index": 3,
+          "text": "3-gram F1: 0.35",
+          "resolvedTextStyle": {
+            "fontSize": 34,
+            "color": "#000000",
+            "bold": true
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "3-gram F1: 0.35",
+              "fontSize": 34,
+              "color": "#000000",
+              "bold": true
+            }
+          ],
+          "marginLeft": 0
+        }
+      ],
+      "lineWidth": 0
+    },
+    {
+      "order": 11,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/4r65wjud",
+      "id": "11",
+      "name": "adjusted-readout-note",
+      "bbox": [
+        872,
+        515,
+        320,
+        72
+      ],
+      "geometry": "rect",
+      "text": "The adjusted direction is positive, but weak at n=10. This is preliminary evidence for workflow value, not proof.",
+      "textPreview": "The adjusted direction is positive, but weak at n=10. This is preliminary evidence for workflow value, not proof.",
+      "resolvedFontSize": 20,
+      "resolvedTextStyle": {
+        "fontSize": 20,
+        "typeface": "+mn-lt",
+        "color": "#555555",
+        "alignment": "left",
+        "insets": {
+          "top": 4.8,
+          "right": 9.6,
+          "bottom": 4.8,
+          "left": 9.6
+        }
+      },
+      "textLayout": {
+        "lineCount": 4,
+        "lines": [
+          {
+            "index": 1,
+            "text": "The adjusted direction is positive,"
+          },
+          {
+            "index": 2,
+            "text": "but weak at n=10. This is"
+          },
+          {
+            "index": 3,
+            "text": "preliminary evidence for workflow"
+          },
+          {
+            "index": 4,
+            "text": "value, not proof."
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "The adjusted direction is positive, but weak at n=10. This is preliminary evidence for workflow value, not proof.",
+          "resolvedTextStyle": {
+            "fontSize": 20,
+            "color": "#555555"
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "The adjusted direction is positive, but weak at n=10. This is preliminary evidence for workflow value, not proof.",
+              "fontSize": 20,
+              "color": "#555555"
+            }
+          ],
+          "marginLeft": 0
+        }
+      ],
+      "lineWidth": 0
+    }
+  ],
+  "composeRuns": []
+}

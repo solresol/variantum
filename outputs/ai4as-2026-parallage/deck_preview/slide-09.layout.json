@@ -1,0 +1,982 @@
+{
+  "schema": "openai.presentation.layout/v4",
+  "unit": "px",
+  "slide": {
+    "aid": "sl/8iyvrr",
+    "id": "8iyvrr",
+    "slide": 9,
+    "layoutId": "6ccd6ddc-3b4f-46ec-b17d-8a333e0ea07c",
+    "layoutName": "Title Slide",
+    "layoutType": "title",
+    "masterLayoutId": "c5701aa0-0a43-4168-bd98-2445de17322a",
+    "masterLayoutName": "Master",
+    "backgroundColor": "#FFFFFF",
+    "frame": {
+      "left": 0,
+      "top": 0,
+      "width": 1280,
+      "height": 720
+    }
+  },
+  "theme": {
+    "colorSchemeName": "ChatGPT",
+    "colors": {
+      "accent1": "#156082",
+      "accent2": "#E97132",
+      "accent3": "#196B24",
+      "accent4": "#0F9ED5",
+      "accent5": "#A02B93",
+      "accent6": "#4EA72E",
+      "bg1": "#FFFFFF",
+      "bg2": "#000000",
+      "tx1": "#1F1F1F",
+      "tx2": "#FFFFFF",
+      "dk1": "#000000",
+      "lt1": "#FFFFFF",
+      "dk2": "#0E2841",
+      "lt2": "#E8E8E8",
+      "hlink": "#467886",
+      "folHlink": "#96607D"
+    },
+    "typefaces": [
+      "+mn-lt"
+    ]
+  },
+  "inheritedLayers": [
+    {
+      "scope": "layout",
+      "id": "6ccd6ddc-3b4f-46ec-b17d-8a333e0ea07c",
+      "name": "Title Slide",
+      "type": "title",
+      "parentLayoutId": "c5701aa0-0a43-4168-bd98-2445de17322a",
+      "elements": []
+    },
+    {
+      "scope": "master",
+      "id": "c5701aa0-0a43-4168-bd98-2445de17322a",
+      "name": "Master",
+      "type": "master",
+      "elements": []
+    }
+  ],
+  "elements": [
+    {
+      "order": 1,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/eloj2t83",
+      "id": "1",
+      "name": "eyebrow-9",
+      "bbox": [
+        42,
+        35,
+        520,
+        28
+      ],
+      "geometry": "rect",
+      "text": "DIAGNOSIS",
+      "textPreview": "DIAGNOSIS",
+      "resolvedFontSize": 16,
+      "resolvedTextStyle": {
+        "fontSize": 16,
+        "typeface": "+mn-lt",
+        "color": "#555555",
+        "bold": true,
+        "alignment": "left",
+        "insets": {
+          "top": 4.8,
+          "right": 9.6,
+          "bottom": 4.8,
+          "left": 9.6
+        }
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "DIAGNOSIS"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "DIAGNOSIS",
+          "resolvedTextStyle": {
+            "fontSize": 16,
+            "color": "#555555",
+            "bold": true
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "DIAGNOSIS",
+              "fontSize": 16,
+              "color": "#555555",
+              "bold": true
+            }
+          ],
+          "marginLeft": 0
+        }
+      ],
+      "lineWidth": 0
+    },
+    {
+      "order": 2,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/lc7u54zi",
+      "id": "2",
+      "name": "slide-no-9",
+      "bbox": [
+        1170,
+        35,
+        70,
+        28
+      ],
+      "geometry": "rect",
+      "text": "09",
+      "textPreview": "09",
+      "resolvedFontSize": 16,
+      "resolvedTextStyle": {
+        "fontSize": 16,
+        "typeface": "+mn-lt",
+        "color": "#555555",
+        "bold": true,
+        "alignment": "left",
+        "insets": {
+          "top": 4.8,
+          "right": 9.6,
+          "bottom": 4.8,
+          "left": 9.6
+        }
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "09"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "09",
+          "resolvedTextStyle": {
+            "fontSize": 16,
+            "color": "#555555",
+            "bold": true
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "09",
+              "fontSize": 16,
+              "color": "#555555",
+              "bold": true
+            }
+          ],
+          "marginLeft": 0
+        }
+      ],
+      "lineWidth": 0
+    },
+    {
+      "order": 3,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/wra5gbq1",
+      "id": "3",
+      "name": "title-9",
+      "bbox": [
+        42,
+        78,
+        1110,
+        92
+      ],
+      "geometry": "rect",
+      "text": "The disagreements are the result, not a nuisance",
+      "textPreview": "The disagreements are the result, not a nuisance",
+      "resolvedFontSize": 40,
+      "resolvedTextStyle": {
+        "fontSize": 40,
+        "typeface": "+mn-lt",
+        "color": "#000000",
+        "bold": true,
+        "alignment": "left",
+        "insets": {
+          "top": 4.8,
+          "right": 9.6,
+          "bottom": 4.8,
+          "left": 9.6
+        }
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "The disagreements are the result, not a nuisance"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "The disagreements are the result, not a nuisance",
+          "resolvedTextStyle": {
+            "fontSize": 40,
+            "color": "#000000",
+            "bold": true
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "The disagreements are the result, not a nuisance",
+              "fontSize": 40,
+              "color": "#000000",
+              "bold": true
+            }
+          ],
+          "marginLeft": 0
+        }
+      ],
+      "lineWidth": 0
+    },
+    {
+      "order": 4,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/7u54zido",
+      "id": "4",
+      "name": "top-rule-9",
+      "bbox": [
+        42,
+        170,
+        1196,
+        1
+      ],
+      "geometry": "rect",
+      "fillColor": "#B8BCC4",
+      "lineWidth": 0
+    },
+    {
+      "order": 5,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/ed8bat47",
+      "id": "5",
+      "name": "footer-9",
+      "bbox": [
+        42,
+        672,
+        640,
+        26
+      ],
+      "geometry": "rect",
+      "text": "AI4AS 2026 | Into the Parallage | 27 July 2026",
+      "textPreview": "AI4AS 2026 | Into the Parallage | 27 July 2026",
+      "resolvedFontSize": 16,
+      "resolvedTextStyle": {
+        "fontSize": 16,
+        "typeface": "+mn-lt",
+        "color": "#555555",
+        "alignment": "left",
+        "insets": {
+          "top": 4.8,
+          "right": 9.6,
+          "bottom": 4.8,
+          "left": 9.6
+        }
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "AI4AS 2026 | Into the Parallage | 27 July 2026"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "AI4AS 2026 | Into the Parallage | 27 July 2026",
+          "resolvedTextStyle": {
+            "fontSize": 16,
+            "color": "#555555"
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "AI4AS 2026 | Into the Parallage | 27 July 2026",
+              "fontSize": 16,
+              "color": "#555555"
+            }
+          ],
+          "marginLeft": 0
+        }
+      ],
+      "lineWidth": 0
+    },
+    {
+      "order": 6,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/l0rqd4vm",
+      "id": "6",
+      "name": "high-panel",
+      "bbox": [
+        42,
+        220,
+        365,
+        310
+      ],
+      "geometry": "rect",
+      "fillColor": "#EDEDED",
+      "lineWidth": 0
+    },
+    {
+      "order": 7,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/wfyxobm5",
+      "id": "7",
+      "name": "resid-panel",
+      "bbox": [
+        458,
+        220,
+        365,
+        310
+      ],
+      "geometry": "rect",
+      "fillColor": "#EDEDED",
+      "lineWidth": 0
+    },
+    {
+      "order": 8,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/7mp0bi9s",
+      "id": "8",
+      "name": "mismatch-panel",
+      "bbox": [
+        874,
+        220,
+        365,
+        310
+      ],
+      "geometry": "rect",
+      "fillColor": "#EDEDED",
+      "lineWidth": 0
+    },
+    {
+      "order": 9,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/e1w7mp0b",
+      "id": "9",
+      "name": "high-title",
+      "bbox": [
+        70,
+        250,
+        305,
+        58
+      ],
+      "geometry": "rect",
+      "text": "Human high-divergence cases",
+      "textPreview": "Human high-divergence cases",
+      "resolvedFontSize": 25,
+      "resolvedTextStyle": {
+        "fontSize": 25,
+        "typeface": "+mn-lt",
+        "color": "#000000",
+        "bold": true,
+        "alignment": "left",
+        "insets": {
+          "top": 4.8,
+          "right": 9.6,
+          "bottom": 4.8,
+          "left": 9.6
+        }
+      },
+      "textLayout": {
+        "lineCount": 2,
+        "lines": [
+          {
+            "index": 1,
+            "text": "Human high-divergence"
+          },
+          {
+            "index": 2,
+            "text": "cases"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "Human high-divergence cases",
+          "resolvedTextStyle": {
+            "fontSize": 25,
+            "color": "#000000",
+            "bold": true
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "Human high-divergence cases",
+              "fontSize": 25,
+              "color": "#000000",
+              "bold": true
+            }
+          ],
+          "marginLeft": 0
+        }
+      ],
+      "lineWidth": 0
+    },
+    {
+      "order": 10,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/0rqd4vmt",
+      "id": "10",
+      "name": "high-list",
+      "bbox": [
+        70,
+        330,
+        300,
+        120
+      ],
+      "geometry": "rect",
+      "text": "- Καβασσός\n- Καρία\n- Κυτέριον",
+      "textPreview": "- Καβασσός | - Καρία | - Κυτέριον",
+      "resolvedFontSize": 25,
+      "resolvedTextStyle": {
+        "fontSize": 25,
+        "typeface": "+mn-lt",
+        "color": "#222222",
+        "alignment": "left",
+        "insets": {
+          "top": 4.8,
+          "right": 9.6,
+          "bottom": 4.8,
+          "left": 9.6
+        }
+      },
+      "textLayout": {
+        "lineCount": 3,
+        "lines": [
+          {
+            "index": 1,
+            "text": "- Καβασσός"
+          },
+          {
+            "index": 2,
+            "text": "- Καρία"
+          },
+          {
+            "index": 3,
+            "text": "- Κυτέριον"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "- Καβασσός",
+          "resolvedTextStyle": {
+            "fontSize": 25,
+            "color": "#222222"
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "- Καβασσός",
+              "fontSize": 25,
+              "color": "#222222"
+            }
+          ],
+          "marginLeft": 0
+        },
+        {
+          "index": 2,
+          "text": "- Καρία",
+          "resolvedTextStyle": {
+            "fontSize": 25,
+            "color": "#222222"
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "- Καρία",
+              "fontSize": 25,
+              "color": "#222222"
+            }
+          ],
+          "marginLeft": 0
+        },
+        {
+          "index": 3,
+          "text": "- Κυτέριον",
+          "resolvedTextStyle": {
+            "fontSize": 25,
+            "color": "#222222"
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "- Κυτέριον",
+              "fontSize": 25,
+              "color": "#222222"
+            }
+          ],
+          "marginLeft": 0
+        }
+      ],
+      "lineWidth": 0
+    },
+    {
+      "order": 11,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/tcj6tova",
+      "id": "11",
+      "name": "resid-title",
+      "bbox": [
+        486,
+        250,
+        305,
+        58
+      ],
+      "geometry": "rect",
+      "text": "Worst after length adjustment",
+      "textPreview": "Worst after length adjustment",
+      "resolvedFontSize": 25,
+      "resolvedTextStyle": {
+        "fontSize": 25,
+        "typeface": "+mn-lt",
+        "color": "#000000",
+        "bold": true,
+        "alignment": "left",
+        "insets": {
+          "top": 4.8,
+          "right": 9.6,
+          "bottom": 4.8,
+          "left": 9.6
+        }
+      },
+      "textLayout": {
+        "lineCount": 2,
+        "lines": [
+          {
+            "index": 1,
+            "text": "Worst after length"
+          },
+          {
+            "index": 2,
+            "text": "adjustment"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "Worst after length adjustment",
+          "resolvedTextStyle": {
+            "fontSize": 25,
+            "color": "#000000",
+            "bold": true
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "Worst after length adjustment",
+              "fontSize": 25,
+              "color": "#000000",
+              "bold": true
+            }
+          ],
+          "marginLeft": 0
+        }
+      ],
+      "lineWidth": 0
+    },
+    {
+      "order": 12,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/il0rqd4v",
+      "id": "12",
+      "name": "resid-list",
+      "bbox": [
+        486,
+        330,
+        300,
+        135
+      ],
+      "geometry": "rect",
+      "text": "- Καδμεία\n- Καβασσός\n- Κυτέριον\n- Καρδαμύλη",
+      "textPreview": "- Καδμεία | - Καβασσός | - Κυτέριον | - Καρδαμύλη",
+      "resolvedFontSize": 24,
+      "resolvedTextStyle": {
+        "fontSize": 24,
+        "typeface": "+mn-lt",
+        "color": "#222222",
+        "alignment": "left",
+        "insets": {
+          "top": 4.8,
+          "right": 9.6,
+          "bottom": 4.8,
+          "left": 9.6
+        }
+      },
+      "textLayout": {
+        "lineCount": 4,
+        "lines": [
+          {
+            "index": 1,
+            "text": "- Καδμεία"
+          },
+          {
+            "index": 2,
+            "text": "- Καβασσός"
+          },
+          {
+            "index": 3,
+            "text": "- Κυτέριον"
+          },
+          {
+            "index": 4,
+            "text": "- Καρδαμύλη"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "- Καδμεία",
+          "resolvedTextStyle": {
+            "fontSize": 24,
+            "color": "#222222"
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "- Καδμεία",
+              "fontSize": 24,
+              "color": "#222222"
+            }
+          ],
+          "marginLeft": 0
+        },
+        {
+          "index": 2,
+          "text": "- Καβασσός",
+          "resolvedTextStyle": {
+            "fontSize": 24,
+            "color": "#222222"
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "- Καβασσός",
+              "fontSize": 24,
+              "color": "#222222"
+            }
+          ],
+          "marginLeft": 0
+        },
+        {
+          "index": 3,
+          "text": "- Κυτέριον",
+          "resolvedTextStyle": {
+            "fontSize": 24,
+            "color": "#222222"
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "- Κυτέριον",
+              "fontSize": 24,
+              "color": "#222222"
+            }
+          ],
+          "marginLeft": 0
+        },
+        {
+          "index": 4,
+          "text": "- Καρδαμύλη",
+          "resolvedTextStyle": {
+            "fontSize": 24,
+            "color": "#222222"
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "- Καρδαμύλη",
+              "fontSize": 24,
+              "color": "#222222"
+            }
+          ],
+          "marginLeft": 0
+        }
+      ],
+      "lineWidth": 0
+    },
+    {
+      "order": 13,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/b6xkf6dc",
+      "id": "13",
+      "name": "mismatch-title",
+      "bbox": [
+        902,
+        250,
+        305,
+        58
+      ],
+      "geometry": "rect",
+      "text": "What the mismatch tells us",
+      "textPreview": "What the mismatch tells us",
+      "resolvedFontSize": 25,
+      "resolvedTextStyle": {
+        "fontSize": 25,
+        "typeface": "+mn-lt",
+        "color": "#000000",
+        "bold": true,
+        "alignment": "left",
+        "insets": {
+          "top": 4.8,
+          "right": 9.6,
+          "bottom": 4.8,
+          "left": 9.6
+        }
+      },
+      "textLayout": {
+        "lineCount": 2,
+        "lines": [
+          {
+            "index": 1,
+            "text": "What the mismatch tells"
+          },
+          {
+            "index": 2,
+            "text": "us"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "What the mismatch tells us",
+          "resolvedTextStyle": {
+            "fontSize": 25,
+            "color": "#000000",
+            "bold": true
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "What the mismatch tells us",
+              "fontSize": 25,
+              "color": "#000000",
+              "bold": true
+            }
+          ],
+          "marginLeft": 0
+        }
+      ],
+      "lineWidth": 0
+    },
+    {
+      "order": 14,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/0je9cvix",
+      "id": "14",
+      "name": "mismatch-list",
+      "bbox": [
+        902,
+        330,
+        300,
+        145
+      ],
+      "geometry": "rect",
+      "text": "- Karia: high rating, length explains much of the low score\n- Kadmeia: low rating, poor adjusted overlap\n- Kavalis: high rating, strong overlap",
+      "textPreview": "- Karia: high rating, length explains much of the low score | - Kadmeia: low rating, poor adjusted overlap | - Kavalis: high rating, stro...",
+      "resolvedFontSize": 22,
+      "resolvedTextStyle": {
+        "fontSize": 22,
+        "typeface": "+mn-lt",
+        "color": "#222222",
+        "alignment": "left",
+        "insets": {
+          "top": 4.8,
+          "right": 9.6,
+          "bottom": 4.8,
+          "left": 9.6
+        }
+      },
+      "textLayout": {
+        "lineCount": 7,
+        "lines": [
+          {
+            "index": 1,
+            "text": "- Karia: high rating, length"
+          },
+          {
+            "index": 2,
+            "text": "explains much of the low"
+          },
+          {
+            "index": 3,
+            "text": "score"
+          },
+          {
+            "index": 4,
+            "text": "- Kadmeia: low rating, poor"
+          },
+          {
+            "index": 5,
+            "text": "adjusted overlap"
+          },
+          {
+            "index": 6,
+            "text": "- Kavalis: high rating, strong"
+          },
+          {
+            "index": 7,
+            "text": "overlap"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "- Karia: high rating, length explains much of the low score",
+          "resolvedTextStyle": {
+            "fontSize": 22,
+            "color": "#222222"
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "- Karia: high rating, length explains much of the low score",
+              "fontSize": 22,
+              "color": "#222222"
+            }
+          ],
+          "marginLeft": 0
+        },
+        {
+          "index": 2,
+          "text": "- Kadmeia: low rating, poor adjusted overlap",
+          "resolvedTextStyle": {
+            "fontSize": 22,
+            "color": "#222222"
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "- Kadmeia: low rating, poor adjusted overlap",
+              "fontSize": 22,
+              "color": "#222222"
+            }
+          ],
+          "marginLeft": 0
+        },
+        {
+          "index": 3,
+          "text": "- Kavalis: high rating, strong overlap",
+          "resolvedTextStyle": {
+            "fontSize": 22,
+            "color": "#222222"
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "- Kavalis: high rating, strong overlap",
+              "fontSize": 22,
+              "color": "#222222"
+            }
+          ],
+          "marginLeft": 0
+        }
+      ],
+      "lineWidth": 0
+    },
+    {
+      "order": 15,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/t47y1kre",
+      "id": "15",
+      "name": "diagnosis-line",
+      "bbox": [
+        42,
+        570,
+        920,
+        40
+      ],
+      "geometry": "rect",
+      "text": "These are exactly the cases a pack-based interface should surface for review.",
+      "textPreview": "These are exactly the cases a pack-based interface should surface for review.",
+      "resolvedFontSize": 29,
+      "resolvedTextStyle": {
+        "fontSize": 29,
+        "typeface": "+mn-lt",
+        "color": "#000000",
+        "bold": true,
+        "alignment": "left",
+        "insets": {
+          "top": 4.8,
+          "right": 9.6,
+          "bottom": 4.8,
+          "left": 9.6
+        }
+      },
+      "textLayout": {
+        "lineCount": 2,
+        "lines": [
+          {
+            "index": 1,
+            "text": "These are exactly the cases a pack-based interface should surface"
+          },
+          {
+            "index": 2,
+            "text": "for review."
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "These are exactly the cases a pack-based interface should surface for review.",
+          "resolvedTextStyle": {
+            "fontSize": 29,
+            "color": "#000000",
+            "bold": true
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "These are exactly the cases a pack-based interface should surface for review.",
+              "fontSize": 29,
+              "color": "#000000",
+              "bold": true
+            }
+          ],
+          "marginLeft": 0
+        }
+      ],
+      "lineWidth": 0
+    }
+  ],
+  "composeRuns": []
+}

@@ -65,6 +65,11 @@ The planned pilot corpora are deliberately small and modular:
 - **Classical Chinese:** a geography micro-corpus, especially selections from
   the *Hanshu* *Dilizhi* (漢書 地理志), with Shirley Chan or another Classical
   Chinese expert selecting and validating the passages.
+  - Shirley's supplied passage `心是謂中` is stored at
+    `data/chinese-passages/xin-shi-wei-zhong.md`; its edition/source citation is
+    still marked `TBD`.
+  - Shirley's 2026-07-04 update supplies Classical Chinese characters and ten
+    segments in `data/chinese-passages/xin-shi-wei-zhong.json`.
 
 The cross-script design matters because it tests whether the method is only a
 Classics tool or a more general way to make low-resource ancient-language
@@ -219,6 +224,18 @@ uv run scripts/estimate_stephanos_review_cost.py
 uv run scripts/generate_stephanos_review_site.py --pack-slug stephanos-review-v1 --selection-file data/stephanos-review-selection-v1.json
 scripts/deploy_static.sh
 scripts/deploy_cgi.sh
+```
+
+Generate and overlay Greta's Classical Chinese Set 3 after the `parallage`
+PostgreSQL database has been provisioned on `raksasa`:
+
+```bash
+uv run scripts/load_chinese_passages.py
+uv run scripts/run_chinese_translations.py --execute
+uv run scripts/prepare_chinese_review_set.py
+uv run scripts/generate_stephanos_review_site.py --pack-slug stephanos-review-v1 --selection-file data/stephanos-review-selection-v1.json
+uv run scripts/generate_chinese_review_site.py --pack-slug stephanos-review-v1 --set-slug set-3
+scripts/deploy_static.sh
 ```
 
 The default selection manifest declares ten primary randomized passages and ten

@@ -1,0 +1,72 @@
+{
+  "corpus": {
+    "slug": "xin-shi-wei-zhong",
+    "title": "心是謂中",
+    "language": "Classical Chinese",
+    "source_reference": "TBD",
+    "selected_by": "Shirley Chan",
+    "notes": "Updated by Shirley on 2026-07-04: use Classical Chinese characters and ten passage segments."
+  },
+  "passages": [
+    {
+      "passage_number": 1,
+      "passage_key": "xin-shi-wei-zhong-01",
+      "title": "Passage 1",
+      "source_text": "心，中，處身之中以君之，目、耳、口、踵四者為相，心是謂中。"
+    },
+    {
+      "passage_number": 2,
+      "passage_key": "xin-shi-wei-zhong-02",
+      "title": "Passage 2",
+      "source_text": "心所為美惡，復訶若影；心所出小大，因命若響。"
+    },
+    {
+      "passage_number": 3,
+      "passage_key": "xin-shi-wei-zhong-03",
+      "title": "Passage 3",
+      "source_text": "心欲見之，目故視之；心欲聞之，耳故聽之；心欲道之，口故言之；心欲用之，踵故舉之。"
+    },
+    {
+      "passage_number": 4,
+      "passage_key": "xin-shi-wei-zhong-04",
+      "title": "Passage 4",
+      "source_text": "心靜毋有所至，百體四相莫不。為君者其監於此，以君民人。"
+    },
+    {
+      "passage_number": 5,
+      "passage_key": "xin-shi-wei-zhong-05",
+      "title": "Passage 5",
+      "source_text": "人之有為，而不知其卒，不唯謀而不度乎？如謀而不度，則無以知短長。短長弗知，妄作衡觸，而有成功，名之曰幸。"
+    },
+    {
+      "passage_number": 6,
+      "passage_key": "xin-shi-wei-zhong-06",
+      "title": "Passage 6",
+      "source_text": "幸，天；知事之卒，心。必心與天兩，事焉果成。"
+    },
+    {
+      "passage_number": 7,
+      "passage_key": "xin-shi-wei-zhong-07",
+      "title": "Passage 7",
+      "source_text": "寧心謀之、稽之、度之、鑒之，聞訊視聽，在善之麏，心焉為之。"
+    },
+    {
+      "passage_number": 8,
+      "passage_key": "xin-shi-wei-zhong-08",
+      "title": "Passage 8",
+      "source_text": "斷命在天，苛疾在鬼，取命在人。人有天命，其亦有身命。"
+    },
+    {
+      "passage_number": 9,
+      "passage_key": "xin-shi-wei-zhong-09",
+      "title": "Passage 9",
+      "source_text": "心厥為死，心厥為生。死生在天，其亦失在心。"
+    },
+    {
+      "passage_number": 10,
+      "passage_key": "xin-shi-wei-zhong-10",
+      "title": "Passage 10",
+      "source_text": "君、公、侯、王、庶人、平民，其毋獨祈保家沒身於鬼與天，其亦祈諸[心]與身。"
+    }
+  ]
+}

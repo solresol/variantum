@@ -1,0 +1,171 @@
+{"kind":"deck","id":"pr/2w84u9","name":"Deck"}
+{"kind":"layout","layoutId":"c5701aa0-0a43-4168-bd98-2445de17322a","name":"Master","type":"master"}
+{"kind":"layout","layoutId":"6ccd6ddc-3b4f-46ec-b17d-8a333e0ea07c","name":"Title Slide","type":"title"}
+{"kind":"slide","id":"sl/oc5hgu","slide":1,"title":"Into the Parallage","textShapes":7}
+{"kind":"textbox","id":"sh/za1gvy90","slide":1,"name":"title-main","text":"Into the Parallage","textPreview":"Into the Parallage","textChars":18,"textLines":1,"bbox":[42,72,860,92]}
+{"kind":"textbox","id":"sh/svu9knih","slide":1,"name":"title-subtitle","text":"Harnessing abundance, plurality and divergence in AI translation of ancient texts","textPreview":"Harnessing abundance, plurality and divergence in AI translation of ancient texts","textChars":81,"textLines":1,"bbox":[42,178,980,88]}
+{"kind":"shape","id":"sh/hgn29gr2","slide":1,"name":"title-rule","bbox":[42,305,1196,2]}
+{"kind":"textbox","id":"sh/a1gvy90j","slide":1,"name":"title-authors","text":"Greg Baker | Shirley Chan | Vanessa Enriquez Raido | Greta Hawes","textPreview":"Greg Baker | Shirley Chan | Vanessa Enriquez Raido | Greta Hawes","textChars":64,"textLines":1,"bbox":[42,338,700,62]}
+{"kind":"textbox","id":"sh/zidonyd0","slide":1,"name":"title-venue","text":"AI4AS 2026, online mini-conference within DH2026\n27 July 2026 | Daejeon, South Korea / remote","textPreview":"AI4AS 2026, online mini-conference within DH2026 | 27 July 2026 | Daejeon, South Korea / remote","textChars":93,"textLines":2,"bbox":[42,430,620,78]}
+{"kind":"shape","id":"sh/s36hcrmh","slide":1,"name":"title-panel","bbox":[760,338,478,238]}
+{"kind":"textbox","id":"sh/hoza1gvy","slide":1,"name":"title-claim","text":"Preliminary pilot finding","textPreview":"Preliminary pilot finding","textChars":25,"textLines":1,"bbox":[790,365,410,34]}
+{"kind":"textbox","id":"sh/a5gbq1or","slide":1,"name":"title-claim-body","text":"Human judgement shows a directional raw signal, but length explains enough that the responsible claim is methodological rather than conclusive.","textPreview":"Human judgement shows a directional raw signal, but length explains enough that the responsible claim is methodological rather than concl...","textChars":143,"textLines":1,"bbox":[790,415,405,120]}
+{"kind":"textbox","id":"sh/3m94fu18","slide":1,"name":"title-footer","text":"Published abstract: theoretical framework, corpus rationale, preliminary pilot findings","textPreview":"Published abstract: theoretical framework, corpus rationale, preliminary pilot findings","textChars":87,"textLines":1,"bbox":[42,672,900,26]}
+{"kind":"notes","id":"nt/oc5hgu","slide":1,"text":"Open by locating the talk: this is the AI4AS 2026 mini-conference on ancient scripts, held online on 27 July 2026.\nThe submitted abstract commits us to theory, corpus rationale, and preliminary pilot findings. Vanessa's first-set review gives us the pilot result we can responsibly discuss."}
+{"kind":"slide","id":"sl/gv0atq","slide":2,"title":"PROBLEM","textShapes":11}
+{"kind":"textbox","id":"sh/loj2t83i","slide":2,"name":"eyebrow-2","text":"PROBLEM","textPreview":"PROBLEM","textChars":7,"textLines":1,"bbox":[42,35,520,28]}
+{"kind":"textbox","id":"sh/ex0nuxc3","slide":2,"name":"slide-no-2","text":"02","textPreview":"02","textChars":2,"textLines":1,"bbox":[1170,35,70,28]}
+{"kind":"textbox","id":"sh/3itgfmlk","slide":2,"name":"title-2","text":"A single fluent translation hides a plural process","textPreview":"A single fluent translation hides a plural process","textChars":50,"textLines":1,"bbox":[42,78,1110,92]}
+{"kind":"shape","id":"sh/wb2hwfyx","slide":2,"name":"top-rule-2","bbox":[42,170,1196,1]}
+{"kind":"textbox","id":"sh/lwval87e","slide":2,"name":"footer-2","text":"AI4AS 2026 | Into the Parallage | 27 July 2026","textPreview":"AI4AS 2026 | Into the Parallage | 27 July 2026","textChars":46,"textLines":1,"bbox":[42,672,640,26]}
+{"kind":"shape","id":"sh/e9cvixcz","slide":2,"name":"single-output","bbox":[42,220,365,285]}
+{"kind":"shape","id":"sh/3q5o7qpg","slide":2,"name":"expert-process","bbox":[458,220,365,285]}
+{"kind":"shape","id":"sh/sneloj2t","slide":2,"name":"ancient-risk","bbox":[874,220,365,285]}
+{"kind":"textbox","id":"sh/l87ed8ba","slide":2,"name":"single-output-title","text":"Reader sees","textPreview":"Reader sees","textChars":11,"textLines":1,"bbox":[72,248,300,38]}
+{"kind":"textbox","id":"sh/5kb6xkf6","slide":2,"name":"single-output-body","text":"one clean English surface\none implied authority\none path through ambiguity","textPreview":"one clean English surface | one implied authority | one path through ambiguity","textChars":74,"textLines":3,"bbox":[72,310,300,125]}
+{"kind":"textbox","id":"sh/czed8v6p","slide":2,"name":"expert-process-title","text":"Translator does","textPreview":"Translator does","textChars":15,"textLines":1,"bbox":[488,248,300,38]}
+{"kind":"textbox","id":"sh/neloj2t8","slide":2,"name":"expert-process-body","text":"alternatives\nconstraints\npurposes\nrisk management","textPreview":"alternatives | constraints | purposes | risk management","textChars":49,"textLines":4,"bbox":[488,310,300,145]}
+{"kind":"textbox","id":"sh/ytsvu9kn","slide":2,"name":"ancient-risk-title","text":"AI can compress","textPreview":"AI can compress","textChars":15,"textLines":1,"bbox":[904,248,300,38]}
+{"kind":"textbox","id":"sh/5sneloj2","slide":2,"name":"ancient-risk-body","text":"low-resource uncertainty\nfragmentary evidence\ncultural specificity\ninto fluent confidence","textPreview":"low-resource uncertainty | fragmentary evidence | cultural specificity | into fluent confidence","textChars":89,"textLines":4,"bbox":[904,310,300,150]}
+{"kind":"textbox","id":"sh/cbulwval","slide":2,"name":"problem-close","text":"The problem is not abundance. The problem is unstructured abundance.","textPreview":"The problem is not abundance. The problem is unstructured abundance.","textChars":68,"textLines":1,"bbox":[42,548,970,42]}
+{"kind":"notes","id":"nt/gv0atq","slide":2,"text":"The abstract begins from translation as situated and purposive, not a lookup task.\nUse this slide to set up why one fluent model output is risky for ancient-language work: it removes signs of choice just where the reader most needs them."}
+{"kind":"slide","id":"sl/n2bhpz","slide":3,"title":"METHOD","textShapes":16}
+{"kind":"textbox","id":"sh/65wjudg7","slide":3,"name":"eyebrow-3","text":"METHOD","textPreview":"METHOD","textChars":6,"textLines":1,"bbox":[42,35,520,28]}
+{"kind":"textbox","id":"sh/hwfyxobm","slide":3,"name":"slide-no-3","text":"03","textPreview":"03","textChars":2,"textLines":1,"bbox":[1170,35,70,28]}
+{"kind":"textbox","id":"sh/obm58z25","slide":3,"name":"title-3","text":"Parallage turns AI abundance into inspectable evidence","textPreview":"Parallage turns AI abundance into inspectable evidence","textChars":54,"textLines":1,"bbox":[42,78,1110,92]}
+{"kind":"shape","id":"sh/zed8v6ps","slide":3,"name":"top-rule-3","bbox":[42,170,1196,1]}
+{"kind":"textbox","id":"sh/6xkf6dcb","slide":3,"name":"footer-3","text":"AI4AS 2026 | Into the Parallage | 27 July 2026","textPreview":"AI4AS 2026 | Into the Parallage | 27 July 2026","textChars":46,"textLines":1,"bbox":[42,672,640,26]}
+{"kind":"textbox","id":"sh/hk3q5o7q","slide":3,"name":"pack-label","text":"A translation pack is not a vote. It is a structured field of alternatives.","textPreview":"A translation pack is not a vote. It is a structured field of alternatives.","textChars":75,"textLines":1,"bbox":[42,200,850,50]}
+{"kind":"shape","id":"sh/oza1gvy9","slide":3,"name":"pack-literal","bbox":[42,305,205,180]}
+{"kind":"textbox","id":"sh/z61032ls","slide":3,"name":"pack-literal-head","text":"literal","textPreview":"literal","textChars":7,"textLines":1,"bbox":[58,328,170,34]}
+{"kind":"textbox","id":"sh/al87ed8b","slide":3,"name":"pack-literal-body","text":"source-facing\ncontrol","textPreview":"source-facing | control","textChars":21,"textLines":2,"bbox":[58,382,170,78]}
+{"kind":"shape","id":"sh/k3q5o7qp","slide":3,"name":"pack-readable","bbox":[281,305,205,180]}
+{"kind":"textbox","id":"sh/donyd0z6","slide":3,"name":"pack-readable-head","text":"readable","textPreview":"readable","textChars":8,"textLines":1,"bbox":[297,328,170,34]}
+{"kind":"textbox","id":"sh/2x4nap4r","slide":3,"name":"pack-readable-body","text":"reader-facing\ncontinuity","textPreview":"reader-facing | continuity","textChars":24,"textLines":2,"bbox":[297,382,170,78]}
+{"kind":"shape","id":"sh/vixczed8","slide":3,"name":"pack-interpretive","bbox":[520,305,205,180]}
+{"kind":"textbox","id":"sh/kre1w7mp","slide":3,"name":"pack-interpretive-head","text":"interpretive","textPreview":"interpretive","textChars":12,"textLines":1,"bbox":[536,328,170,34]}
+{"kind":"textbox","id":"sh/dcbulwva","slide":3,"name":"pack-interpretive-body","text":"scholarly\ncommitment","textPreview":"scholarly | commitment","textChars":20,"textLines":2,"bbox":[536,382,170,78]}
+{"kind":"shape","id":"sh/6psfil0r","slide":3,"name":"pack-uncertainty","bbox":[759,305,205,180]}
+{"kind":"textbox","id":"sh/val87ed8","slide":3,"name":"pack-uncertainty-head","text":"uncertainty","textPreview":"uncertainty","textChars":11,"textLines":1,"bbox":[775,328,170,34]}
+{"kind":"textbox","id":"sh/knih4byh","slide":3,"name":"pack-uncertainty-body","text":"marked doubt\nand alternatives","textPreview":"marked doubt | and alternatives","textChars":29,"textLines":2,"bbox":[775,382,170,78]}
+{"kind":"shape","id":"sh/d8bat47y","slide":3,"name":"pack-adversarial","bbox":[998,305,205,180]}
+{"kind":"textbox","id":"sh/d4vmtwra","slide":3,"name":"pack-adversarial-head","text":"adversarial","textPreview":"adversarial","textChars":11,"textLines":1,"bbox":[1014,328,170,34]}
+{"kind":"textbox","id":"sh/oj2t83it","slide":3,"name":"pack-adversarial-body","text":"challenge case\nagainst fluency","textPreview":"challenge case | against fluency","textChars":30,"textLines":2,"bbox":[1014,382,170,78]}
+{"kind":"textbox","id":"sh/vy90je9c","slide":3,"name":"pack-cues","text":"Inspection cues: source-segment alignment | named entities | ambiguity points | differences that matter","textPreview":"Inspection cues: source-segment alignment | named entities | ambiguity points | differences that matter","textChars":103,"textLines":1,"bbox":[42,548,1065,38]}
+{"kind":"notes","id":"nt/n2bhpz","slide":3,"text":"This is the core methodological claim. Parallage is not an attempt to make one better AI translation.\nIt structures model abundance into a pack that makes interpretive choice visible: literal, readable, interpretive, uncertainty-marked, and adversarial renderings with cues for inspection."}
+{"kind":"slide","id":"sl/kd3olt","slide":4,"title":"CORPUS","textShapes":9}
+{"kind":"textbox","id":"sh/hwfyxobm","slide":4,"name":"eyebrow-4","text":"CORPUS","textPreview":"CORPUS","textChars":6,"textLines":1,"bbox":[42,35,520,28]}
+{"kind":"textbox","id":"sh/65wjudg7","slide":4,"name":"slide-no-4","text":"04","textPreview":"04","textChars":2,"textLines":1,"bbox":[1170,35,70,28]}
+{"kind":"textbox","id":"sh/zqtcj6to","slide":4,"name":"title-4","text":"The corpus makes reliability hard to outsource","textPreview":"The corpus makes reliability hard to outsource","textChars":46,"textLines":1,"bbox":[42,78,1110,92]}
+{"kind":"shape","id":"sh/oza1gvy9","slide":4,"name":"top-rule-4","bbox":[42,170,1196,1]}
+{"kind":"textbox","id":"sh/hk3q5o7q","slide":4,"name":"footer-4","text":"AI4AS 2026 | Into the Parallage | 27 July 2026","textPreview":"AI4AS 2026 | Into the Parallage | 27 July 2026","textChars":46,"textLines":1,"bbox":[42,672,640,26]}
+{"kind":"shape","id":"sh/6xkf6dcb","slide":4,"name":"greek-panel","bbox":[42,220,560,292]}
+{"kind":"shape","id":"sh/zed8v6ps","slide":4,"name":"chinese-panel","bbox":[678,220,560,292]}
+{"kind":"textbox","id":"sh/orytsvu9","slide":4,"name":"greek-title","text":"Stephanos of Byzantium, Ethnica","textPreview":"Stephanos of Byzantium, Ethnica","textChars":31,"textLines":1,"bbox":[78,255,470,40]}
+{"kind":"textbox","id":"sh/hcrmhk3q","slide":4,"name":"greek-bullets","text":"- geographical lexicon\n- compressed source tradition\n- named entities carry the argument\n- pilot analysis available now","textPreview":"- geographical lexicon | - compressed source tradition | - named entities carry the argument | - pilot analysis available now","textChars":119,"textLines":4,"bbox":[78,325,455,145]}
+{"kind":"textbox","id":"sh/d4vmtwra","slide":4,"name":"chinese-title","text":"Hanshu Dilizhi","textPreview":"Hanshu Dilizhi","textChars":14,"textLines":1,"bbox":[714,255,470,40]}
+{"kind":"textbox","id":"sh/oj2t83it","slide":4,"name":"chinese-bullets","text":"- Classical Chinese geography\n- dense administrative and cultural categories\n- tests the same method outside Greek\n- evaluation stream still to complete","textPreview":"- Classical Chinese geography | - dense administrative and cultural categories | - tests the same method outside Greek | - evaluation str...","textChars":152,"textLines":4,"bbox":[714,325,455,145]}
+{"kind":"textbox","id":"sh/vy90je9c","slide":4,"name":"corpus-conclusion","text":"Neither case lets a non-source-language reader simply defer to a stable complete English translation.","textPreview":"Neither case lets a non-source-language reader simply defer to a stable complete English translation.","textChars":101,"textLines":1,"bbox":[42,555,1050,42]}
+{"kind":"notes","id":"nt/kd3olt","slide":4,"text":"The abstract names two corpora: Stephanos and Hanshu Dilizhi.\nMake the rationale explicit: these are not just examples; they are contexts where trust and agency become visible because the reader cannot rely on a finished English canon."}
+{"kind":"slide","id":"sl/yxvrji","slide":5,"title":"PILOT DESIGN","textShapes":13}
+{"kind":"textbox","id":"sh/m1cfa9w3","slide":5,"name":"eyebrow-5","text":"PILOT DESIGN","textPreview":"PILOT DESIGN","textChars":12,"textLines":1,"bbox":[42,35,520,28]}
+{"kind":"textbox","id":"sh/tsvu9kni","slide":5,"name":"slide-no-5","text":"05","textPreview":"05","textChars":2,"textLines":1,"bbox":[1170,35,70,28]}
+{"kind":"textbox","id":"sh/47y1kre1","slide":5,"name":"title-5","text":"The first pilot asks whether expert judgement tracks overlap fragility","textPreview":"The first pilot asks whether expert judgement tracks overlap fragility","textChars":70,"textLines":1,"bbox":[42,78,1110,92]}
+{"kind":"shape","id":"sh/bat47y1k","slide":5,"name":"top-rule-5","bbox":[42,170,1196,1]}
+{"kind":"textbox","id":"sh/mp0bi9s3","slide":5,"name":"footer-5","text":"AI4AS 2026 | Into the Parallage | 27 July 2026","textPreview":"AI4AS 2026 | Into the Parallage | 27 July 2026","textChars":46,"textLines":1,"bbox":[42,672,640,26]}
+{"kind":"shape","id":"sh/tgfmlkjm","slide":5,"name":"n-panel","bbox":[42,220,250,145]}
+{"kind":"textbox","id":"sh/4vmtwra5","slide":5,"name":"n-value","text":"n=10","textPreview":"n=10","textChars":4,"textLines":1,"bbox":[60,238,214,58]}
+{"kind":"textbox","id":"sh/b2hwfyxo","slide":5,"name":"n-label","text":"Vanessa Set 1 Greek passages","textPreview":"Vanessa Set 1 Greek passages","textChars":28,"textLines":1,"bbox":[60,302,214,48]}
+{"kind":"shape","id":"sh/mhk3q5o7","slide":5,"name":"range-panel","bbox":[318,220,250,145]}
+{"kind":"textbox","id":"sh/0z61032l","slide":5,"name":"range-value","text":"18-268","textPreview":"18-268","textChars":6,"textLines":1,"bbox":[336,238,214,58]}
+{"kind":"textbox","id":"sh/pkzupwb2","slide":5,"name":"range-label","text":"reference words per passage","textPreview":"reference words per passage","textChars":27,"textLines":1,"bbox":[336,302,214,48]}
+{"kind":"shape","id":"sh/itgfmlkj","slide":5,"name":"metrics-panel","bbox":[594,220,250,145]}
+{"kind":"textbox","id":"sh/7ed8bat4","slide":5,"name":"metrics-value","text":"3","textPreview":"3","textChars":1,"textLines":1,"bbox":[612,238,214,58]}
+{"kind":"textbox","id":"sh/0nuxc3yl","slide":5,"name":"metrics-label","text":"BLEU, ROUGE-L, 3-gram F1","textPreview":"BLEU, ROUGE-L, 3-gram F1","textChars":24,"textLines":1,"bbox":[612,302,214,48]}
+{"kind":"shape","id":"sh/p8nqxs72","slide":5,"name":"population-panel","bbox":[870,220,250,145]}
+{"kind":"textbox","id":"sh/ih4byhgn","slide":5,"name":"population-value","text":"101","textPreview":"101","textChars":3,"textLines":1,"bbox":[888,238,214,58]}
+{"kind":"textbox","id":"sh/72x4nap4","slide":5,"name":"population-label","text":"v3 rows for length model","textPreview":"v3 rows for length model","textChars":24,"textLines":1,"bbox":[888,302,214,48]}
+{"kind":"textbox","id":"sh/wjudg7ad","slide":5,"name":"pilot-bullets","text":"- Vanessa rated expected divergence from hidden human translations.\n- We compared those ratings with sentence-aligned overlap metrics.\n- Then we adjusted scores for reference length, because all three metrics worsen on longer documents.","textPreview":"- Vanessa rated expected divergence from hidden human translations. | - We compared those ratings with sentence-aligned overlap metrics. ...","textChars":236,"textLines":3,"bbox":[42,430,1080,150]}
+{"kind":"notes","id":"nt/yxvrji","slide":5,"text":"Explain the design carefully. Vanessa's rating is human judgement about expected divergence.\nThe automatic scores compare focal machine outputs against approved hidden human translations. They are diagnostic proxies, not ground truth for translation quality."}
+{"kind":"slide","id":"sl/4ywt35","slide":6,"title":"RAW EVIDENCE","textShapes":7}
+{"kind":"textbox","id":"sh/mp0bi9s3","slide":6,"name":"eyebrow-6","text":"RAW EVIDENCE","textPreview":"RAW EVIDENCE","textChars":12,"textLines":1,"bbox":[42,35,520,28]}
+{"kind":"textbox","id":"sh/tgfmlkjm","slide":6,"name":"slide-no-6","text":"06","textPreview":"06","textChars":2,"textLines":1,"bbox":[1170,35,70,28]}
+{"kind":"textbox","id":"sh/4vmtwra5","slide":6,"name":"title-6","text":"Raw overlap gives a directional but fragile signal","textPreview":"Raw overlap gives a directional but fragile signal","textChars":50,"textLines":1,"bbox":[42,78,1110,92]}
+{"kind":"shape","id":"sh/bm58z25k","slide":6,"name":"top-rule-6","bbox":[42,170,1196,1]}
+{"kind":"textbox","id":"sh/m1cfa9w3","slide":6,"name":"footer-6","text":"AI4AS 2026 | Into the Parallage | 27 July 2026","textPreview":"AI4AS 2026 | Into the Parallage | 27 July 2026","textChars":46,"textLines":1,"bbox":[42,672,640,26]}
+{"kind":"shape","id":"sh/tsvu9kni","slide":6,"name":"raw-plot-frame","bbox":[42,202,760,410]}
+{"kind":"shape","id":"sh/bq1oryts","slide":6,"name":"raw-readout","bbox":[842,202,396,410]}
+{"kind":"textbox","id":"sh/m58z25kb","slide":6,"name":"raw-readout-title","text":"Spearman r\nrating vs raw score","textPreview":"Spearman r | rating vs raw score","textChars":30,"textLines":2,"bbox":[872,235,330,70]}
+{"kind":"textbox","id":"sh/o7qpg3ex","slide":6,"name":"raw-readout-values","text":"BLEU: -0.37\nROUGE-L: -0.49\n3-gram F1: -0.48","textPreview":"BLEU: -0.37 | ROUGE-L: -0.49 | 3-gram F1: -0.48","textChars":43,"textLines":3,"bbox":[872,345,320,128]}
+{"kind":"textbox","id":"sh/dsji5sne","slide":6,"name":"raw-readout-note","text":"Negative is the expected direction: higher human divergence rating, lower lexical overlap.","textPreview":"Negative is the expected direction: higher human divergence rating, lower lexical overlap.","textChars":90,"textLines":1,"bbox":[872,510,320,65]}
+{"kind":"image","id":"im/psfil0rq","slide":6,"name":"","alt":"Raw metric scatter plots against Vanessa rating","bbox":[54,214,736,386]}
+{"kind":"notes","id":"nt/4ywt35","slide":6,"text":"This is the answer to the first version of the question: yes, weakly and directionally, Vanessa was often pointing toward lower overlap cases.\nBut the correlations are modest and the sample is only ten. Treat this as a raw signal, not the conclusion."}
+{"kind":"slide","id":"sl/cvbazl","slide":7,"title":"LENGTH CONFOUND","textShapes":5}
+{"kind":"textbox","id":"sh/wra5gbq1","slide":7,"name":"eyebrow-7","text":"LENGTH CONFOUND","textPreview":"LENGTH CONFOUND","textChars":15,"textLines":1,"bbox":[42,35,520,28]}
+{"kind":"textbox","id":"sh/36hcrmhk","slide":7,"name":"slide-no-7","text":"07","textPreview":"07","textChars":2,"textLines":1,"bbox":[1170,35,70,28]}
+{"kind":"textbox","id":"sh/eloj2t83","slide":7,"name":"title-7","text":"Length is a real confound, not a footnote","textPreview":"Length is a real confound, not a footnote","textChars":41,"textLines":1,"bbox":[42,78,1110,92]}
+{"kind":"shape","id":"sh/l0rqd4vm","slide":7,"name":"top-rule-7","bbox":[42,170,1196,1]}
+{"kind":"textbox","id":"sh/wfyxobm5","slide":7,"name":"footer-7","text":"AI4AS 2026 | Into the Parallage | 27 July 2026","textPreview":"AI4AS 2026 | Into the Parallage | 27 July 2026","textChars":46,"textLines":1,"bbox":[42,672,640,26]}
+{"kind":"shape","id":"sh/7u54zido","slide":7,"name":"population-plot-frame","bbox":[42,202,650,430]}
+{"kind":"shape","id":"sh/psfil0rq","slide":7,"name":"length-plot-frame","bbox":[725,202,513,430]}
+{"kind":"textbox","id":"sh/eloj2t83","slide":7,"name":"length-caption","text":"Set 1 spans 18-268 reference words, and Vanessa's ratings also rise with length.","textPreview":"Set 1 spans 18-268 reference words, and Vanessa's ratings also rise with length.","textChars":80,"textLines":1,"bbox":[42,630,980,34]}
+{"kind":"image","id":"im/za1gvy90","slide":7,"name":"","alt":"Population length-bias scatter plot","bbox":[54,214,626,406]}
+{"kind":"image","id":"im/h4byhgn2","slide":7,"name":"","alt":"Length and composite residual scatter plot","bbox":[737,214,489,406]}
+{"kind":"notes","id":"nt/cvbazl","slide":7,"text":"All of the overlap metrics do worse on longer documents in the broader population.\nThat matters because Set 1 is small and Vanessa's ratings also rise with length. If we do not control for length, we overstate what the raw metrics are telling us."}
+{"kind":"slide","id":"sl/jrng86","slide":8,"title":"ADJUSTED EVIDENCE","textShapes":7}
+{"kind":"textbox","id":"sh/twra5gbq","slide":8,"name":"eyebrow-8","text":"ADJUSTED EVIDENCE","textPreview":"ADJUSTED EVIDENCE","textChars":17,"textLines":1,"bbox":[42,35,520,28]}
+{"kind":"textbox","id":"sh/m58z25kb","slide":8,"name":"slide-no-8","text":"08","textPreview":"08","textChars":2,"textLines":1,"bbox":[1170,35,70,28]}
+{"kind":"textbox","id":"sh/bq1oryts","slide":8,"name":"title-8","text":"After length adjustment, the signal becomes cautious","textPreview":"After length adjustment, the signal becomes cautious","textChars":52,"textLines":1,"bbox":[42,78,1110,92]}
+{"kind":"shape","id":"sh/4nap4r65","slide":8,"name":"top-rule-8","bbox":[42,170,1196,1]}
+{"kind":"textbox","id":"sh/t83itgfm","slide":8,"name":"footer-8","text":"AI4AS 2026 | Into the Parallage | 27 July 2026","textPreview":"AI4AS 2026 | Into the Parallage | 27 July 2026","textChars":46,"textLines":1,"bbox":[42,672,640,26]}
+{"kind":"shape","id":"sh/mhk3q5o7","slide":8,"name":"residual-plot-frame","bbox":[42,202,760,410]}
+{"kind":"shape","id":"sh/4vmtwra5","slide":8,"name":"adjusted-readout","bbox":[842,202,396,410]}
+{"kind":"textbox","id":"sh/tgfmlkjm","slide":8,"name":"adjusted-readout-title","text":"Spearman r\nrating vs residual badness","textPreview":"Spearman r | rating vs residual badness","textChars":37,"textLines":2,"bbox":[872,230,330,82]}
+{"kind":"textbox","id":"sh/xc3ylc7u","slide":8,"name":"adjusted-readout-values","text":"BLEU: 0.20\nROUGE-L: 0.22\n3-gram F1: 0.35","textPreview":"BLEU: 0.20 | ROUGE-L: 0.22 | 3-gram F1: 0.35","textChars":40,"textLines":3,"bbox":[872,352,320,128]}
+{"kind":"textbox","id":"sh/4r65wjud","slide":8,"name":"adjusted-readout-note","text":"The adjusted direction is positive, but weak at n=10. This is preliminary evidence for workflow value, not proof.","textPreview":"The adjusted direction is positive, but weak at n=10. This is preliminary evidence for workflow value, not proof.","textChars":113,"textLines":1,"bbox":[872,515,320,72]}
+{"kind":"image","id":"im/m1cfa9w3","slide":8,"name":"","alt":"Length-adjusted residual scatter plots against Vanessa rating","bbox":[54,214,736,386]}
+{"kind":"notes","id":"nt/jrng86","slide":8,"text":"This answers Greg's follow-up question. Once we account for length, there is still a hint of signal, especially on 3-gram F1 residual badness, but it is weak and not robust.\nThe right claim is that the review task is producing analyzable judgement data and that the disagreements are diagnostically useful."}
+{"kind":"slide","id":"sl/8iyvrr","slide":9,"title":"DIAGNOSIS","textShapes":11}
+{"kind":"textbox","id":"sh/eloj2t83","slide":9,"name":"eyebrow-9","text":"DIAGNOSIS","textPreview":"DIAGNOSIS","textChars":9,"textLines":1,"bbox":[42,35,520,28]}
+{"kind":"textbox","id":"sh/lc7u54zi","slide":9,"name":"slide-no-9","text":"09","textPreview":"09","textChars":2,"textLines":1,"bbox":[1170,35,70,28]}
+{"kind":"textbox","id":"sh/wra5gbq1","slide":9,"name":"title-9","text":"The disagreements are the result, not a nuisance","textPreview":"The disagreements are the result, not a nuisance","textChars":48,"textLines":1,"bbox":[42,78,1110,92]}
+{"kind":"shape","id":"sh/7u54zido","slide":9,"name":"top-rule-9","bbox":[42,170,1196,1]}
+{"kind":"textbox","id":"sh/ed8bat47","slide":9,"name":"footer-9","text":"AI4AS 2026 | Into the Parallage | 27 July 2026","textPreview":"AI4AS 2026 | Into the Parallage | 27 July 2026","textChars":46,"textLines":1,"bbox":[42,672,640,26]}
+{"kind":"shape","id":"sh/l0rqd4vm","slide":9,"name":"high-panel","bbox":[42,220,365,310]}
+{"kind":"shape","id":"sh/wfyxobm5","slide":9,"name":"resid-panel","bbox":[458,220,365,310]}
+{"kind":"shape","id":"sh/7mp0bi9s","slide":9,"name":"mismatch-panel","bbox":[874,220,365,310]}
+{"kind":"textbox","id":"sh/e1w7mp0b","slide":9,"name":"high-title","text":"Human high-divergence cases","textPreview":"Human high-divergence cases","textChars":27,"textLines":1,"bbox":[70,250,305,58]}
+{"kind":"textbox","id":"sh/0rqd4vmt","slide":9,"name":"high-list","text":"- Καβασσός\n- Καρία\n- Κυτέριον","textPreview":"- Καβασσός | - Καρία | - Κυτέριον","textChars":29,"textLines":3,"bbox":[70,330,300,120]}
+{"kind":"textbox","id":"sh/tcj6tova","slide":9,"name":"resid-title","text":"Worst after length adjustment","textPreview":"Worst after length adjustment","textChars":29,"textLines":1,"bbox":[486,250,305,58]}
+{"kind":"textbox","id":"sh/il0rqd4v","slide":9,"name":"resid-list","text":"- Καδμεία\n- Καβασσός\n- Κυτέριον\n- Καρδαμύλη","textPreview":"- Καδμεία | - Καβασσός | - Κυτέριον | - Καρδαμύλη","textChars":43,"textLines":4,"bbox":[486,330,300,135]}
+{"kind":"textbox","id":"sh/b6xkf6dc","slide":9,"name":"mismatch-title","text":"What the mismatch tells us","textPreview":"What the mismatch tells us","textChars":26,"textLines":1,"bbox":[902,250,305,58]}
+{"kind":"textbox","id":"sh/0je9cvix","slide":9,"name":"mismatch-list","text":"- Karia: high rating, length explains much of the low score\n- Kadmeia: low rating, poor adjusted overlap\n- Kavalis: high rating, strong overlap","textPreview":"- Karia: high rating, length explains much of the low score | - Kadmeia: low rating, poor adjusted overlap | - Kavalis: high rating, stro...","textChars":143,"textLines":3,"bbox":[902,330,300,145]}
+{"kind":"textbox","id":"sh/t47y1kre","slide":9,"name":"diagnosis-line","text":"These are exactly the cases a pack-based interface should surface for review.","textPreview":"These are exactly the cases a pack-based interface should surface for review.","textChars":77,"textLines":1,"bbox":[42,570,920,40]}
+{"kind":"notes","id":"nt/8iyvrr","slide":9,"text":"Use this slide to avoid sounding apologetic about the weak adjusted correlations.\nFor Parallage, the mismatch between human judgement, overlap metrics, and document length is itself useful: it identifies where a reader or reviewer needs better evidence."}
+{"kind":"slide","id":"sl/uqqoj9","slide":10,"title":"CLAIM","textShapes":11}
+{"kind":"textbox","id":"sh/3ylc7u54","slide":10,"name":"eyebrow-10","text":"CLAIM","textPreview":"CLAIM","textChars":5,"textLines":1,"bbox":[42,35,520,28]}
+{"kind":"textbox","id":"sh/sji5snel","slide":10,"name":"slide-no-10","text":"10","textPreview":"10","textChars":2,"textLines":1,"bbox":[1170,35,70,28]}
+{"kind":"textbox","id":"sh/h4byhgn2","slide":10,"name":"title-10","text":"What we can responsibly claim at AI4AS","textPreview":"What we can responsibly claim at AI4AS","textChars":38,"textLines":1,"bbox":[42,78,1110,92]}
+{"kind":"shape","id":"sh/a5gbq1or","slide":10,"name":"top-rule-10","bbox":[42,170,1196,1]}
+{"kind":"textbox","id":"sh/3m94fu18","slide":10,"name":"footer-10","text":"AI4AS 2026 | Into the Parallage | 27 July 2026","textPreview":"AI4AS 2026 | Into the Parallage | 27 July 2026","textChars":46,"textLines":1,"bbox":[42,672,640,26]}
+{"kind":"shape","id":"sh/s72x4nap","slide":10,"name":"claim-one","bbox":[42,220,360,230]}
+{"kind":"shape","id":"sh/lszqtcj6","slide":10,"name":"claim-two","bbox":[460,220,360,230]}
+{"kind":"shape","id":"sh/a1gvy90j","slide":10,"name":"claim-three","bbox":[878,220,360,230]}
+{"kind":"textbox","id":"sh/zidonyd0","slide":10,"name":"claim-one-head","text":"1. Method","textPreview":"1. Method","textChars":9,"textLines":1,"bbox":[72,252,300,36]}
+{"kind":"textbox","id":"sh/re1w7mp0","slide":10,"name":"claim-one-body","text":"Parallage gives AI translation abundance a visible, auditable structure.","textPreview":"Parallage gives AI translation abundance a visible, auditable structure.","textChars":72,"textLines":1,"bbox":[72,312,290,86]}
+{"kind":"textbox","id":"sh/2t83itgf","slide":10,"name":"claim-two-head","text":"2. Pilot","textPreview":"2. Pilot","textChars":8,"textLines":1,"bbox":[490,252,300,36]}
+{"kind":"textbox","id":"sh/9knih4by","slide":10,"name":"claim-two-body","text":"Vanessa's first set shows a raw signal, a length confound, and weak residual signal.","textPreview":"Vanessa's first set shows a raw signal, a length confound, and weak residual signal.","textChars":84,"textLines":1,"bbox":[490,312,290,105]}
+{"kind":"textbox","id":"sh/kzupwb2h","slide":10,"name":"claim-three-head","text":"3. Next study","textPreview":"3. Next study","textChars":13,"textLines":1,"bbox":[908,252,300,36]}
+{"kind":"textbox","id":"sh/rqd4vmtw","slide":10,"name":"claim-three-body","text":"Scale to more reviewers, the Chinese stream, and direct comparison with single-output translation.","textPreview":"Scale to more reviewers, the Chinese stream, and direct comparison with single-output translation.","textChars":98,"textLines":1,"bbox":[908,312,290,112]}
+{"kind":"textbox","id":"sh/25kb6xkf","slide":10,"name":"claim-close","text":"The evidence supports a publishable method-in-progress: not proof that the tool is better, but proof that the judgement problem is measurable.","textPreview":"The evidence supports a publishable method-in-progress: not proof that the tool is better, but proof that the judgement problem is measur...","textChars":142,"textLines":1,"bbox":[42,525,1070,74]}
+{"kind":"notes","id":"nt/uqqoj9","slide":10,"text":"End with the strongest responsible claim.\nDo not claim the pilot proves Parallage improves reliability. Claim that Parallage turns multiplicity into a structured object for judgement, and that the first pilot shows how the judgement data can be analyzed."}
+{"kind":"slide","id":"sl/149qkg","slide":11,"title":"SOURCES","textShapes":6}
+{"kind":"textbox","id":"sh/xs72x4na","slide":11,"name":"eyebrow-11","text":"SOURCES","textPreview":"SOURCES","textChars":7,"textLines":1,"bbox":[42,35,520,28]}
+{"kind":"textbox","id":"sh/q1orytsv","slide":11,"name":"slide-no-11","text":"11","textPreview":"11","textChars":2,"textLines":1,"bbox":[1170,35,70,28]}
+{"kind":"textbox","id":"sh/fmlkjm1c","slide":11,"name":"title-11","text":"Evidence base for this version","textPreview":"Evidence base for this version","textChars":30,"textLines":1,"bbox":[42,78,1110,92]}
+{"kind":"shape","id":"sh/8z25kb6x","slide":11,"name":"top-rule-11","bbox":[42,170,1196,1]}
+{"kind":"textbox","id":"sh/1gvy90je","slide":11,"name":"footer-11","text":"AI4AS 2026 | Into the Parallage | 27 July 2026","textPreview":"AI4AS 2026 | Into the Parallage | 27 July 2026","textChars":46,"textLines":1,"bbox":[42,672,640,26]}
+{"kind":"textbox","id":"sh/qtcj6tov","slide":11,"name":"source-list","text":"- AI4AS 2026 programme: the talk is in the 11:00-12:00 AI and Translations session on 27 July 2026.\n- Published abstract: Baker, Chan, Enriquez Raido, Hawes, Into the Parallage.\n- Macquarie project page: Into the Parallage: harnessing AI abundance in translation tasks.\n- Variantum local analysis: Vanessa Set 1 scatter data and generated metric plots.","textPreview":"- AI4AS 2026 programme: the talk is in the 11:00-12:00 AI and Translations session on 27 July 2026. | - Published abstract: Baker, Chan, ...","textChars":352,"textLines":4,"bbox":[42,220,1060,260]}
+{"kind":"shape","id":"sh/je9cvixc","slide":11,"name":"source-url-panel","bbox":[42,520,1196,88]}
+{"kind":"textbox","id":"sh/8v6psfil","slide":11,"name":"source-url-text","text":"https://ai4asconference.github.io/2026/abstracts/Session%201/Baker.pdf\noutputs/ai4as-2026-parallage/ and analysis/","textPreview":"https://ai4asconference.github.io/2026/abstracts/Session%201/Baker.pdf | outputs/ai4as-2026-parallage/ and analysis/","textChars":114,"textLines":2,"bbox":[68,543,1120,46]}
+{"kind":"notes","id":"nt/149qkg","slide":11,"text":"Keep this slide as backup rather than presenting it unless questions come up.\nIt makes the deck self-contained and records where the abstract and pilot evidence came from."}
