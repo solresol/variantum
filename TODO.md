@@ -13,6 +13,7 @@ This file is the current project task surface for Parallage / `variantum`.
 
 - [ ] Wait for Shirley Chan to send the baseline English version.
   - Greg sent Shirley the base translations on `2026-07-06`.
+  - Greg plans to remind Shirley on `2026-07-13` because her translations are needed for the analysis of Greta's completed ratings.
   - Use the approved ten-segment Classical Chinese text Shirley supplied on `2026-07-04`.
 
 ## Sequence After Shirley Approval
@@ -29,8 +30,9 @@ This file is the current project task surface for Parallage / `variantum`.
 - [x] In parallel, prepare Greta's rating set.
   - Greta's rating material should be `50%` parallage and `50%` not.
   - Set 3 is deployed in `stephanos-review-v1` with randomized seed `20260704`: 5 Parallage passages and 5 single-translation passages.
-- [ ] Get Greta to guess/rate translation difficulty.
+- [x] Get Greta to guess/rate translation difficulty.
   - Greta has access as of `2026-07-06`.
+  - Greta finished the Parallage tests on `2026-07-09`.
 - [ ] Analyse the rating and translation data.
 - [ ] Write the conference talk.
   - Talk length: `15` minutes.
