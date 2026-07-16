@@ -2,6 +2,7 @@ site/
 .venv/
 __pycache__/
 *.pyc
+tmp/pdfs/
 *.db
 *.sqlite
 *.sqlite3

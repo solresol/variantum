@@ -25,8 +25,8 @@ Variantum is the working repo for **Parallage**: parallel translation packs for 
 
 - **Retry/backoff in `run_chinese_translations.py`**: `run_one_job` creates a fresh `OpenAI(api_key=...)` client per job and appears to have no retry on transient API failures under the ThreadPoolExecutor fan-out; a failed job silently reduces the variant set. Add tenacity-style retries and a summary of failed job IDs at the end.
 - **`parallage_db.py` connect() has no password/sslmode path** — it relies on pg_hba trust or `.pgpass` to raksasa. Document that assumption in the module docstring so a collaborator running it doesn't hit an opaque auth error.
-- Consolidate `output/` vs `outputs/` — two top-level dirs with near-identical names is a foot-gun; pick one (`outputs/`) and move `output/pdf/` under it.
-- `tmp/pdfs` at repo root should be gitignored or moved to a real scratch location.
+- **Completed 2026-07-16:** Consolidated the former `output/pdf/` directory under `outputs/pdf/` and updated the PDF export default.
+- **Completed 2026-07-16:** Added `tmp/pdfs/` to `.gitignore` as the repo-local PDF scratch location.
 
 ## Documentation
 
@@ -51,5 +51,5 @@ Variantum is the working repo for **Parallage**: parallel translation packs for 
 1. Commit the dirty `TODO.md` (done alongside this file's commit — do it if not).
 2. Resolve the `TBD` citation for the Shirley passage.
 3. Add a "Reproducing the pipeline" section to README (30 minutes).
-4. Merge `output/` into `outputs/`.
+4. ~~Merge `output/` into `outputs/`.~~ **Completed 2026-07-16.**
 5. Write the headline analysis script for the Greta Parallage-vs-single comparison — everything for the 2026-07-27 deadline flows from it.

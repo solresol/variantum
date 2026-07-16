@@ -1,0 +1,661 @@
+{
+  "generated_at": "2026-07-16T11:13:03+10:00",
+  "method": {
+    "greek_timing_unit": "Earliest saved rating per reviewer/passage; captured_at_ms from page load.",
+    "greek_source_length": "assembled_lemmas.word_count in the live Stephanos database.",
+    "chinese_source_length": "Count of Han-script characters; word segmentation was not imposed.",
+    "chinese_single_limitation": "Exact elapsed time is absent because single-output pages did not activate exposure tracking."
+  },
+  "data_quality": {
+    "greek": {
+      "raw_save_rows": 46,
+      "unique_reviewer_passages": 29,
+      "first_evaluations_with_exact_timing": 29,
+      "first_evaluations_missing_timing": 0,
+      "later_revision_rows_excluded": 17,
+      "first_evaluations_with_any_helper_visibility": 18
+    },
+    "chinese": {
+      "raw_save_rows": 11,
+      "unique_reviewer_passages": 10,
+      "later_revision_rows_excluded": 1,
+      "parallage_exact_timing": 5,
+      "parallage_missing_timing": 0,
+      "single_exact_timing": 0,
+      "single_missing_timing": 5
+    }
+  },
+  "greek": {
+    "overall_seconds": {
+      "n": 29,
+      "min": 5.192,
+      "q1": 10.488,
+      "median": 15.627,
+      "q3": 18.517,
+      "max": 351.209,
+      "mean": 30.028758620689654
+    },
+    "overall_length_correlation": {
+      "n": 29,
+      "spearman_rho": 0.053379760802372535,
+      "p_value_two_sided": 0.7833083595041217
+    },
+    "sensitivity_excluding_longest_duration": {
+      "n": 28,
+      "spearman_rho": 0.021148171053670117,
+      "p_value_two_sided": 0.9149355346805591
+    },
+    "by_reviewer": {
+      "shirley": {
+        "seconds": {
+          "n": 19,
+          "min": 5.192,
+          "q1": 9.368,
+          "median": 12.256,
+          "q3": 16.221,
+          "max": 22.614,
+          "mean": 12.878789473684211
+        },
+        "length_correlation": {
+          "n": 19,
+          "spearman_rho": -0.07817310254385794,
+          "p_value_two_sided": 0.7504070436668402
+        },
+        "sensitivity_excluding_longest_duration": {
+          "n": 18,
+          "spearman_rho": -0.008268743787931923,
+          "p_value_two_sided": 0.9740230085126563
+        }
+      },
+      "vanessa": {
+        "seconds": {
+          "n": 10,
+          "min": 14.374,
+          "q1": 16.54325,
+          "median": 22.7535,
+          "q3": 52.79125,
+          "max": 351.209,
+          "mean": 62.613699999999994
+        },
+        "length_correlation": {
+          "n": 10,
+          "spearman_rho": 0.6646465023178235,
+          "p_value_two_sided": 0.03602846122522851
+        },
+        "sensitivity_excluding_longest_duration": {
+          "n": 9,
+          "spearman_rho": 0.5882560647712126,
+          "p_value_two_sided": 0.09567914828619992
+        }
+      }
+    },
+    "under_30_seconds": 25,
+    "observations": [
+      {
+        "rating_id": 33,
+        "reviewer": "shirley",
+        "passage_id": 2330,
+        "variant_id": "3302",
+        "lemma": "Καλύβη",
+        "source_words": 14,
+        "elapsed_seconds": 15.76,
+        "helper_variants_visible": 0,
+        "helper_visible_seconds_summed": 0.0,
+        "created_at": "2026-07-01 19:52:22",
+        "page_loaded_at": "2026-07-01T19:52:11.137Z"
+      },
+      {
+        "rating_id": 35,
+        "reviewer": "shirley",
+        "passage_id": 7252,
+        "variant_id": "3431",
+        "lemma": "Κύρτωνες",
+        "source_words": 17,
+        "elapsed_seconds": 14.206,
+        "helper_variants_visible": 1,
+        "helper_visible_seconds_summed": 10.645,
+        "created_at": "2026-07-01 19:53:24",
+        "page_loaded_at": "2026-07-01T19:53:14.860Z"
+      },
+      {
+        "rating_id": 36,
+        "reviewer": "shirley",
+        "passage_id": 2055,
+        "variant_id": "3229",
+        "lemma": "Καβασσός",
+        "source_words": 77,
+        "elapsed_seconds": 17.414,
+        "helper_variants_visible": 6,
+        "helper_visible_seconds_summed": 20.314,
+        "created_at": "2026-07-01 19:53:56",
+        "page_loaded_at": "2026-07-01T19:53:43.294Z"
+      },
+      {
+        "rating_id": 38,
+        "reviewer": "shirley",
+        "passage_id": 2484,
+        "variant_id": "3612",
+        "lemma": "Καρία",
+        "source_words": 199,
+        "elapsed_seconds": 14.758,
+        "helper_variants_visible": 9,
+        "helper_visible_seconds_summed": 1.964,
+        "created_at": "2026-07-01 19:54:57",
+        "page_loaded_at": "2026-07-01T19:54:47.336Z"
+      },
+      {
+        "rating_id": 39,
+        "reviewer": "shirley",
+        "passage_id": 2054,
+        "variant_id": "3226",
+        "lemma": "Καβαλίς",
+        "source_words": 45,
+        "elapsed_seconds": 6.935,
+        "helper_variants_visible": 1,
+        "helper_visible_seconds_summed": 3.339,
+        "created_at": "2026-07-01 19:55:28",
+        "page_loaded_at": "2026-07-01T19:55:26.740Z"
+      },
+      {
+        "rating_id": 42,
+        "reviewer": "shirley",
+        "passage_id": 2477,
+        "variant_id": "3331",
+        "lemma": "Καρδαμύλη",
+        "source_words": 34,
+        "elapsed_seconds": 9.595,
+        "helper_variants_visible": 1,
+        "helper_visible_seconds_summed": 1.046,
+        "created_at": "2026-07-01 19:56:04",
+        "page_loaded_at": "2026-07-01T19:55:59.782Z"
+      },
+      {
+        "rating_id": 43,
+        "reviewer": "shirley",
+        "passage_id": 7255,
+        "variant_id": "3440",
+        "lemma": "Κυτέριον",
+        "source_words": 18,
+        "elapsed_seconds": 11.734,
+        "helper_variants_visible": 25,
+        "helper_visible_seconds_summed": 6.979,
+        "created_at": "2026-07-01 19:56:36",
+        "page_loaded_at": "2026-07-01T19:56:29.440Z"
+      },
+      {
+        "rating_id": 44,
+        "reviewer": "shirley",
+        "passage_id": 7253,
+        "variant_id": "3434",
+        "lemma": "Κυρτώνιος",
+        "source_words": 14,
+        "elapsed_seconds": 22.566,
+        "helper_variants_visible": 14,
+        "helper_visible_seconds_summed": 20.465,
+        "created_at": "2026-07-01 19:57:16",
+        "page_loaded_at": "2026-07-01T19:56:58.478Z"
+      },
+      {
+        "rating_id": 45,
+        "reviewer": "shirley",
+        "passage_id": 2624,
+        "variant_id": "3370",
+        "lemma": "Κατάβαθμος",
+        "source_words": 16,
+        "elapsed_seconds": 22.614,
+        "helper_variants_visible": 27,
+        "helper_visible_seconds_summed": 10.512,
+        "created_at": "2026-07-01 19:57:54",
+        "page_loaded_at": "2026-07-01T19:57:36.788Z"
+      },
+      {
+        "rating_id": 46,
+        "reviewer": "shirley",
+        "passage_id": 2080,
+        "variant_id": "2347",
+        "lemma": "Καλαβρία",
+        "source_words": 13,
+        "elapsed_seconds": 12.643,
+        "helper_variants_visible": 4,
+        "helper_visible_seconds_summed": 10.053,
+        "created_at": "2026-07-01 19:58:27",
+        "page_loaded_at": "2026-07-01T19:58:19.583Z"
+      },
+      {
+        "rating_id": 47,
+        "reviewer": "shirley",
+        "passage_id": 2629,
+        "variant_id": "3385",
+        "lemma": "Καταννοί",
+        "source_words": 8,
+        "elapsed_seconds": 7.488,
+        "helper_variants_visible": 5,
+        "helper_visible_seconds_summed": 6.318,
+        "created_at": "2026-07-01 19:58:39",
+        "page_loaded_at": "2026-07-01T19:58:36.808Z"
+      },
+      {
+        "rating_id": 48,
+        "reviewer": "shirley",
+        "passage_id": 7260,
+        "variant_id": "3452",
+        "lemma": "Κυχρεῖος πάγος",
+        "source_words": 47,
+        "elapsed_seconds": 5.192,
+        "helper_variants_visible": 0,
+        "helper_visible_seconds_summed": 0.0,
+        "created_at": "2026-07-01 19:58:47",
+        "page_loaded_at": "2026-07-01T19:58:47.498Z"
+      },
+      {
+        "rating_id": 49,
+        "reviewer": "shirley",
+        "passage_id": 2325,
+        "variant_id": "3290",
+        "lemma": "Καλλίαι",
+        "source_words": 17,
+        "elapsed_seconds": 17.41,
+        "helper_variants_visible": 17,
+        "helper_visible_seconds_summed": 17.532,
+        "created_at": "2026-07-01 19:59:11",
+        "page_loaded_at": "2026-07-01T19:58:58.826Z"
+      },
+      {
+        "rating_id": 51,
+        "reviewer": "shirley",
+        "passage_id": 2329,
+        "variant_id": "2361",
+        "lemma": "Κάλπη",
+        "source_words": 36,
+        "elapsed_seconds": 16.682,
+        "helper_variants_visible": 1,
+        "helper_visible_seconds_summed": 13.606,
+        "created_at": "2026-07-01 19:59:44",
+        "page_loaded_at": "2026-07-01T19:59:32.296Z"
+      },
+      {
+        "rating_id": 52,
+        "reviewer": "shirley",
+        "passage_id": 7266,
+        "variant_id": "3470",
+        "lemma": "Κώμη",
+        "source_words": 56,
+        "elapsed_seconds": 9.226,
+        "helper_variants_visible": 1,
+        "helper_visible_seconds_summed": 4.611,
+        "created_at": "2026-07-01 20:00:01",
+        "page_loaded_at": "2026-07-01T19:59:56.820Z"
+      },
+      {
+        "rating_id": 53,
+        "reviewer": "shirley",
+        "passage_id": 2115,
+        "variant_id": "4054",
+        "lemma": "Καλὴ ἀκτή",
+        "source_words": 54,
+        "elapsed_seconds": 9.51,
+        "helper_variants_visible": 1,
+        "helper_visible_seconds_summed": 3.562,
+        "created_at": "2026-07-01 20:00:25",
+        "page_loaded_at": "2026-07-01T20:00:20.522Z"
+      },
+      {
+        "rating_id": 55,
+        "reviewer": "shirley",
+        "passage_id": 2609,
+        "variant_id": "3358",
+        "lemma": "Κάσπειρος",
+        "source_words": 94,
+        "elapsed_seconds": 12.256,
+        "helper_variants_visible": 1,
+        "helper_visible_seconds_summed": 2.443,
+        "created_at": "2026-07-01 20:00:55",
+        "page_loaded_at": "2026-07-01T20:00:48.440Z"
+      },
+      {
+        "rating_id": 57,
+        "reviewer": "shirley",
+        "passage_id": 7249,
+        "variant_id": "3423",
+        "lemma": "Κύρρος",
+        "source_words": 32,
+        "elapsed_seconds": 10.488,
+        "helper_variants_visible": 1,
+        "helper_visible_seconds_summed": 5.619,
+        "created_at": "2026-07-01 20:01:21",
+        "page_loaded_at": "2026-07-01T20:01:15.822Z"
+      },
+      {
+        "rating_id": 60,
+        "reviewer": "shirley",
+        "passage_id": 7242,
+        "variant_id": "3403",
+        "lemma": "Κύρβη",
+        "source_words": 8,
+        "elapsed_seconds": 8.22,
+        "helper_variants_visible": 1,
+        "helper_visible_seconds_summed": 6.495,
+        "created_at": "2026-07-01 20:01:54",
+        "page_loaded_at": "2026-07-01T20:01:50.712Z"
+      },
+      {
+        "rating_id": 17,
+        "reviewer": "vanessa",
+        "passage_id": 2330,
+        "variant_id": "3302",
+        "lemma": "Καλύβη",
+        "source_words": 14,
+        "elapsed_seconds": 16.982,
+        "helper_variants_visible": 0,
+        "helper_visible_seconds_summed": 0.0,
+        "created_at": "2026-06-30 08:57:19",
+        "page_loaded_at": "2026-06-30T08:56:58.172Z"
+      },
+      {
+        "rating_id": 18,
+        "reviewer": "vanessa",
+        "passage_id": 7252,
+        "variant_id": "3431",
+        "lemma": "Κύρτωνες",
+        "source_words": 17,
+        "elapsed_seconds": 18.517,
+        "helper_variants_visible": 0,
+        "helper_visible_seconds_summed": 0.0,
+        "created_at": "2026-06-30 08:57:41",
+        "page_loaded_at": "2026-06-30T08:57:19.715Z"
+      },
+      {
+        "rating_id": 19,
+        "reviewer": "vanessa",
+        "passage_id": 2055,
+        "variant_id": "3229",
+        "lemma": "Καβασσός",
+        "source_words": 77,
+        "elapsed_seconds": 56.855,
+        "helper_variants_visible": 0,
+        "helper_visible_seconds_summed": 0.0,
+        "created_at": "2026-06-30 08:58:43",
+        "page_loaded_at": "2026-06-30T08:57:42.543Z"
+      },
+      {
+        "rating_id": 20,
+        "reviewer": "vanessa",
+        "passage_id": 2484,
+        "variant_id": "3612",
+        "lemma": "Καρία",
+        "source_words": 199,
+        "elapsed_seconds": 68.586,
+        "helper_variants_visible": 0,
+        "helper_visible_seconds_summed": 0.0,
+        "created_at": "2026-06-30 08:59:54",
+        "page_loaded_at": "2026-06-30T08:58:42.191Z"
+      },
+      {
+        "rating_id": 26,
+        "reviewer": "vanessa",
+        "passage_id": 2054,
+        "variant_id": "3226",
+        "lemma": "Καβαλίς",
+        "source_words": 45,
+        "elapsed_seconds": 351.209,
+        "helper_variants_visible": 1,
+        "helper_visible_seconds_summed": 0.099,
+        "created_at": "2026-06-30 09:07:15",
+        "page_loaded_at": "2026-06-30T09:01:20.278Z"
+      },
+      {
+        "rating_id": 27,
+        "reviewer": "vanessa",
+        "passage_id": 2477,
+        "variant_id": "3331",
+        "lemma": "Καρδαμύλη",
+        "source_words": 34,
+        "elapsed_seconds": 40.6,
+        "helper_variants_visible": 0,
+        "helper_visible_seconds_summed": 0.0,
+        "created_at": "2026-06-30 09:08:04",
+        "page_loaded_at": "2026-06-30T09:07:20.032Z"
+      },
+      {
+        "rating_id": 28,
+        "reviewer": "vanessa",
+        "passage_id": 7255,
+        "variant_id": "3440",
+        "lemma": "Κυτέριον",
+        "source_words": 18,
+        "elapsed_seconds": 16.397,
+        "helper_variants_visible": 0,
+        "helper_visible_seconds_summed": 0.0,
+        "created_at": "2026-06-30 09:08:22",
+        "page_loaded_at": "2026-06-30T09:08:02.927Z"
+      },
+      {
+        "rating_id": 29,
+        "reviewer": "vanessa",
+        "passage_id": 2059,
+        "variant_id": "3534",
+        "lemma": "Καδμεία",
+        "source_words": 17,
+        "elapsed_seconds": 14.374,
+        "helper_variants_visible": 0,
+        "helper_visible_seconds_summed": 0.0,
+        "created_at": "2026-06-30 09:08:39",
+        "page_loaded_at": "2026-06-30T09:08:21.553Z"
+      },
+      {
+        "rating_id": 30,
+        "reviewer": "vanessa",
+        "passage_id": 7253,
+        "variant_id": "3434",
+        "lemma": "Κυρτώνιος",
+        "source_words": 14,
+        "elapsed_seconds": 26.99,
+        "helper_variants_visible": 0,
+        "helper_visible_seconds_summed": 0.0,
+        "created_at": "2026-06-30 09:09:09",
+        "page_loaded_at": "2026-06-30T09:08:39.045Z"
+      },
+      {
+        "rating_id": 31,
+        "reviewer": "vanessa",
+        "passage_id": 2624,
+        "variant_id": "3370",
+        "lemma": "Κατάβαθμος",
+        "source_words": 16,
+        "elapsed_seconds": 15.627,
+        "helper_variants_visible": 0,
+        "helper_visible_seconds_summed": 0.0,
+        "created_at": "2026-06-30 09:09:27",
+        "page_loaded_at": "2026-06-30T09:09:08.249Z"
+      }
+    ]
+  },
+  "chinese_greta": {
+    "parallage_exact_seconds": {
+      "n": 5,
+      "min": 74.089,
+      "q1": 181.91,
+      "median": 312.0,
+      "q3": 319.685,
+      "max": 823.844,
+      "mean": 342.3056
+    },
+    "parallage_length_correlation": {
+      "n": 5,
+      "spearman_rho": -0.20519567041703085,
+      "p_value_two_sided": 0.7405819415910722
+    },
+    "single_save_gaps_including_transition": {
+      "n": 5,
+      "min": 22.0,
+      "q1": 28.0,
+      "median": 30.0,
+      "q3": 33.0,
+      "max": 569.0,
+      "mean": 136.4
+    },
+    "successive_single_save_gaps": {
+      "n": 4,
+      "min": 22.0,
+      "q1": 26.5,
+      "median": 29.0,
+      "q3": 30.75,
+      "max": 33.0,
+      "mean": 28.25
+    },
+    "condition_save_order": [
+      "parallage",
+      "parallage",
+      "parallage",
+      "parallage",
+      "parallage",
+      "single",
+      "single",
+      "single",
+      "single",
+      "single"
+    ],
+    "observations": [
+      {
+        "rating_id": 67,
+        "reviewer": "greta",
+        "web_passage_id": 900004,
+        "passage_number": 4,
+        "treatment": "parallage",
+        "display_order": 1,
+        "source_han_characters": 23,
+        "exact_elapsed_seconds": 823.844,
+        "helper_variants_visible": 27,
+        "helper_visible_seconds_summed": 886.341,
+        "seconds_since_previous_save": null,
+        "created_at": "2026-07-08 23:32:19"
+      },
+      {
+        "rating_id": 69,
+        "reviewer": "greta",
+        "web_passage_id": 900008,
+        "passage_number": 8,
+        "treatment": "parallage",
+        "display_order": 3,
+        "source_han_characters": 21,
+        "exact_elapsed_seconds": 319.685,
+        "helper_variants_visible": 27,
+        "helper_visible_seconds_summed": 406.151,
+        "seconds_since_previous_save": 360.0,
+        "created_at": "2026-07-08 23:38:19"
+      },
+      {
+        "rating_id": 70,
+        "reviewer": "greta",
+        "web_passage_id": 900006,
+        "passage_number": 6,
+        "treatment": "parallage",
+        "display_order": 4,
+        "source_han_characters": 16,
+        "exact_elapsed_seconds": 312.0,
+        "helper_variants_visible": 27,
+        "helper_visible_seconds_summed": 425.044,
+        "seconds_since_previous_save": 319.0,
+        "created_at": "2026-07-08 23:43:38"
+      },
+      {
+        "rating_id": 71,
+        "reviewer": "greta",
+        "web_passage_id": 900001,
+        "passage_number": 1,
+        "treatment": "parallage",
+        "display_order": 6,
+        "source_han_characters": 21,
+        "exact_elapsed_seconds": 181.91,
+        "helper_variants_visible": 27,
+        "helper_visible_seconds_summed": 282.4,
+        "seconds_since_previous_save": 200.0,
+        "created_at": "2026-07-08 23:46:58"
+      },
+      {
+        "rating_id": 72,
+        "reviewer": "greta",
+        "web_passage_id": 900003,
+        "passage_number": 3,
+        "treatment": "parallage",
+        "display_order": 9,
+        "source_han_characters": 32,
+        "exact_elapsed_seconds": 74.089,
+        "helper_variants_visible": 8,
+        "helper_visible_seconds_summed": 76.869,
+        "seconds_since_previous_save": 89.0,
+        "created_at": "2026-07-08 23:48:27"
+      },
+      {
+        "rating_id": 73,
+        "reviewer": "greta",
+        "web_passage_id": 900005,
+        "passage_number": 5,
+        "treatment": "single",
+        "display_order": 2,
+        "source_han_characters": 43,
+        "exact_elapsed_seconds": null,
+        "helper_variants_visible": null,
+        "helper_visible_seconds_summed": null,
+        "seconds_since_previous_save": 569.0,
+        "created_at": "2026-07-08 23:57:56"
+      },
+      {
+        "rating_id": 74,
+        "reviewer": "greta",
+        "web_passage_id": 900009,
+        "passage_number": 9,
+        "treatment": "single",
+        "display_order": 5,
+        "source_han_characters": 17,
+        "exact_elapsed_seconds": null,
+        "helper_variants_visible": null,
+        "helper_visible_seconds_summed": null,
+        "seconds_since_previous_save": 28.0,
+        "created_at": "2026-07-08 23:58:24"
+      },
+      {
+        "rating_id": 75,
+        "reviewer": "greta",
+        "web_passage_id": 900002,
+        "passage_number": 2,
+        "treatment": "single",
+        "display_order": 7,
+        "source_han_characters": 18,
+        "exact_elapsed_seconds": null,
+        "helper_variants_visible": null,
+        "helper_visible_seconds_summed": null,
+        "seconds_since_previous_save": 30.0,
+        "created_at": "2026-07-08 23:58:54"
+      },
+      {
+        "rating_id": 76,
+        "reviewer": "greta",
+        "web_passage_id": 900007,
+        "passage_number": 7,
+        "treatment": "single",
+        "display_order": 8,
+        "source_han_characters": 22,
+        "exact_elapsed_seconds": null,
+        "helper_variants_visible": null,
+        "helper_visible_seconds_summed": null,
+        "seconds_since_previous_save": 33.0,
+        "created_at": "2026-07-08 23:59:27"
+      },
+      {
+        "rating_id": 77,
+        "reviewer": "greta",
+        "web_passage_id": 900010,
+        "passage_number": 10,
+        "treatment": "single",
+        "display_order": 10,
+        "source_han_characters": 27,
+        "exact_elapsed_seconds": null,
+        "helper_variants_visible": null,
+        "helper_visible_seconds_summed": null,
+        "seconds_since_previous_save": 22.0,
+        "created_at": "2026-07-08 23:59:49"
+      }
+    ]
+  }
+}

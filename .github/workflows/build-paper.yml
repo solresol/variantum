@@ -1,0 +1,61 @@
+name: Build paper
+
+on:
+  push:
+    paths:
+      - .github/workflows/build-paper.yml
+      - Makefile
+      - analysis/review-timing-distribution-and-length.png
+      - analysis/stephanos-model-quality-over-time.pdf
+      - analysis/vanessa-set1-length-adjusted-residual-scatter.png
+      - analysis/vanessa-set1-raw-metric-scatter.png
+      - outputs/pdf/into-the-parallage-ai4as-2026-paper.md
+  pull_request:
+    paths:
+      - .github/workflows/build-paper.yml
+      - Makefile
+      - analysis/review-timing-distribution-and-length.png
+      - analysis/stephanos-model-quality-over-time.pdf
+      - analysis/vanessa-set1-length-adjusted-residual-scatter.png
+      - analysis/vanessa-set1-raw-metric-scatter.png
+      - outputs/pdf/into-the-parallage-ai4as-2026-paper.md
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  paper:
+    name: Build and validate PDF
+    runs-on: ubuntu-24.04
+    timeout-minutes: 20
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v6
+
+      - name: Install Pandoc, XeLaTeX, fonts, and PDF tools
+        run: |
+          sudo apt-get update
+          sudo apt-get install --yes --no-install-recommends \
+            fonts-liberation2 \
+            fonts-noto-cjk \
+            pandoc \
+            poppler-utils \
+            texlive-lang-chinese \
+            texlive-latex-extra \
+            texlive-xetex
+
+      - name: Build and validate paper
+        env:
+          PAPER_MAINFONT: Liberation Serif
+          PAPER_CJKFONT: Noto Serif CJK SC
+        run: make --always-make paper-check
+
+      - name: Upload paper PDF
+        uses: actions/upload-artifact@v6
+        with:
+          name: into-the-parallage-ai4as-2026-paper
+          path: outputs/pdf/into-the-parallage-ai4as-2026-paper.pdf
+          if-no-files-found: error
+          retention-days: 30

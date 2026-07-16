@@ -24,7 +24,7 @@ from reportlab.platypus.tableofcontents import TableOfContents
 from parallage_db import add_db_args, connect
 
 
-DEFAULT_OUTPUT = Path("output/pdf/xin-shi-wei-zhong-translations-shirley.pdf")
+DEFAULT_OUTPUT = Path("outputs/pdf/xin-shi-wei-zhong-translations-shirley.pdf")
 DEFAULT_CORPUS_SLUG = "xin-shi-wei-zhong"
 CONTENT_WIDTH = A4[0] - 36 * mm
 TABLE_SEPARATOR_RE = re.compile(r"^\s*\|?\s*:?-{3,}:?\s*(\|\s*:?-{3,}:?\s*)+\|?\s*$")

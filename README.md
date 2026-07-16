@@ -16,6 +16,21 @@ generation and evaluation workflow.
   Divergence in AI Translation of Ancient Texts", from the AI4AS 2026 abstract:
   https://ai4asconference.github.io/2026/abstracts/Session%201/Baker.pdf.
 
+### Building the paper
+
+The paper source and generated PDF live together under `outputs/pdf/`. Build and
+validate the current draft from the repository root:
+
+```bash
+make paper-check
+```
+
+The local build expects Pandoc, XeLaTeX, Poppler, Times New Roman, and Songti SC.
+The `Build paper` GitHub Actions workflow uses metrically compatible open fonts,
+rebuilds the paper on relevant pushes and pull requests, checks that the PDF is
+readable, and uploads the result as a 30-day workflow artifact. It can also be
+run manually from the Actions tab.
+
 ## Project Idea
 
 Parallage asks whether AI translation should be presented as a single fluent
