@@ -7,11 +7,17 @@ author:
   - "Greta Hawes"
 date: "Draft conference paper for AI4AS 2026, 27 July 2026"
 geometry: "margin=1in"
-fontsize: 11pt
+fontsize: 12pt
 mainfont: "Times New Roman"
 CJKmainfont: "Songti SC"
 linestretch: 1.08
 colorlinks: true
+header-includes:
+  - |
+    \usepackage{needspace}
+    \widowpenalty=10000
+    \clubpenalty=10000
+    \displaywidowpenalty=10000
 ---
 
 # Abstract
@@ -104,6 +110,8 @@ If Parallage only works for Greek, it may be a local tool for one Classics workf
 The current evidence is very preliminary. We have only tried this using small datasets and with academics. It supports the existence of a measurable judgement problem, not a claim that Parallage already improves translation outcomes.
 
 The first Greek pilot compares reviewer ratings with automatic overlap metrics. Vanessa and Shirley each reviewed Stephanos passages and rated how different they expected the hidden human translation to be from one AI-generated translation. Vanessa reviewed ten passages and Shirley nineteen. Those ratings were then compared with sentence-aligned lexical metrics against the approved human translation: BLEU, ROUGE-L, and 3-gram F1. Vanessa's passages ranged from 18 to 268 reference words.
+
+\needspace{12\baselineskip}
 
 It seems to work. Higher human divergence ratings tend to coincide with lower overlap against the human translation. For Vanessa's ten passages, the Spearman correlations between rating and raw metric score were approximately:
 
