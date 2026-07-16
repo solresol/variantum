@@ -43,6 +43,7 @@ jobs:
             lmodern \
             pandoc \
             poppler-utils \
+            texlive-fonts-recommended \
             texlive-lang-chinese \
             texlive-latex-extra \
             texlive-xetex
