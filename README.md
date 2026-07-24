@@ -31,6 +31,19 @@ rebuilds the paper on relevant pushes and pull requests, checks that the PDF is
 readable, and uploads the result as a 30-day workflow artifact. It can also be
 run manually from the Actions tab.
 
+### Conference presentation sources
+
+The hand-edited Word speaker script and PowerPoint deck are first-class sources
+under `outputs/ai4as-2026-parallage/`. The Markdown script is a synchronised
+derivative of the Word document, with slide images rendered from the current
+PowerPoint deck. After saving edits in Word or PowerPoint, refresh and validate
+the repository copies with:
+
+```bash
+make presentation-sync
+make presentation-check
+```
+
 ## Project Idea
 
 Parallage asks whether AI translation should be presented as a single fluent
@@ -222,6 +235,8 @@ pages and small authenticated CGI handlers:
 
 - `scripts/generate_stephanos_review_site.py` reads the live Stephanos
   PostgreSQL database on `raksasa` and writes static pages under `site/`.
+- `/prompts.html` publishes the current prompt roles, their purposes, and the
+  concise instruction that distinguishes each role.
 - `static/review.css` and `static/review.js` provide the protected review UI.
 - `cgi/review-save`, `cgi/review-state`, and `cgi/review-status` are Go CGI
   programs deployed to `merah`.
