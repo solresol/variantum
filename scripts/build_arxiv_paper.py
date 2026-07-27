@@ -4,22 +4,24 @@
 from __future__ import annotations
 
 import hashlib
-import re
 import shutil
 import subprocess
-import tempfile
 from pathlib import Path
 from zipfile import ZIP_DEFLATED, ZipFile
 
 
 ROOT = Path(__file__).resolve().parents[1]
-SOURCE = ROOT / "outputs" / "pdf" / "into-the-parallage-ai4as-2026-paper.md"
 OUTPUT = ROOT / "outputs" / "arxiv"
 FIGURES = OUTPUT / "figures"
+GENERATED = OUTPUT / "generated"
 TEX = OUTPUT / "main.tex"
 PDF = OUTPUT / "into-the-parallage-arxiv.pdf"
 ARCHIVE = OUTPUT / "into-the-parallage-arxiv-source.zip"
 CIRCULATION_ARCHIVE = OUTPUT / "into-the-parallage-coauthor-circulation.zip"
+GENERATED_TABLES = (
+    GENERATED / "coauthor-rating-records.tex",
+    GENERATED / "chinese-focal-metrics.tex",
+)
 
 ASSETS = {
     "outputs/ai4as-2026-parallage/pptx_render/slide-3.png": (
@@ -40,9 +42,6 @@ CIRCULATION_FILES = {
     OUTPUT / "COAUTHOR_CIRCULATION.md": "README.md",
     PDF: "paper/into-the-parallage-arxiv.pdf",
     ARCHIVE: "paper/into-the-parallage-arxiv-source.zip",
-    SOURCE: "paper/into-the-parallage-paper.md",
-    ROOT / "outputs" / "ai4as-2026-parallage" / "into-the-parallage-ai4as-2026-conference-talk-v2.docx": "presentation/into-the-parallage-conference-talk-v2.docx",
-    ROOT / "outputs" / "ai4as-2026-parallage" / "into-the-parallage-ai4as-2026-visual-deck.pptx": "presentation/into-the-parallage-visual-deck.pptx",
     ROOT / "data" / "chinese-passages" / "xin-shi-wei-zhong.json": "data/chinese-source/xin-shi-wei-zhong.json",
     ROOT / "data" / "chinese-passages" / "xin-shi-wei-zhong.md": "data/chinese-source/xin-shi-wei-zhong.md",
     ROOT / "analysis" / "chinese-all-translation-metrics.csv": "data/chinese-analysis/chinese-all-translation-metrics.csv",
@@ -70,73 +69,21 @@ CIRCULATION_FILES = {
     ROOT / "analysis" / "analyze_greta_chinese_predictions.py": "code/analysis/analyze_greta_chinese_predictions.py",
     ROOT / "analysis" / "analyze_reviewer_metric_signal.py": "code/analysis/analyze_reviewer_metric_signal.py",
     ROOT / "analysis" / "export_review_ratings_release.py": "code/analysis/export_review_ratings_release.py",
+    ROOT / "scripts" / "generate_paper_appendices.py": "code/paper/generate_paper_appendices.py",
 }
-
-ARXIV_HEADER = r"""
-\usepackage{fontspec}
-\usepackage{xeCJK}
-\setmainfont{FreeSerif.otf}[
-  BoldFont=FreeSerifBold.otf,
-  ItalicFont=FreeSerifItalic.otf,
-  BoldItalicFont=FreeSerifBoldItalic.otf
-]
-\setCJKmainfont{HaranoAjiMincho-Regular.otf}[
-  BoldFont=HaranoAjiMincho-Bold.otf,
-  ItalicFont=HaranoAjiMincho-Regular.otf
-]
-\setCJKmonofont{HaranoAjiGothic-Regular.otf}
-\widowpenalty=10000
-\clubpenalty=10000
-\displaywidowpenalty=10000
-"""
 
 
 def run(command: list[str], *, cwd: Path = ROOT) -> None:
     subprocess.run(command, cwd=cwd, check=True)
 
 
-def portable_markdown() -> str:
-    text = SOURCE.read_text(encoding="utf-8")
-    text = re.sub(r"^(mainfont|CJKmainfont):.*\n", "", text, flags=re.MULTILINE)
-    text = text.replace("# References\n", "# References\n\n\\small\n", 1)
-    for original, (_, destination) in ASSETS.items():
-        text = text.replace(original, destination.relative_to(OUTPUT).as_posix())
-    unresolved = [path for path in ASSETS if path in text]
-    if unresolved:
-        raise RuntimeError(f"Unrewritten figure paths: {unresolved}")
-    return text
-
-
-def build_tex() -> None:
+def sync_figures() -> None:
     OUTPUT.mkdir(parents=True, exist_ok=True)
     FIGURES.mkdir(parents=True, exist_ok=True)
-    for source_name, destination in ASSETS.values():
-        if not source_name.is_file():
-            raise FileNotFoundError(source_name)
-        shutil.copy2(source_name, destination)
-
-    with tempfile.TemporaryDirectory(prefix="variantum-arxiv-") as temp_name:
-        temp = Path(temp_name)
-        markdown = temp / "paper.md"
-        header = temp / "arxiv-header.tex"
-        markdown.write_text(portable_markdown(), encoding="utf-8")
-        header.write_text(ARXIV_HEADER.strip() + "\n", encoding="utf-8")
-        run(
-            [
-                "pandoc",
-                str(markdown),
-                "--from",
-                "markdown+smart",
-                "--to",
-                "latex",
-                "--standalone",
-                "--pdf-engine=xelatex",
-                "--include-in-header",
-                str(header),
-                "--output",
-                str(TEX),
-            ]
-        )
+    for source_path, destination in ASSETS.values():
+        if not source_path.is_file():
+            raise FileNotFoundError(source_path)
+        shutil.copy2(source_path, destination)
 
 
 def build_pdf() -> None:
@@ -152,8 +99,13 @@ def build_pdf() -> None:
             cwd=OUTPUT,
         )
     log = OUTPUT / f"{PDF.stem}.log"
-    if "Missing character:" in log.read_text(encoding="utf-8", errors="replace"):
+    log_text = log.read_text(encoding="utf-8", errors="replace")
+    if "Missing character:" in log_text:
         raise RuntimeError("The XeLaTeX build contains missing glyphs.")
+    if "There were undefined references." in log_text:
+        raise RuntimeError("The XeLaTeX build contains undefined references.")
+    if "Overfull \\hbox" in log_text or "Overfull \\vbox" in log_text:
+        raise RuntimeError("The XeLaTeX build contains an overfull box.")
     for suffix in (".aux", ".log", ".out"):
         path = OUTPUT / f"{PDF.stem}{suffix}"
         if path.exists():
@@ -164,6 +116,8 @@ def build_archive() -> None:
     with ZipFile(ARCHIVE, "w", compression=ZIP_DEFLATED, compresslevel=9) as archive:
         archive.write(TEX, "main.tex")
         for path in sorted(FIGURES.iterdir()):
+            archive.write(path, path.relative_to(OUTPUT).as_posix())
+        for path in GENERATED_TABLES:
             archive.write(path, path.relative_to(OUTPUT).as_posix())
 
 
@@ -189,14 +143,28 @@ def build_circulation_archive() -> None:
 def validate() -> None:
     tex = TEX.read_text(encoding="utf-8")
     if str(ROOT) in tex:
-        raise RuntimeError("The generated TeX contains an absolute workspace path.")
+        raise RuntimeError("The canonical TeX contains an absolute workspace path.")
     if "\\includegraphics" not in tex:
-        raise RuntimeError("The generated TeX contains no figures.")
+        raise RuntimeError("The canonical TeX contains no figures.")
+    if "\\input{generated/coauthor-rating-records.tex}" not in tex:
+        raise RuntimeError("The canonical TeX does not include the rating appendix.")
+    if "\\input{generated/chinese-focal-metrics.tex}" not in tex:
+        raise RuntimeError("The canonical TeX does not include the metric appendix.")
+    missing_tables = [path for path in GENERATED_TABLES if not path.is_file()]
+    if missing_tables:
+        raise FileNotFoundError(f"Missing generated appendix tables: {missing_tables}")
     if not PDF.is_file() or PDF.stat().st_size == 0:
         raise RuntimeError("The arXiv PDF was not generated.")
     with ZipFile(ARCHIVE) as archive:
         members = archive.namelist()
-    expected = ["main.tex", *[path.relative_to(OUTPUT).as_posix() for path in sorted(FIGURES.iterdir())]]
+    expected = [
+        "main.tex",
+        *[
+            path.relative_to(OUTPUT).as_posix()
+            for path in sorted(FIGURES.iterdir())
+        ],
+        *[path.relative_to(OUTPUT).as_posix() for path in GENERATED_TABLES],
+    ]
     if members != expected:
         raise RuntimeError(f"Unexpected archive contents: {members}")
     with ZipFile(CIRCULATION_ARCHIVE) as archive:
@@ -212,10 +180,16 @@ def validate() -> None:
             actual_hash = hashlib.sha256(archive.read(archive_name)).hexdigest()
             if actual_hash != expected_hash:
                 raise RuntimeError(f"Checksum mismatch for {archive_name}")
+        forbidden_suffixes = (".docx", ".pptx")
+        if any(
+            member.lower().endswith(forbidden_suffixes)
+            for member in circulation_members
+        ):
+            raise RuntimeError("The circulation archive contains an Office document.")
 
 
 def main() -> None:
-    build_tex()
+    sync_figures()
     build_pdf()
     build_archive()
     build_circulation_archive()

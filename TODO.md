@@ -5,7 +5,7 @@ This file is the current project task surface for Parallage / `variantum`.
 ## AI4AS 2026 Paper
 
 - Deadline: get the paper ready by `2026-07-27`.
-- Working title: "Into the Parallage: Harnessing Abundance, Plurality and Divergence in AI Translation of Ancient Texts".
+- Working title: "Parallage: Structured Alternatives for Auditing AI Translations of Ancient Texts".
 - Authors: Greg Baker, Shirley Chan, Vanessa Enriquez Raido, and Greta Hawes.
 - Source abstract: https://ai4asconference.github.io/2026/abstracts/Session%201/Baker.pdf
 
@@ -53,7 +53,7 @@ The detailed plan and the 2026-07-27 communication record are in
 - [x] Reconcile the final v2 conference script with the fuller paper and shape
   it for a computational-linguistics audience.
 - [x] Prepare a complete co-author circulation bundle containing the paper,
-  current presentation sources, proposed full data release and analysis code.
+  proposed full data release and analysis code.
 - [ ] Circulate the paper to all co-authors and obtain approval for the public
   version.
 - [ ] Find an arXiv computing endorser and submit the approved paper to

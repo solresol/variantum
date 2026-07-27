@@ -1,3 +1,6 @@
+% Canonical source for the Parallage preprint.
+% Build from the repository root with `make`; XeLaTeX is required.
+%
 % Options for packages loaded elsewhere
 \PassOptionsToPackage{unicode}{hyperref}
 \PassOptionsToPackage{hyphens}{url}
@@ -41,6 +44,7 @@
 \usepackage{xcolor}
 \usepackage[margin=1in]{geometry}
 \usepackage{longtable,booktabs,array}
+\usepackage{pdflscape}
 \usepackage{calc} % for calculating minipage widths
 % Correct order of tables after \paragraph or \subparagraph
 \usepackage{etoolbox}
@@ -89,17 +93,17 @@
 \IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
 \urlstyle{same}
 \hypersetup{
-  pdftitle={Into the Parallage: Harnessing Abundance, Plurality and Divergence in AI Translation of Ancient Texts},
+  pdftitle={Parallage: Structured Alternatives for Auditing AI Translations of Ancient Texts},
   pdfauthor={Greg Baker; Shirley Chan; Vanessa Enriquez Raido; Greta Hawes},
   colorlinks=true,
   linkcolor={Maroon},
   filecolor={Maroon},
   citecolor={Blue},
   urlcolor={Blue},
-  pdfcreator={LaTeX via pandoc}}
+  pdfcreator={XeLaTeX}}
 
-\title{Into the Parallage: Harnessing Abundance, Plurality and
-Divergence in AI Translation of Ancient Texts}
+\title{Parallage: Structured Alternatives for Auditing AI Translations
+of Ancient Texts}
 \author{Greg Baker \and Shirley Chan \and Vanessa Enriquez
 Raido \and Greta Hawes}
 \date{Preprint, 27 July 2026}
@@ -843,6 +847,39 @@ and preserve revisions and timestamps; they contain no email addresses,
 IP addresses, authentication material, or student-participant data. The
 complete bundle will be made public only after all co-authors approve
 the paper and release.
+
+\clearpage
+\begin{landscape}
+\section{Appendix A. Co-author Pilot Rating
+Records}\label{appendix-coauthor-ratings}
+
+Table~\ref{tab:coauthor-rating-history} gives the complete saved rating
+history underlying the formative pilot, including records superseded by
+later saves. The accompanying machine-readable release additionally
+preserves the helper-card exposure instrumentation. Ratings use the
+eleven-point anticipated-divergence scale from 0 (expected to be the
+same) to 10 (expected to be very different). ``Latest'' identifies the
+final save for a reviewer-passage-translation tuple; ``superseded''
+identifies an earlier save. Trust flags are omitted because neither flag
+was selected in these records.
+
+\input{generated/coauthor-rating-records.tex}
+
+\clearpage
+\section{Appendix B. Classical Chinese Focal-Translation
+Metrics}\label{appendix-chinese-metrics}
+
+Tables~\ref{tab:chinese-lexical-metrics}
+and~\ref{tab:chinese-neural-metrics} report the per-passage scores used
+for the Chinese analysis. They make the individual XCOMET-XL and related
+scores visible rather than reporting only correlations and aggregates.
+All individual metrics are similarities, while composite divergence is
+the 0--10 within-sample badness-rank aggregate defined in Section 5.2.
+Candidate/reference word counts and translation-run identifiers make
+each row traceable to the texts in the accompanying data release.
+
+\input{generated/chinese-focal-metrics.tex}
+\end{landscape}
 
 \section{References}\label{references}
 

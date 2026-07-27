@@ -1,4 +1,4 @@
-# Into the Parallage: co-author circulation bundle
+# Parallage: co-author circulation bundle
 
 This bundle is for Shirley Chan, Vanessa Enriquez Raido, Greta Hawes, and Greg
 Baker to review before any public arXiv upload.
@@ -18,10 +18,9 @@ Please confirm:
 
 ## Bundle contents
 
-- `paper/into-the-parallage-arxiv.pdf` - the 15-page review PDF;
-- `paper/into-the-parallage-arxiv-source.zip` - the arXiv upload source;
-- `paper/into-the-parallage-paper.md` - the canonical prose source;
-- `presentation/` - the current Word talk and PowerPoint deck;
+- `paper/into-the-parallage-arxiv.pdf` - the current review PDF;
+- `paper/into-the-parallage-arxiv-source.zip` - the canonical XeLaTeX source,
+  generated appendix tables, and figures;
 - `data/chinese-source/` - the working Chinese transcription, segmentation,
   and source citation;
 - `data/chinese-analysis/` - the full Chinese outputs, expert references,
@@ -31,6 +30,11 @@ Please confirm:
 - `code/analysis/` - the scripts used to produce the reported analyses.
 
 `MANIFEST.sha256` records a checksum for every bundled file.
+
+The paper appendices present the complete saved co-author rating history and
+the per-passage Chinese BLEU, chrF++, METEOR, ROUGE-L, BERTScore, COMET,
+XCOMET-XL, BLEURT, and composite-divergence results. The machine-readable files
+remain in the bundle for audit and reanalysis.
 
 The bundle contains no email, contact details, authentication material, IP
 addresses, or student-participant data. Administrative correspondence remains

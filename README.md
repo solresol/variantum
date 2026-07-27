@@ -9,33 +9,34 @@ At present this repo contains prompt templates for Stephanos translation
 variants. The likely next step is to turn those prompts into a reproducible pack
 generation and evaluation workflow.
 
-## Paper Deadline
+## Current paper
 
-- By `2026-07-27`: prepare Greg Baker, Shirley Chan, Vanessa Enriquez Raido, and
-  Greta Hawes, "Into the Parallage: Harnessing Abundance, Plurality and
-  Divergence in AI Translation of Ancient Texts", from the AI4AS 2026 abstract:
+- Greg Baker, Shirley Chan, Vanessa Enriquez Raido, and Greta Hawes,
+  "Parallage: Structured Alternatives for Auditing AI Translations of Ancient
+  Texts", developed from the AI4AS 2026 abstract:
   https://ai4asconference.github.io/2026/abstracts/Session%201/Baker.pdf.
 
 ### Building the paper
 
-The paper source and generated PDF live together under `outputs/pdf/`. Build and
-validate the current draft from the repository root:
+The canonical manuscript is the XeLaTeX source at `outputs/arxiv/main.tex`.
+Markdown, Word, and PowerPoint files elsewhere in the repository are historical
+or presentation sources, not paper build inputs. Build every paper artifact and
+run the release checks from the repository root:
 
 ```bash
-make paper-check
+make
 ```
 
-The local build expects Pandoc, XeLaTeX, Poppler, Times New Roman, and Songti SC.
-The `Build paper` GitHub Actions workflow uses metrically compatible open fonts,
-rebuilds the paper on relevant pushes and pull requests, checks that the PDF is
-readable, and uploads the result as a 30-day workflow artifact. It can also be
-run manually from the Actions tab.
+The build regenerates the data-backed appendix tables, compiles the multilingual
+manuscript with XeLaTeX, creates the arXiv source archive, creates the co-author
+circulation archive, and validates both archives. It expects Python 3, XeLaTeX,
+the TeX Live fonts named in `main.tex`, Poppler, and standard ZIP tools. The
+`Build paper` GitHub Actions workflow rebuilds and checks the same artifacts.
 
 ### Preparing the arXiv package
 
 The arXiv source tree, review PDF, and upload-ready source archive live under
-`outputs/arxiv/`. Rebuild them from the current Markdown manuscript and run the
-package checks with:
+`outputs/arxiv/`. Useful narrower build targets are:
 
 ```bash
 make arxiv-check
@@ -45,9 +46,9 @@ make circulation-check
 This produces `outputs/arxiv/into-the-parallage-arxiv.pdf` for review and
 `outputs/arxiv/into-the-parallage-arxiv-source.zip` for submission. It also
 produces `outputs/arxiv/into-the-parallage-coauthor-circulation.zip`, containing
-the paper, presentation sources, complete proposed data release, analysis code,
-and checksums for co-author review. See `outputs/arxiv/README.md` for the
-remaining approval and submission checks.
+the paper, complete proposed data release, analysis code, and checksums for
+co-author review. The Word talk and PowerPoint deck are not included. See
+`outputs/arxiv/README.md` for the remaining approval and submission checks.
 
 ### Conference presentation sources
 
