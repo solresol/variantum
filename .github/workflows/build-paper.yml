@@ -62,12 +62,14 @@ jobs:
         run: |
           sudo apt-get update
           sudo apt-get install --yes --no-install-recommends \
+            fonts-freefont-otf \
             fonts-liberation2 \
             fonts-noto-cjk \
             lmodern \
             poppler-utils \
             texlive-fonts-recommended \
             texlive-lang-chinese \
+            texlive-lang-japanese \
             texlive-latex-extra \
             texlive-xetex \
             unzip \
@@ -75,6 +77,10 @@ jobs:
 
       - name: Build and validate all paper artifacts
         run: make --always-make
+        env:
+          # main.tex names fonts by file; let XeTeX find the system-wide
+          # FreeSerif alongside the TeX Live HaranoAji fonts.
+          OSFONTDIR: /usr/share/fonts
 
       - name: Upload paper PDF
         uses: actions/upload-artifact@v6
