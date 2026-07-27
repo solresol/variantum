@@ -16,7 +16,7 @@ from docx import Document
 
 ROOT = Path(__file__).resolve().parents[1]
 PRESENTATION_DIR = ROOT / "outputs" / "ai4as-2026-parallage"
-DOCX = PRESENTATION_DIR / "into-the-parallage-ai4as-2026-conference-talk.docx"
+DOCX = PRESENTATION_DIR / "into-the-parallage-ai4as-2026-conference-talk-v2.docx"
 PPTX = PRESENTATION_DIR / "into-the-parallage-ai4as-2026-visual-deck.pptx"
 MARKDOWN = PRESENTATION_DIR / "into-the-parallage-ai4as-2026-conference-talk.md"
 SLIDE_DIR = PRESENTATION_DIR / "assets" / "visual-deck"
@@ -57,6 +57,7 @@ def build_markdown(work_dir: Path) -> tuple[str, int]:
             "--from=docx",
             "--to=gfm",
             "--wrap=none",
+            "--track-changes=accept",
             "--output",
             str(body_path),
         ]
@@ -64,15 +65,19 @@ def build_markdown(work_dir: Path) -> tuple[str, int]:
 
     body = body_path.read_text(encoding="utf-8")
     image_numbers = [int(value) for value in IMAGE_PATTERN.findall(body)]
-    expected = list(range(1, len(image_numbers) + 1))
+    if not image_numbers:
+        raise SystemExit("Expected at least one Word image")
+    expected = list(range(image_numbers[0], image_numbers[0] + len(image_numbers)))
     if image_numbers != expected:
         raise SystemExit(
-            "Expected sequential Word images beginning at image1; "
+            "Expected a non-empty sequential set of Word images; "
             f"found {image_numbers}"
         )
 
+    slide_numbers = iter(range(1, len(image_numbers) + 1))
+
     def replace_image(match: re.Match[str]) -> str:
-        number = int(match.group(1))
+        number = next(slide_numbers)
         return (
             f"![Presentation slide {number}]"
             f"(assets/visual-deck/slide-{number:02d}.png)"
@@ -82,6 +87,7 @@ def build_markdown(work_dir: Path) -> tuple[str, int]:
     # Word stores one full stop as a separately bolded run; preserving bold
     # punctuation here produces literal Markdown instead of useful formatting.
     body = body.replace("**.**", ".")
+    body = re.sub(r"(?m)^-[ \t]+$", "", body)
     body = re.sub(r" {2}\n", "<br>\n", body).lstrip()
     title = document_heading("Title")
     subtitle = document_heading("Subtitle")
