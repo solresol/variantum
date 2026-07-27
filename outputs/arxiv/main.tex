@@ -410,8 +410,11 @@ Implementation}\label{corpora-and-implementation}
 \subsection{4.1 Ancient Greek}\label{ancient-greek}
 
 The Greek corpus uses entries from Stephanos of Byzantium's
-\emph{Ethnica}, a late-antique geographical lexicon preserved
-incompletely and without a complete published English translation
+\emph{Ethnica}, a late-antique geographical lexicon and arguably the
+oldest surviving alphabetically organised encyclopedic work---earlier
+alphabetical compilations are word-glossaries, and the \emph{Suda} is
+four centuries later---preserved incompletely and without a complete
+published English translation
 (Meineke 1849; Billerbeck 2006-present). From a pool of 100 entries with
 approved human translations, we drew a reproducible seeded sample of
 twenty (seed 20260623). The entries are compressed, entity-heavy, and
@@ -466,7 +469,15 @@ forecasts. The scores are within-project reference similarities rather
 than calibrated measures of philological correctness or human
 equivalence, the linear trend may saturate or jump, and crossing a
 similarity bar is necessary rather than sufficient for expert-quality
-translation. What survives those caveats is operational: unless
+translation. Nor does the literature supply a single number for
+``human-level'' reference similarity: in the original BLEU evaluation a
+human translator scored 0.26 against two other human references and
+0.35 against four (Papineni et al.~2002), and standard references
+concentrate around translationese, penalising legitimate alternative
+renderings (Freitag, Grangier, and Caswell 2020). Both bars used here
+are within-workflow yardsticks---the draft-overlap bar shares a
+translator and house conventions, and the 90\% proxy is an illustration
+rather than a measured inter-translator ceiling. What survives those caveats is operational: unless
 capability growth breaks from its current trend, expert verification
 remains essential for ancient-language translation for the remainder of
 this decade at least, and prompt specification alone moves that horizon
@@ -765,10 +776,10 @@ two-sided p = 0.450); within the single-output passages it is 0.200 (p =
 hence the same 60\% pairwise ordering accuracy despite different
 Spearman coefficients. Spearman correlation reflects the full rank
 distances, whereas the pairwise measure counts only concordant versus
-discordant orderings. XCOMET produces a stronger inverse association in
-the Parallage condition (rho = -0.800, p = 0.133) than in the single
-condition (rho = -0.600, p = 0.350), but five observations per condition
-cannot support a treatment claim.
+discordant orderings. For XCOMET, the five pack passages give rho =
+-0.800 (exact p = 0.133) and the five single-output passages rho =
+-0.600 (p = 0.350). The two estimates differ, but not by enough to
+declare statistical significance with five passages per condition.
 
 \begin{longtable}[]{@{}
   >{\raggedright\arraybackslash}p{(\columnwidth - 8\tabcolsep) * \real{0.1579}}
@@ -1090,6 +1101,11 @@ Fomicheva, Marina, Lucia Specia, and Francisco Guzmán. 2020.
 \href{https://doi.org/10.18653/v1/2020.acl-main.113}{``Multi-Hypothesis
 Machine Translation Evaluation.''} \emph{Proceedings of the 58th Annual
 Meeting of the Association for Computational Linguistics}, 1218-1232.
+
+Freitag, Markus, David Grangier, and Isaac Caswell. 2020.
+\href{https://aclanthology.org/2020.emnlp-main.5/}{``BLEU might be
+Guilty but References are not Innocent.''} \emph{Proceedings of the 2020
+Conference on Empirical Methods in Natural Language Processing}, 61-71.
 
 Freitag, Markus, David Grangier, Qijun Tan, and Bowen Liang. 2022.
 \href{https://doi.org/10.1162/tacl_a_00491}{``High Quality Rather than
