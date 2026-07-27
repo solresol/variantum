@@ -89,9 +89,13 @@ All 280 completed Chinese model outputs (28 profiles x 10 passages) were scored 
 ## Reproducible artifacts
 
 - `analysis/greta-chinese-focal-metrics-public.csv`: text-free metrics for the 10 rated focal translations.
+- `analysis/greta-chinese-ground-truth-metrics.csv`: the 10 focal model outputs, expert references, ratings, and all metrics.
 - `analysis/greta-chinese-metric-associations.csv`: metric-level correlations.
 - `analysis/chinese-all-translation-metrics-public.csv`: text-free lexical metrics for all 280 completed Chinese runs.
+- `analysis/chinese-all-translation-metrics.csv`: all 280 model outputs, expert references, and lexical metrics.
 - `analysis/chinese-profile-metric-summary.csv`: 28 profile summaries.
 - `analysis/greta-chinese-prediction-analysis.json`: calculations, checks and treatment summaries.
 - `analysis/greta-chinese-neural-metrics.json`: stored neural-metric output.
-- The local audit inputs retain the model outputs and expert references but are excluded from the public bundle pending co-author approval of release terms.
+- `analysis/greta-chinese-neural-request.json`: the source, candidate, and reference inputs supplied to the neural-metric sidecar.
+- `analysis/review-ratings-release.json`: the complete saved co-author rating and helper-exposure history, including revisions.
+- These full audit inputs are included in the co-author circulation bundle and will be released publicly only after all authors approve them.

@@ -8,6 +8,7 @@ From the repository root:
 
 ```bash
 make arxiv-check
+make circulation-check
 ```
 
 This produces:
@@ -17,6 +18,13 @@ This produces:
 - `into-the-parallage-arxiv.pdf` — the locally compiled review PDF; and
 - `into-the-parallage-arxiv-source.zip` — the upload package containing only
   `main.tex` and its figures.
+
+`into-the-parallage-coauthor-circulation.zip` is the complete review bundle. It
+contains the paper, arXiv source, current Word/PPTX presentation sources, full
+Chinese outputs and expert references, raw co-author rating and exposure logs,
+derived analysis files, analysis scripts, and a SHA-256 manifest. It contains
+no correspondence, contact details, authentication material, IP addresses, or
+student data.
 
 The source uses fonts shipped with TeX Live 2025 and refers to them by file
 name, as required by arXiv's XeLaTeX environment. At submission, select
@@ -32,6 +40,7 @@ XeLaTeX and inspect arXiv's generated PDF before completing the submission.
 
 Author order, affiliations, contact author, ORCID identifiers, grant
 acknowledgement, licence, categories, and the final abstract must be confirmed
-by all co-authors before upload. Co-authors must also confirm release terms for
-the Chinese expert-reference translations and full model outputs; the current
-public-data bundle contains text-free metric tables only.
+by all co-authors before upload. The circulation bundle includes the proposed
+complete research-data release so that the co-authors can approve the paper and
+release terms together. Do not upload either archive publicly until that
+approval is recorded.

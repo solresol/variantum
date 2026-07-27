@@ -9,8 +9,9 @@ PAPER_ASSETS := \
 	outputs/ai4as-2026-parallage/pptx_render/slide-3.png
 ARXIV_PDF := outputs/arxiv/into-the-parallage-arxiv.pdf
 ARXIV_SOURCE := outputs/arxiv/into-the-parallage-arxiv-source.zip
+CIRCULATION_ARCHIVE := outputs/arxiv/into-the-parallage-coauthor-circulation.zip
 
-.PHONY: paper paper-check arxiv arxiv-check presentation-sync presentation-check
+.PHONY: paper paper-check arxiv arxiv-check circulation-check presentation-sync presentation-check
 
 paper: $(PAPER_PDF)
 
@@ -37,6 +38,14 @@ arxiv-check: arxiv
 	@unzip -Z1 $(ARXIV_SOURCE) | grep -Fxq "main.tex"
 	@! unzip -Z1 $(ARXIV_SOURCE) | grep -Eq '(^|/)(README|.*\.(aux|log|out|pdf))$$'
 	@echo "Validated $(ARXIV_PDF) and $(ARXIV_SOURCE)"
+
+circulation-check: arxiv-check
+	@unzip -tq $(CIRCULATION_ARCHIVE)
+	@unzip -Z1 $(CIRCULATION_ARCHIVE) | grep -Fxq "README.md"
+	@unzip -Z1 $(CIRCULATION_ARCHIVE) | grep -Fxq "MANIFEST.sha256"
+	@unzip -Z1 $(CIRCULATION_ARCHIVE) | grep -Fxq "data/chinese-analysis/chinese-all-translation-metrics.csv"
+	@unzip -Z1 $(CIRCULATION_ARCHIVE) | grep -Fxq "data/review-logs/review-ratings-release.json"
+	@echo "Validated $(CIRCULATION_ARCHIVE)"
 
 presentation-sync:
 	uv run python scripts/sync_ai4as_presentation_sources.py

@@ -39,11 +39,15 @@ package checks with:
 
 ```bash
 make arxiv-check
+make circulation-check
 ```
 
 This produces `outputs/arxiv/into-the-parallage-arxiv.pdf` for review and
-`outputs/arxiv/into-the-parallage-arxiv-source.zip` for submission. See
-`outputs/arxiv/README.md` for the remaining co-author and submission checks.
+`outputs/arxiv/into-the-parallage-arxiv-source.zip` for submission. It also
+produces `outputs/arxiv/into-the-parallage-coauthor-circulation.zip`, containing
+the paper, presentation sources, complete proposed data release, analysis code,
+and checksums for co-author review. See `outputs/arxiv/README.md` for the
+remaining approval and submission checks.
 
 ### Conference presentation sources
 

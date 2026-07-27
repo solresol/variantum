@@ -7,7 +7,7 @@ selected_by: Shirley Chan
 received_from_greg: 2026-07-03
 updated_from_shirley: 2026-07-04
 project_use: Classical Chinese Parallage pilot passage
-source_reference: TBD
+source_reference: "Shen Jianhua, 'Xin shi wei zhong', in Research and Conservation Center for Unearthed Texts, Tsinghua University, ed., Qinghua daxue cang Zhanguo zhujian (ba) (Shanghai: Zhongxi Shuju, 2018)."
 segment_count: 10
 ---
 
@@ -37,4 +37,5 @@ segment_count: 10
 - Stored from Shirley's requested passage selection, as supplied by Greg on 2026-07-03.
 - Updated on 2026-07-04 with Shirley's Classical Chinese character text and ten-passage segmentation.
 - The machine-readable segmented manifest is `data/chinese-passages/xin-shi-wei-zhong.json`.
-- The source citation, edition, and any normalization policy still need to be confirmed before publication or generation manifests treat this as fully sourced.
+- The base text is the Tsinghua Warring States bamboo manuscript published in volume 8 of the Tsinghua collection in 2018; Shen Jianhua prepared the original arrangement, transcription, and annotation.
+- Shirley's supplied text and ten-part segmentation are the project-specific working transcription. Any normalization against the photographic plates should be recorded before a critical edition is claimed.

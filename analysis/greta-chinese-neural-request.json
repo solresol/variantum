@@ -1,0 +1,87 @@
+{
+  "metrics": [
+    "bertscore",
+    "comet",
+    "xcomet",
+    "bleurt"
+  ],
+  "use_gpu": false,
+  "bertscore_batch_size": 10,
+  "comet_batch_size": 10,
+  "bleurt_batch_size": 10,
+  "comet_model": "Unbabel/wmt22-comet-da",
+  "xcomet_model": "Unbabel/XCOMET-XL",
+  "bleurt_checkpoint": "/home/stephanos/metric-envs/bleurt/BLEURT-20",
+  "rows": [
+    {
+      "row_index": 0,
+      "passage_number": 1,
+      "source": "心，中，處身之中以君之，目、耳、口、踵四者為相，心是謂中。",
+      "candidate": "The heart-mind is the center: it dwells in the midst of the body and rules it as lord; the four—eyes, ears, mouth, and heels/feet—serve as its ministers. This heart-mind is what is called the center.",
+      "reference": "The heart-mind is the centre; it occupies in the centre of the body so as to rule it (ie., the body); the four—eyes, ears, mouth, and heels—serve as its ministers. The heart-mind is what is called the centre."
+    },
+    {
+      "row_index": 1,
+      "passage_number": 2,
+      "source": "心所為美惡，復訶若影；心所出小大，因命若響。",
+      "candidate": "What the mind does, whether good or evil, returns/reproaches like a shadow; what the mind sends forth, whether small or great, follows the call like an echo.",
+      "reference": "What the heart-mind does, whether good or evil, returns like a shadow; what the mind sends forth, whether small or great, follows the command like an echo."
+    },
+    {
+      "row_index": 2,
+      "passage_number": 3,
+      "source": "心欲見之，目故視之；心欲聞之，耳故聽之；心欲道之，口故言之；心欲用之，踵故舉之。",
+      "candidate": "When the mind wishes to see it, the eyes therefore look at it; when the mind wishes to hear it, the ears therefore listen to it; when the mind wishes to speak of it, the mouth therefore says it; when the mind wishes to use it, the heel therefore lifts it.",
+      "reference": "When the heart-mind desires to see it, the eyes therefore look at it; when the mind desire to hear it, the ears therefore listen to it; when the heart-mind desires to speak of it, the mouth therefore says it; when the heart-mind desires to use it, the heel therefore lifts it."
+    },
+    {
+      "row_index": 3,
+      "passage_number": 4,
+      "source": "心靜毋有所至，百體四相莫不。為君者其監於此，以君民人。",
+      "candidate": "Keep the mind still, with nothing to which it goes. Of the hundred bodily parts and the four forms, none is not [affected / responsive]. Let one who is a ruler take this as his mirror, and so rule the people.",
+      "reference": "When the heart-mind is calm, none of the hundred bodies’ four ministers (ie., eyes, ears, mouth, and heels) is not (still). One who is the ruler should observe that so that he can rule the people."
+    },
+    {
+      "row_index": 4,
+      "passage_number": 5,
+      "source": "人之有為，而不知其卒，不唯謀而不度乎？如謀而不度，則無以知短長。短長弗知，妄作衡觸，而有成功，名之曰幸。",
+      "candidate": "When people undertake something yet do not know its outcome, is it not simply that they plan but do not take measure? If they plan but do not take measure, then they have no means to know what is short and what is long. Not knowing short and long, they act rashly, striking crosswise and colliding; if they achieve success, it is called luck.",
+      "reference": "When one does something and yet does not know its result, is it not simply that he plans but does not take measure? If he plans but does not take measure, then he has no way to know what is short and what is long. Not knowing short and long, he acts rashly, making crossings-and-collisions. If he was successful, it would be what is named luck."
+    },
+    {
+      "row_index": 5,
+      "passage_number": 6,
+      "source": "幸，天；知事之卒，心。必心與天兩，事焉果成。",
+      "candidate": "Good fortune is Heaven; knowing the outcome of an affair is the mind. Only when mind and Heaven are both present does the affair thereby truly come to completion.",
+      "reference": "Luck is (due to) Heaven; knowing the outcome of an affair is (because of) the heart-mind. It must be with both heart-mind and Heaven can the affair truly come to completion."
+    },
+    {
+      "row_index": 6,
+      "passage_number": 7,
+      "source": "寧心謀之、稽之、度之、鑒之，聞訊視聽，在善之麏，心焉為之。",
+      "candidate": "Calm the mind and deliberate on it; examine it, measure it, and take it as a mirror. In hearing and questioning, in looking and listening, amid the gathered “herd” of what is good, the mind there acts for it.",
+      "reference": "The tranquil heart-mind deliberates on it, examines it, measures it, and reflects on it. In hearing, questioning, looking and listening, lies within the gathered goodness (for which) the heart-mind thereby acts for it."
+    },
+    {
+      "row_index": 7,
+      "passage_number": 8,
+      "source": "斷命在天，苛疾在鬼，取命在人。人有天命，其亦有身命。",
+      "candidate": "The determining of life-allotment lies with Heaven; harsh illnesses lie with ghosts; the taking of life lies with human beings. A person has a Heaven-given allotment; he also has a bodily allotment of life.",
+      "reference": "The determining of life-allotment lies with Heaven; severe illness lies with ghosts; the taking of life lies with human beings. A person has a Heaven-given allotment; he also has a bodily life."
+    },
+    {
+      "row_index": 8,
+      "passage_number": 9,
+      "source": "心厥為死，心厥為生。死生在天，其亦失在心。",
+      "candidate": "The heart-mind: through it one dies; the heart-mind: through it one lives. Death and life rest with Heaven, yet perhaps the fault also lies in the heart-mind.",
+      "reference": "The heart-mind is what leads to death, the heart-mind is what leads to life.  Death and life rest with Heaven, yet perhaps their failure, too lies in the heart-mind."
+    },
+    {
+      "row_index": 9,
+      "passage_number": 10,
+      "source": "君、公、侯、王、庶人、平民，其毋獨祈保家沒身於鬼與天，其亦祈諸[心]與身。",
+      "candidate": "Let rulers, dukes, marquises, kings, commoners, and ordinary people not pray only to spirits and Heaven for the preservation of their households to the end of their lives; let them also seek it from their [mind/heart] and body.",
+      "reference": "Let rulers, dukes, marquises, kings, commoners, and ordinary people not pray merely to ghosts and Heaven for the preservation of their households to the end of their lives. Let them also seek it from their [mind/heart] and body."
+    }
+  ]
+}

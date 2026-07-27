@@ -37,6 +37,9 @@ This file is the current project task surface for Parallage / `variantum`.
 - [x] Analyse the rating and translation data.
 - [x] Write the conference talk.
   - Talk length: `15` minutes.
+- [x] Deliver the conference talk at AI4AS/DH2026.
+  - Delivered on `2026-07-27` from `12:00` to `12:15` AEST, corresponding
+    to the second presentation in the official `10:45`-`11:15` KST session.
 
 ## Publication and experiment plan
 
@@ -47,8 +50,10 @@ The detailed plan and the 2026-07-27 communication record are in
   agreement to the publication and HREC plan.
 - [ ] Confirm whether AI4AS/DH2026 will publish proceedings, a special issue or
   an edited volume.
-- [ ] Reconcile the final v2 conference script with the fuller paper and shape
+- [x] Reconcile the final v2 conference script with the fuller paper and shape
   it for a computational-linguistics audience.
+- [x] Prepare a complete co-author circulation bundle containing the paper,
+  current presentation sources, proposed full data release and analysis code.
 - [ ] Circulate the paper to all co-authors and obtain approval for the public
   version.
 - [ ] Find an arXiv computing endorser and submit the approved paper to
