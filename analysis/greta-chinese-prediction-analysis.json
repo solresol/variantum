@@ -1,0 +1,310 @@
+{
+  "question": "Did Greta correctly predict which focal Chinese translations would differ from Shirley's ground truth?",
+  "population": {
+    "corpus": "xin-shi-wei-zhong",
+    "reviewer": "greta",
+    "rated_focal_translations": 10,
+    "rating_scale": "0 = expected same; 10 = expected very different",
+    "reference_translator": "Shirley Chan",
+    "reference_document": "translationSC.docx",
+    "reference_document_sha256": "7828dd03d0370df90f7ea228c77756238bc6157409d1c60a3e06c754f7e4449b"
+  },
+  "primary_result": {
+    "spearman_rating_vs_composite_divergence": 0.4724282017376836,
+    "spearman_p_two_sided_asymptotic": 0.16796855541167924,
+    "spearman_bootstrap_95_ci": [
+      -0.2715376933208523,
+      0.8508108033360613
+    ],
+    "exact_permutation_p_one_sided": 0.08482804232804232,
+    "unique_rating_permutations": 226800,
+    "bootstrap_samples": 20000,
+    "kendall_tau": 0.3026531281668172,
+    "kendall_p_two_sided": 0.23727785186827832,
+    "pairwise_order": {
+      "correct": 27,
+      "incorrect": 14,
+      "tied_or_unscored": 4,
+      "comparable_pairs": 41,
+      "accuracy": 0.6585365853658537
+    },
+    "mean_absolute_rank_error_0_to_10": 2.611111111111111,
+    "top_3_worst_overlap": 2,
+    "top_3_best_overlap": 1,
+    "predicted_worst_passages": [
+      6,
+      5,
+      4
+    ],
+    "actual_worst_passages": [
+      4,
+      7,
+      6
+    ],
+    "predicted_best_passages": [
+      9,
+      1,
+      10
+    ],
+    "actual_best_passages": [
+      10,
+      8,
+      3
+    ]
+  },
+  "by_treatment": {
+    "parallage": {
+      "n": 5,
+      "mean_rating": 5.8,
+      "mean_composite_divergence": 5.194444444444445,
+      "mean_absolute_rank_error": 2.638888888888889,
+      "pearson_r": 0.7673920859112804,
+      "pearson_p_two_sided": 0.1298688392019753,
+      "spearman_rho": 0.49999999999999994,
+      "spearman_p_two_sided_asymptotic": 0.3910022189557703,
+      "spearman_exact_p_two_sided": 0.45,
+      "unique_rating_permutations": 120,
+      "kendall_tau": 0.19999999999999998,
+      "kendall_p_two_sided": 0.8166666666666667,
+      "pairwise_order": {
+        "correct": 6,
+        "incorrect": 4,
+        "tied_or_unscored": 0,
+        "comparable_pairs": 10,
+        "accuracy": 0.6
+      }
+    },
+    "single": {
+      "n": 5,
+      "mean_rating": 4.4,
+      "mean_composite_divergence": 4.805555555555555,
+      "mean_absolute_rank_error": 2.5833333333333335,
+      "pearson_r": 0.33638370864471656,
+      "pearson_p_two_sided": 0.5799231762041778,
+      "spearman_rho": 0.19999999999999998,
+      "spearman_p_two_sided_asymptotic": 0.7470600781046621,
+      "spearman_exact_p_two_sided": 0.7833333333333333,
+      "unique_rating_permutations": 120,
+      "kendall_tau": 0.19999999999999998,
+      "kendall_p_two_sided": 0.8166666666666667,
+      "pairwise_order": {
+        "correct": 6,
+        "incorrect": 4,
+        "tied_or_unscored": 0,
+        "comparable_pairs": 10,
+        "accuracy": 0.6
+      }
+    }
+  },
+  "by_treatment_xcomet": {
+    "parallage": {
+      "n": 5,
+      "metric": "xcomet",
+      "pearson_r": -0.8412572855153555,
+      "pearson_p_two_sided": 0.07408892352243433,
+      "spearman_rho": -0.7999999999999999,
+      "spearman_p_two_sided_asymptotic": 0.10408803866182788,
+      "spearman_exact_p_two_sided": 0.13333333333333333,
+      "unique_rating_permutations": 120,
+      "kendall_tau": -0.6,
+      "kendall_p_two_sided": 0.23333333333333334
+    },
+    "single": {
+      "n": 5,
+      "metric": "xcomet",
+      "pearson_r": -0.34161629235155694,
+      "pearson_p_two_sided": 0.5736553537067508,
+      "spearman_rho": -0.6,
+      "spearman_p_two_sided_asymptotic": 0.28475697986529386,
+      "spearman_exact_p_two_sided": 0.35,
+      "unique_rating_permutations": 120,
+      "kendall_tau": -0.39999999999999997,
+      "kendall_p_two_sided": 0.48333333333333334
+    }
+  },
+  "metric_statistics": [
+    {
+      "metric": "bleu4",
+      "label": "BLEU-4",
+      "available": true,
+      "mean": 0.4951766391470932,
+      "min": 0.09223350291325146,
+      "max": 0.8334676561678644,
+      "spearman_rating_vs_similarity": -0.4172093210150972,
+      "spearman_p_two_sided": 0.2303096796639077,
+      "spearman_exact_p_two_sided": 0.23013227513227513,
+      "unique_rating_permutations": 226800,
+      "kendall_rating_vs_similarity": -0.3026531281668172,
+      "kendall_p_two_sided": 0.23727785186827832
+    },
+    {
+      "metric": "chrfpp",
+      "label": "chrF++",
+      "available": true,
+      "mean": 0.6737803531199522,
+      "min": 0.3656891687603487,
+      "max": 0.9038867241135911,
+      "spearman_rating_vs_similarity": -0.5644596696086609,
+      "spearman_p_two_sided": 0.08915310781357491,
+      "spearman_exact_p_two_sided": 0.09358024691358025,
+      "unique_rating_permutations": 226800,
+      "kendall_rating_vs_similarity": -0.3492151478847891,
+      "kendall_p_two_sided": 0.17268204141874843
+    },
+    {
+      "metric": "meteor",
+      "label": "METEOR",
+      "available": true,
+      "mean": 0.7430436460483858,
+      "min": 0.4625670241286864,
+      "max": 0.9484650971137457,
+      "spearman_rating_vs_similarity": -0.2945006971871274,
+      "spearman_p_two_sided": 0.4088058416972339,
+      "spearman_exact_p_two_sided": 0.40668430335097,
+      "unique_rating_permutations": 226800,
+      "kendall_rating_vs_similarity": -0.20952908873087348,
+      "kendall_p_two_sided": 0.4132533754936404
+    },
+    {
+      "metric": "rouge_l",
+      "label": "ROUGE-L",
+      "available": true,
+      "mean": 0.7517776480719046,
+      "min": 0.4155844155844156,
+      "max": 0.9487179487179487,
+      "spearman_rating_vs_similarity": -0.3374487155269168,
+      "spearman_p_two_sided": 0.34030016731737645,
+      "spearman_exact_p_two_sided": 0.3388447971781305,
+      "unique_rating_permutations": 226800,
+      "kendall_rating_vs_similarity": -0.2560911084488453,
+      "kendall_p_two_sided": 0.31731050786291415
+    },
+    {
+      "metric": "unigram_f1",
+      "label": "word unigram F1",
+      "available": true,
+      "mean": 0.7428073623274253,
+      "min": 0.5194805194805195,
+      "max": 0.9487179487179487,
+      "spearman_rating_vs_similarity": -0.39266759624950326,
+      "spearman_p_two_sided": 0.26167818627291756,
+      "spearman_exact_p_two_sided": 0.26055555555555554,
+      "unique_rating_permutations": 226800,
+      "kendall_rating_vs_similarity": -0.3026531281668172,
+      "kendall_p_two_sided": 0.23727785186827832
+    },
+    {
+      "metric": "trigram_f1",
+      "label": "word trigram F1",
+      "available": true,
+      "mean": 0.4570064892418997,
+      "min": 0.05714285714285714,
+      "max": 0.8648648648648649,
+      "spearman_rating_vs_similarity": -0.5399179448430669,
+      "spearman_p_two_sided": 0.10718505398102061,
+      "spearman_exact_p_two_sided": 0.11116402116402116,
+      "unique_rating_permutations": 226800,
+      "kendall_rating_vs_similarity": -0.3026531281668172,
+      "kendall_p_two_sided": 0.23727785186827832
+    },
+    {
+      "metric": "char_trigram_f1",
+      "label": "character trigram F1",
+      "available": true,
+      "mean": 0.6845666315609367,
+      "min": 0.3443708609271523,
+      "max": 0.9355742296918768,
+      "spearman_rating_vs_similarity": -0.5644596696086609,
+      "spearman_p_two_sided": 0.08915310781357491,
+      "spearman_exact_p_two_sided": 0.09358024691358025,
+      "unique_rating_permutations": 226800,
+      "kendall_rating_vs_similarity": -0.3492151478847891,
+      "kendall_p_two_sided": 0.17268204141874843
+    },
+    {
+      "metric": "word_edit_similarity",
+      "label": "word edit similarity",
+      "available": true,
+      "mean": 0.6614731687158157,
+      "min": 0.275,
+      "max": 0.9487179487179487,
+      "spearman_rating_vs_similarity": -0.5215116512688716,
+      "spearman_p_two_sided": 0.12211083031892082,
+      "spearman_exact_p_two_sided": 0.12521164021164022,
+      "unique_rating_permutations": 226800,
+      "kendall_rating_vs_similarity": -0.39577716760276094,
+      "kendall_p_two_sided": 0.1222363554480118
+    },
+    {
+      "metric": "bertscore",
+      "label": "BERTScore F1",
+      "available": true,
+      "mean": 0.9497907757759094,
+      "min": 0.8777416348457336,
+      "max": 0.9908276796340942,
+      "spearman_rating_vs_similarity": -0.39880302744090174,
+      "spearman_p_two_sided": 0.2536265758947302,
+      "spearman_exact_p_two_sided": 0.25260141093474425,
+      "unique_rating_permutations": 226800,
+      "kendall_rating_vs_similarity": -0.2560911084488453,
+      "kendall_p_two_sided": 0.31731050786291415
+    },
+    {
+      "metric": "comet",
+      "label": "COMET",
+      "available": true,
+      "mean": 0.7665269851684571,
+      "min": 0.6128602623939514,
+      "max": 0.8537159562110901,
+      "spearman_rating_vs_similarity": -0.5399179448430669,
+      "spearman_p_two_sided": 0.10718505398102061,
+      "spearman_exact_p_two_sided": 0.11116402116402116,
+      "unique_rating_permutations": 226800,
+      "kendall_rating_vs_similarity": -0.3492151478847891,
+      "kendall_p_two_sided": 0.17268204141874843
+    },
+    {
+      "metric": "xcomet",
+      "label": "XCOMET-XL",
+      "available": true,
+      "mean": 0.6419888496398926,
+      "min": 0.3230798840522766,
+      "max": 0.8300809860229492,
+      "spearman_rating_vs_similarity": -0.73011631177642,
+      "spearman_p_two_sided": 0.01650624549810054,
+      "spearman_exact_p_two_sided": 0.02029100529100529,
+      "unique_rating_permutations": 226800,
+      "kendall_rating_vs_similarity": -0.5354632267566766,
+      "kendall_p_two_sided": 0.0365362140230813
+    },
+    {
+      "metric": "bleurt",
+      "label": "BLEURT",
+      "available": true,
+      "mean": 0.7304965615272522,
+      "min": 0.48247212171554565,
+      "max": 0.8578925728797913,
+      "spearman_rating_vs_similarity": -0.6258139815226457,
+      "spearman_p_two_sided": 0.05293998593783675,
+      "spearman_exact_p_two_sided": 0.05837742504409171,
+      "unique_rating_permutations": 226800,
+      "kendall_rating_vs_similarity": -0.44233918732073285,
+      "kendall_p_two_sided": 0.08411869479791352
+    }
+  ],
+  "data_quality": {
+    "reference_rows": 10,
+    "focal_rows": 10,
+    "latest_rating_rows": 10,
+    "completed_translation_runs": 280,
+    "profile_count": 28,
+    "rating_join_coverage": "10/10",
+    "focal_neural_rows_complete": 10
+  },
+  "neural_metric_status": {
+    "bertscore": "sidecar bert-score F1",
+    "comet": "sidecar Unbabel/wmt22-comet-da",
+    "xcomet": "sidecar Unbabel/XCOMET-XL",
+    "bleurt": "sidecar BLEURT checkpoint /home/stephanos/metric-envs/bleurt/BLEURT-20"
+  }
+}

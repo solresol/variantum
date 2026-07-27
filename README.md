@@ -31,6 +31,20 @@ rebuilds the paper on relevant pushes and pull requests, checks that the PDF is
 readable, and uploads the result as a 30-day workflow artifact. It can also be
 run manually from the Actions tab.
 
+### Preparing the arXiv package
+
+The arXiv source tree, review PDF, and upload-ready source archive live under
+`outputs/arxiv/`. Rebuild them from the current Markdown manuscript and run the
+package checks with:
+
+```bash
+make arxiv-check
+```
+
+This produces `outputs/arxiv/into-the-parallage-arxiv.pdf` for review and
+`outputs/arxiv/into-the-parallage-arxiv-source.zip` for submission. See
+`outputs/arxiv/README.md` for the remaining co-author and submission checks.
+
 ### Conference presentation sources
 
 The hand-edited Word speaker script and PowerPoint deck are first-class sources

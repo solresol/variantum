@@ -1,0 +1,491 @@
+{
+  "surface": "report",
+  "manifest": {
+    "version": 1,
+    "surface": "report",
+    "title": "Chinese passage length and translation scores",
+    "description": "Passage-level length diagnostic and length-adjusted evaluation of Greta's predictions.",
+    "generatedAt": "2026-07-27T06:20:10.314673+00:00",
+    "sources": [
+      {
+        "id": "all-profile-metrics",
+        "label": "Passage-level Chinese length metrics",
+        "path": "analysis/greta-chinese-length-metrics.csv",
+        "query": {
+          "engine": "duckdb",
+          "language": "sql",
+          "sql": "SELECT passage_number, passage_label, treatment, source_han_characters, reference_words, profile_count, passage_mean_primary_lexical_similarity, passage_mean_bleu4, passage_mean_chrfpp, passage_mean_meteor, passage_mean_rouge_l FROM read_csv_auto('analysis/greta-chinese-length-metrics.csv') ORDER BY passage_number",
+          "description": "Collapse the balanced 28-profile translation grid to one mean score per passage, then associate passage means with source length.",
+          "tables_used": [
+            "analysis/chinese-all-translation-metrics.csv",
+            "data/chinese-passages/xin-shi-wei-zhong.json"
+          ],
+          "filters": [
+            "10 Xin Shi Wei Zhong passages",
+            "28 completed profiles per passage",
+            "one passage mean used as each independent observation"
+          ],
+          "metric_definitions": {
+            "source_han_characters": "Count Han-script code points in each Chinese source passage.",
+            "passage_mean_primary_lexical_similarity": "Mean of passage-level BLEU-4, chrF++, METEOR, and ROUGE-L, with each metric first averaged over 28 profiles."
+          }
+        }
+      },
+      {
+        "id": "focal-prediction-metrics",
+        "label": "Passage-level Greta length-adjustment metrics",
+        "path": "analysis/greta-chinese-length-metrics.csv",
+        "query": {
+          "engine": "duckdb",
+          "language": "sql",
+          "sql": "SELECT passage_number, passage_label, treatment, source_han_characters, reference_words, greta_rating, raw_composite_divergence, source_length_adjusted_composite_badness FROM read_csv_auto('analysis/greta-chinese-length-metrics.csv') ORDER BY passage_number",
+          "description": "Compare Greta's ten ratings with unadjusted and length-residualized eight-metric translation badness.",
+          "tables_used": [
+            "analysis/greta-chinese-ground-truth-metrics.csv",
+            "data/chinese-passages/xin-shi-wei-zhong.json"
+          ],
+          "filters": [
+            "one focal translation per passage",
+            "Shirley reference present",
+            "all eight primary metrics present"
+          ],
+          "metric_definitions": {
+            "unadjusted_spearman": "Spearman correlation between Greta rating and the eight-metric within-sample divergence rank.",
+            "adjusted_spearman": "Spearman correlation between Greta rating and mean standardized residual badness after score ~ log(source Han characters) for each of eight metrics."
+          }
+        }
+      }
+    ],
+    "cards": [
+      {
+        "id": "length-rho",
+        "dataset": "headline_metrics",
+        "description": "Spearman correlation using ten passage means; positive means longer passages scored better.",
+        "sourceId": "all-profile-metrics",
+        "metrics": [
+          {
+            "label": "Spearman rho",
+            "field": "length_score_rho",
+            "format": "number",
+            "signed": true
+          },
+          {
+            "label": "two-sided p",
+            "field": "length_score_p",
+            "format": "number"
+          }
+        ]
+      },
+      {
+        "id": "greta-raw-rho",
+        "dataset": "headline_metrics",
+        "description": "Rating versus eight-metric divergence rank.",
+        "sourceId": "focal-prediction-metrics",
+        "metrics": [
+          {
+            "label": "Spearman rho",
+            "field": "raw_rho",
+            "format": "number",
+            "signed": true
+          },
+          {
+            "label": "exact p",
+            "field": "raw_p",
+            "format": "number"
+          }
+        ]
+      },
+      {
+        "id": "greta-adjusted-rho",
+        "dataset": "headline_metrics",
+        "description": "Rating versus eight-metric residual badness after controlling for source length.",
+        "sourceId": "focal-prediction-metrics",
+        "metrics": [
+          {
+            "label": "Spearman rho",
+            "field": "adjusted_rho",
+            "format": "number",
+            "signed": true
+          },
+          {
+            "label": "exact p",
+            "field": "adjusted_p",
+            "format": "number"
+          }
+        ]
+      }
+    ],
+    "charts": [
+      {
+        "id": "length-score-scatter",
+        "title": "Source length and passage-average lexical similarity",
+        "subtitle": "Ten passages; each score averages the same 28 translation profiles. The observed association is near zero.",
+        "type": "scatter",
+        "dataset": "passages",
+        "sourceId": "all-profile-metrics",
+        "encodings": {
+          "x": {
+            "field": "source_han_characters",
+            "type": "quantitative",
+            "title": "Source length (Han characters)"
+          },
+          "y": {
+            "field": "passage_mean_primary_lexical_similarity",
+            "type": "quantitative",
+            "title": "Passage-average lexical similarity"
+          }
+        }
+      }
+    ],
+    "tables": [
+      {
+        "id": "metric-length-table",
+        "title": "Source-length association by lexical metric",
+        "dataset": "metric_associations",
+        "sourceId": "all-profile-metrics",
+        "columns": [
+          {
+            "field": "metric",
+            "label": "Metric",
+            "type": "text"
+          },
+          {
+            "field": "spearman_rho",
+            "label": "Spearman rho",
+            "type": "number"
+          },
+          {
+            "field": "p_two_sided",
+            "label": "p (two-sided)",
+            "type": "number"
+          },
+          {
+            "field": "pearson_r",
+            "label": "Pearson r",
+            "type": "number"
+          },
+          {
+            "field": "n_passages",
+            "label": "n passages",
+            "type": "number"
+          }
+        ],
+        "defaultSort": {
+          "field": "spearman_rho",
+          "direction": "desc"
+        }
+      }
+    ],
+    "blocks": [
+      {
+        "id": "title",
+        "type": "markdown",
+        "body": "# Chinese passage length and translation scores"
+      },
+      {
+        "id": "summary",
+        "type": "markdown",
+        "body": "## Technical summary\n\nLonger Chinese passages did **not** score worse in this ten-passage sample. Source length versus passage-average lexical similarity was rho=0.122 (p=0.738); the sign is weakly positive. Greta's association increased from rho=0.472 unadjusted to rho=0.546 after source-length adjustment. Length does not explain away the observed prediction signal."
+      },
+      {
+        "id": "metrics",
+        "type": "metric-strip",
+        "cardIds": [
+          "length-rho",
+          "greta-raw-rho",
+          "greta-adjusted-rho"
+        ]
+      },
+      {
+        "id": "length-finding",
+        "type": "markdown",
+        "body": "## Longer passages do not show a score penalty\n\nThe chart uses one independent observation per passage. The 280 profile-passage rows were collapsed to ten passage means before testing length, so profile repetitions do not inflate the sample size.",
+        "sourceId": "all-profile-metrics"
+      },
+      {
+        "id": "length-chart",
+        "type": "chart",
+        "chartId": "length-score-scatter"
+      },
+      {
+        "id": "metric-check",
+        "type": "markdown",
+        "body": "## No lexical metric shows a convincing adverse length association\n\nThe individual metrics vary around zero. Exact values are shown below; a negative coefficient would mean worse similarity for longer passages.",
+        "sourceId": "all-profile-metrics"
+      },
+      {
+        "id": "metric-table",
+        "type": "table",
+        "tableId": "metric-length-table"
+      },
+      {
+        "id": "control-finding",
+        "type": "markdown",
+        "body": "## Length adjustment modestly strengthens Greta's association\n\nThe unadjusted result was rho=0.472 (exact one-sided p=0.0848). After fitting each of eight similarity metrics against log source length and averaging standardized residual badness, rho=0.546 (exact one-sided p=0.0534).",
+        "sourceId": "focal-prediction-metrics"
+      },
+      {
+        "id": "methods",
+        "type": "markdown",
+        "body": "## Scope, method, and uncertainty\n\n**Length:** Han-character count is primary; Shirley reference-word count is a sensitivity check. **Score:** the population diagnostic averages BLEU-4, chrF++, METEOR, and ROUGE-L over 28 profiles per passage. **Adjustment:** each of eight focal metrics is regressed on log length; negative standardized residuals are averaged as badness. **Limits:** n=10, source length spans 16-43 characters, and the adjustment models are fitted to the same ten passages rather than an external calibration corpus. The associations are diagnostic, not causal."
+      },
+      {
+        "id": "next-steps",
+        "type": "markdown",
+        "body": "## Recommended next steps\n\nTreat the source-length-adjusted estimate as a robustness check, not a new primary endpoint. Refit the length model when a substantially larger Chinese passage set is available, ideally before examining Greta's ratings."
+      },
+      {
+        "id": "questions",
+        "type": "markdown",
+        "body": "## Further questions\n\nWould semantic or syntactic complexity explain the remaining passage-level variation better than raw length? Does the apparent increase in the single-passage group persist beyond five observations?"
+      }
+    ]
+  },
+  "snapshot": {
+    "version": 1,
+    "status": "ready",
+    "generatedAt": "2026-07-27T06:20:10.314673+00:00",
+    "datasets": {
+      "headline_metrics": [
+        {
+          "length_score_rho": 0.12158110873601292,
+          "length_score_p": 0.7379379712336096,
+          "raw_rho": 0.4724282017376836,
+          "raw_p": 0.08482804232804232,
+          "adjusted_rho": 0.5460533760344654,
+          "adjusted_p": 0.05343033509700176
+        }
+      ],
+      "passages": [
+        {
+          "passage": "P1",
+          "passage_number": 1,
+          "source_han_characters": 21,
+          "reference_words": 42,
+          "passage_mean_primary_lexical_similarity": 0.39767169785714285,
+          "greta_rating": 3.0,
+          "raw_composite_divergence": 4.58333333,
+          "source_length_adjusted_composite_badness": -0.18130320772893474,
+          "treatment": "parallage",
+          "profile_count": 28
+        },
+        {
+          "passage": "P2",
+          "passage_number": 2,
+          "source_han_characters": 18,
+          "reference_words": 28,
+          "passage_mean_primary_lexical_similarity": 0.4164687763392857,
+          "greta_rating": 4.0,
+          "raw_composite_divergence": 3.19444444,
+          "source_length_adjusted_composite_badness": -0.8538465586553188,
+          "treatment": "single",
+          "profile_count": 28
+        },
+        {
+          "passage": "P3",
+          "passage_number": 3,
+          "source_han_characters": 32,
+          "reference_words": 54,
+          "passage_mean_primary_lexical_similarity": 0.45445591205357144,
+          "greta_rating": 4.0,
+          "raw_composite_divergence": 2.08333333,
+          "source_length_adjusted_composite_badness": -0.7055503633596332,
+          "treatment": "parallage",
+          "profile_count": 28
+        },
+        {
+          "passage": "P4",
+          "passage_number": 4,
+          "source_han_characters": 23,
+          "reference_words": 37,
+          "passage_mean_primary_lexical_similarity": 0.22134922258928572,
+          "greta_rating": 8.0,
+          "raw_composite_divergence": 10.0,
+          "source_length_adjusted_composite_badness": 1.9065707179745444,
+          "treatment": "parallage",
+          "profile_count": 28
+        },
+        {
+          "passage": "P5",
+          "passage_number": 5,
+          "source_han_characters": 43,
+          "reference_words": 68,
+          "passage_mean_primary_lexical_similarity": 0.319011161875,
+          "greta_rating": 8.0,
+          "raw_composite_divergence": 5.83333333,
+          "source_length_adjusted_composite_badness": 0.45536156978365405,
+          "treatment": "single",
+          "profile_count": 28
+        },
+        {
+          "passage": "P6",
+          "passage_number": 6,
+          "source_han_characters": 16,
+          "reference_words": 33,
+          "passage_mean_primary_lexical_similarity": 0.30687054973214284,
+          "greta_rating": 9.0,
+          "raw_composite_divergence": 7.63888889,
+          "source_length_adjusted_composite_badness": 0.38497962839832234,
+          "treatment": "parallage",
+          "profile_count": 28
+        },
+        {
+          "passage": "P7",
+          "passage_number": 7,
+          "source_han_characters": 22,
+          "reference_words": 35,
+          "passage_mean_primary_lexical_similarity": 0.2758415221428571,
+          "greta_rating": 5.0,
+          "raw_composite_divergence": 8.47222222,
+          "source_length_adjusted_composite_badness": 0.9675349927917958,
+          "treatment": "single",
+          "profile_count": 28
+        },
+        {
+          "passage": "P8",
+          "passage_number": 8,
+          "source_han_characters": 21,
+          "reference_words": 34,
+          "passage_mean_primary_lexical_similarity": 0.37669902875,
+          "greta_rating": 5.0,
+          "raw_composite_divergence": 1.66666667,
+          "source_length_adjusted_composite_badness": -0.9947534276449266,
+          "treatment": "parallage",
+          "profile_count": 28
+        },
+        {
+          "passage": "P9",
+          "passage_number": 9,
+          "source_han_characters": 17,
+          "reference_words": 32,
+          "passage_mean_primary_lexical_similarity": 0.3171363049107143,
+          "greta_rating": 2.0,
+          "raw_composite_divergence": 6.11111111,
+          "source_length_adjusted_composite_badness": 0.06162886574572124,
+          "treatment": "single",
+          "profile_count": 28
+        },
+        {
+          "passage": "P10",
+          "passage_number": 10,
+          "source_han_characters": 27,
+          "reference_words": 39,
+          "passage_mean_primary_lexical_similarity": 0.37571565839285714,
+          "greta_rating": 3.0,
+          "raw_composite_divergence": 0.41666667,
+          "source_length_adjusted_composite_badness": -1.0406222173052337,
+          "treatment": "single",
+          "profile_count": 28
+        }
+      ],
+      "metric_associations": [
+        {
+          "metric": "BLEU-4",
+          "spearman_rho": 0.21884599572482327,
+          "p_two_sided": 0.5435509174040241,
+          "pearson_r": 0.18367728113194204,
+          "n_passages": 10
+        },
+        {
+          "metric": "chrF++",
+          "spearman_rho": 0.18237166310401937,
+          "p_two_sided": 0.6140677514955035,
+          "pearson_r": 0.21836216909820239,
+          "n_passages": 10
+        },
+        {
+          "metric": "METEOR",
+          "spearman_rho": -0.11550205329921227,
+          "p_two_sided": 0.750683041040583,
+          "pearson_r": -0.10342216145241698,
+          "n_passages": 10
+        },
+        {
+          "metric": "ROUGE-L",
+          "spearman_rho": 0.12158110873601292,
+          "p_two_sided": 0.7379379712336096,
+          "pearson_r": 0.12358268697781954,
+          "n_passages": 10
+        },
+        {
+          "metric": "word unigram F1",
+          "spearman_rho": 0.16413449679361744,
+          "p_two_sided": 0.6504731396988412,
+          "pearson_r": 0.16600698169782765,
+          "n_passages": 10
+        },
+        {
+          "metric": "word trigram F1",
+          "spearman_rho": -0.07294866524160776,
+          "p_two_sided": 0.8412712675592938,
+          "pearson_r": 0.047900115943841935,
+          "n_passages": 10
+        },
+        {
+          "metric": "character trigram F1",
+          "spearman_rho": 0.18237166310401937,
+          "p_two_sided": 0.6140677514955035,
+          "pearson_r": 0.18828347778532725,
+          "n_passages": 10
+        },
+        {
+          "metric": "word edit similarity",
+          "spearman_rho": -0.048632443494405174,
+          "p_two_sided": 0.8938677821006588,
+          "pearson_r": 0.03383194148604481,
+          "n_passages": 10
+        }
+      ]
+    }
+  },
+  "sources": [
+    {
+      "id": "all-profile-metrics",
+      "label": "Passage-level Chinese length metrics",
+      "path": "analysis/greta-chinese-length-metrics.csv",
+      "query": {
+        "engine": "duckdb",
+        "language": "sql",
+        "sql": "SELECT passage_number, passage_label, treatment, source_han_characters, reference_words, profile_count, passage_mean_primary_lexical_similarity, passage_mean_bleu4, passage_mean_chrfpp, passage_mean_meteor, passage_mean_rouge_l FROM read_csv_auto('analysis/greta-chinese-length-metrics.csv') ORDER BY passage_number",
+        "description": "Collapse the balanced 28-profile translation grid to one mean score per passage, then associate passage means with source length.",
+        "tables_used": [
+          "analysis/chinese-all-translation-metrics.csv",
+          "data/chinese-passages/xin-shi-wei-zhong.json"
+        ],
+        "filters": [
+          "10 Xin Shi Wei Zhong passages",
+          "28 completed profiles per passage",
+          "one passage mean used as each independent observation"
+        ],
+        "metric_definitions": {
+          "source_han_characters": "Count Han-script code points in each Chinese source passage.",
+          "passage_mean_primary_lexical_similarity": "Mean of passage-level BLEU-4, chrF++, METEOR, and ROUGE-L, with each metric first averaged over 28 profiles."
+        }
+      }
+    },
+    {
+      "id": "focal-prediction-metrics",
+      "label": "Passage-level Greta length-adjustment metrics",
+      "path": "analysis/greta-chinese-length-metrics.csv",
+      "query": {
+        "engine": "duckdb",
+        "language": "sql",
+        "sql": "SELECT passage_number, passage_label, treatment, source_han_characters, reference_words, greta_rating, raw_composite_divergence, source_length_adjusted_composite_badness FROM read_csv_auto('analysis/greta-chinese-length-metrics.csv') ORDER BY passage_number",
+        "description": "Compare Greta's ten ratings with unadjusted and length-residualized eight-metric translation badness.",
+        "tables_used": [
+          "analysis/greta-chinese-ground-truth-metrics.csv",
+          "data/chinese-passages/xin-shi-wei-zhong.json"
+        ],
+        "filters": [
+          "one focal translation per passage",
+          "Shirley reference present",
+          "all eight primary metrics present"
+        ],
+        "metric_definitions": {
+          "unadjusted_spearman": "Spearman correlation between Greta rating and the eight-metric within-sample divergence rank.",
+          "adjusted_spearman": "Spearman correlation between Greta rating and mean standardized residual badness after score ~ log(source Han characters) for each of eight metrics."
+        }
+      }
+    }
+  ]
+}

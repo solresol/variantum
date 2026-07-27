@@ -5,7 +5,7 @@ author:
   - "Shirley Chan"
   - "Vanessa Enriquez Raido"
   - "Greta Hawes"
-date: "Draft conference paper for AI4AS 2026, 27 July 2026"
+date: "Preprint, 27 July 2026"
 geometry: "margin=1in"
 fontsize: 12pt
 mainfont: "Times New Roman"
@@ -22,197 +22,265 @@ header-includes:
 
 # Abstract
 
-Generative AI is making translation abundant, including for ancient and under-translated texts. Abundance, however, does not by itself make translation more trustworthy. A single fluent output can hide the ambiguity, uncertainty, named-entity instability, and interpretive choice on which philological translation depends. This paper introduces Parallage: a way to make multiple AI-generated translations into a structured, inspectable translation pack. A pack presents deliberately different renderings of the same source passage, together with lightweight cues such as segmentation, named-entity handling, disagreement notes, uncertainty flags, and audit prompts. The aim is not to replace translators or to identify one automatic best answer. It is to make the plurality that expert translators already manage visible to readers, students, and reviewers who cannot directly verify the source language.
+Large language models make it inexpensive to generate many translations, including for ancient and under-translated texts, but they do not make those translations easy to verify. A single fluent output can conceal ambiguity, unstable named entities, and interpretive decisions from readers who cannot inspect the source language. We introduce **Parallage**, a human-facing method that presents a focal translation with deliberately differentiated helper variants and lightweight audit scaffolding. Unlike n-best reranking, minimum-Bayes-risk decoding, or self-consistency, Parallage does not collapse its candidate set into one answer or treat agreement among correlated outputs as independent corroboration. It preserves structured variation as an object for inspection.
 
-We present the rationale for Parallage, the current Greek and Classical Chinese pilot design, preliminary evidence from Stephanos of Byzantium translation-review data, and a preregistration plan for the confirmatory experiments. The early Greek data are promising but limited. Reviewer judgements produce analyzable signal, yet overlap metrics are strongly affected by passage length and cannot be treated as ground truth. This is why the next study must be public, preregistered, and explicit about what counts as success: better detection of fragile translations, better calibration, lower false reassurance, and useful translator workflow evidence, rather than only higher BLEU or ROUGE scores. Parallage therefore contributes a practical framework for responsible AI use in ancient-language translation: not more fluency, but more visible evidence.
+We implement the method for Ancient Greek and Classical Chinese, release a versioned library of twenty-seven helper profiles, and define an anticipated-divergence judgement that can be elicited before an expert reference is revealed. Formative co-author reviews show both possible signal and serious confounding. In ten Chinese passages, anticipated divergence correlates modestly with an eight-metric reference-divergence composite (Spearman rho = 0.47, exact one-sided p = 0.085); XCOMET-XL alone gives rho = -0.73 (exact two-sided p = 0.020). Source length does not explain the Chinese pattern. In Greek, however, one reviewer's ratings track passage length, and length-adjusted overlap measures remain weak and inconclusive. The five-pack/five-single Chinese split is too small and order-confounded to estimate a treatment effect, while timing instrumentation fails in the single-output condition. We therefore make no efficacy claim. The contribution is a reproducible way to generate and expose translation multiplicity, an auditable pilot, and a controlled-study protocol for testing whether structured alternatives improve issue detection and confidence calibration.
 
-# 1. The Problem: Fluent Translation Can Hide Fragility
+# 1. Abundant Translation, Scarce Verification
 
-Translation is often presented to readers as a finished object. But a professional translator does not normally retrieve a single answer from the source text. They weigh competing possibilities, judge whether a term is technical or ordinary, decide whether an entity should be normalised or left strange, and manage the distance between source culture and target reader.
+Generative AI can produce fluent but incorrect translations quickly and cheaply, making it attractive for fragmentary, specialised, or under-translated ancient texts. Its failures can be concentrated rather than gradual. In a reference-free expert evaluation of Ancient Greek technical prose, Zainaldin et al. (2026) found high average performance but catastrophic failures on two terminology-dense passages, with terminology rarity the dominant predictor of failure. Standard automatic metrics were informative only when the candidate set contained wide quality variation. This combination—mostly fluent output, sparse severe failures, and incomplete metric discrimination—makes verification a retrieval problem as well as a translation problem: limited expert attention must be directed to the passages and decisions most likely to need it.
 
-Generative AI can produce fluent translations quickly, cheaply, and at scale, which makes generative AI translation very appealing for under-translated, fragmentary, specialised, or hard-to-access ancient texts.
+The verification problem is especially acute when no stable complete translation exists. Readers of New Testament Greek can triangulate with dictionaries, parallel translations, and extensive commentary. Readers of Stephanos of Byzantium's *Ethnica* or the Tsinghua bamboo manuscript *Xin shi wei zhong* often cannot. A non-reader of Greek or Classical Chinese cannot independently inspect the source script. If one of the translations sounds fluent, how can they tell if there are problems?
 
-This is a translation-specific version of a known machine-translation problem: hallucinated or unsupported material can look fluent enough to pass ordinary reading (Guerreiro, Voita, and Martins 2023).
+The central question is not whether a candidate can be made to look reliable, but whether a reader can be given useful evidence about where it may not be. Parallage uses a set of role-conditioned translations for that purpose. The outputs are not votes, and the most fluent or central output is not automatically selected as correct. The set is presented to a person who must decide where to distrust, investigate, or seek expert help.
 
-This is especially acute for ancient languages. In New Testament translation, many readers can triangulate with dictionaries, parallel translations, search results, and existing English versions. For Stephanos of Byzantium's *Ethnica* and for much Classical Chinese material, those resources do not exist. A non-reader of Greek or Classical Chinese cannot independently inspect the source script.
+This paper makes four contributions:
 
-Parallage asks what should happen now that translation is abundant but verification remains scarce.
+1. A reproducible parallel-pack method with one focal translation, twenty-seven versioned helper profiles, and generation provenance.
+2. A cross-script pilot over Ancient Greek and Classical Chinese.
+3. An anticipated-divergence instrument that non-readers can answer and later compare with an independent human rendering.
+4. An evidence-led protocol for a preregistered controlled study of whether packs improve issue detection and confidence calibration.
 
-# 2. What Parallage Is
+# 2. Related Work
 
-Parallage is the idea that we should generate and present parallel translation packs. Each pack contains multiple English renderings produced under distinct translation prompts.
+## 2.1 Multiple Hypotheses in Machine Translation
 
-Five sensible prompts that we have used are:
+Machine-translation systems have long generated candidate lists, lattices, or samples. Most computational uses of this multiplicity are decision procedures. Minimum-Bayes-risk decoding, for example, selects the candidate with the best expected utility under a model and metric rather than exposing the candidate set to a reader (Freitag et al. 2022). Multi-hypothesis evaluation instead uses diverse translations to model reference variation or quantify system uncertainty (Fomicheva, Specia, and Guzmán 2020). Parallage shares the premise that one reference and one output hide legitimate variation, but assigns multiplicity a different role: the variants are contrastive evidence in a user interface.
 
-1. A literal or source-facing rendering, intended to preserve local structure and expose compression.
-2. A readable rendering, intended to test whether the passage can be made coherent for a target reader.
-3. An interpretive rendering, intended to make scholarly commitments explicit.
-4. An uncertainty-marked rendering, intended to flag doubtful terms, unstable entities, and plausible alternatives.
-5. An adversarial or red-team rendering, intended to challenge the most fluent version and identify where it may be overconfident.
+This difference matters because candidate agreement is not a calibrated confidence estimate. Twenty-seven outputs from the same model family, prompted by related instructions and trained on overlapping data, are not twenty-seven independent witnesses. A shared error can appear stable across the pack. Conversely, deliberate style changes can produce surface disagreement without any underlying semantic dispute. Parallage therefore uses role diversity to elicit inspectable decisions, not majority voting.
 
-This is only a subset of the prompts now in the project. The wider pack includes more than twenty variants, including deliberately non-critical or playful forms such as rhyming couplets. Those are not all equally useful for every reader, but their presence matters methodologically: Parallage is not a claim that five roles are canonical. It is a way to test which forms of multiplicity actually help.
+## 2.2 Quality Estimation and Human Reliance
 
-Agreement across variants is evidence to inspect, not proof. Disagreement is also evidence to inspect, not failure. A divergent rendering may be wrong but useful because it exposes a decision that a single fluent output concealed.
+Reference-free quality estimation aims to predict translation quality when no human reference is available. Learned metrics can help locate errors, but quality scores do not by themselves determine how a person should rely on a translation. In a clinical study, Mehandru et al. (2023) found that quality-estimation feedback and back-translation affected different aspects of physicians' reliance decisions, illustrating the need to evaluate decision support in its context of use. Work on neural-MT hallucination detection likewise finds that fluent critical errors are rare and difficult to identify, and that commonly used detectors can fail in preventive settings (Guerreiro, Voita, and Martins 2023).
 
-## 2.1 Playful Outputs as Diagnostic Probes
+Parallage is complementary to quality estimation. It does not require a calibrated score at reading time, although scores and expert references can be used later to evaluate judgements. Its main object is the human decision: which spans or passages should be distrusted, and with what confidence?
 
-The playful profiles make this point unusually visible. At the current database snapshot, the rhyming profile contained twenty completed Greek runs rather than the planned hundred, and ten completed Classical Chinese runs. We reviewed the complete available set. The funniest output was the Chinese passage 7 rhyme, because it combines a competent opening with an unresolved lexical crux at the exact point where a poem normally supplies closure. The source includes the difficult phrase 在善之麏; 麏 can denote a deer and may be related here to a herd, cluster, or gathering:
+## 2.3 Sampling-Based Self-Checking
+
+Self-consistency, multi-agent debate, semantic entropy, and black-box self-checking generate multiple model outputs to select an answer or estimate uncertainty (Wang et al. 2023; Du et al. 2024; Farquhar et al. 2024; Manakul, Liusie, and Gales 2023). These approaches motivate using variation as evidence, while also exposing a limit relevant here: agreement can be uninformative when outputs are systematically wrong. Parallage moves the evidence boundary outward. Instead of using sampled variation only inside the system, it gives deliberately structured variation to the reader and measures the reader's subsequent judgement.
+
+# 3. The Parallage Method
+
+*Parallage* draws on Greek παραλλαγή, variation or alternation. A parallel translation pack contains three layers:
+
+1. A **focal translation**, representing the single fluent rendering at which a conventional interface might stop.
+2. **Helper variants**, generated under systematically different prompt profiles rather than by repeatedly sampling one prompt.
+3. **Audit scaffolding**, including source-segment alignment, named-entity handling, marked ambiguity points, disagreement cues, and review prompts.
+
+The current implementation has one focal profile and twenty-seven helper profiles. The helper count is the "twenty-seven prompts" described in the associated talk; including the focal profile gives twenty-eight generated outputs per passage in the Chinese analysis. The profiles fall into four functional families:
+
+| Family | Example profiles | Intended inspection function |
+|---|---|---|
+| Philological | diplomatic literal, interlinear gloss, syntax scaffold, minimal inference | expose source structure and supplied inference |
+| Reader-facing | scholarly readable, smooth idiomatic, controlled English, plain language | contrast editorial smoothing and accessibility choices |
+| Analytical | entity explicit, forked lattice, uncertainty annotated, decision log, adversarial, back-translation audit | surface entities, forks, confidence claims, drift, and possible counter-readings |
+| Creative/mnemonic | mnemonic, alliterative, rhyming | stress lexical choices under strong form constraints; not candidate critical translations |
+
+These roles are hypotheses about useful forms of multiplicity, not a claim that all twenty-seven helpers are necessary. Several profiles produce apparatus as well as translation text, and some "pack" profiles deliberately combine related functions. The controlled study will log which components readers actually use so that later versions can remove redundant or distracting roles.
+
+![Schematic of the core Parallage pack roles and inspection cues. A pack presents structured alternatives rather than treating the variants as a vote.](outputs/ai4as-2026-parallage/pptx_render/slide-3.png){width=100%}
+
+Agreement across variants is a cue to inspect, not proof. Outputs produced by related models and prompts are correlated and may repeat the same error. Disagreement is likewise a cue rather than a guarantee that one variant is correct. The method's claim is therefore narrower than ensemble corroboration: contrasting renderings can expose decisions that a single fluent output concealed.
+
+## 3.1 A Playful Variant as a Diagnostic Probe
+
+In Chinese passage 7, a rhyming profile encounters the difficult phrase 在善之麏. The working transcription permits uncertainty around 麏, which can denote a deer and may refer here to a herd, cluster, or gathering:
 
 > Calm the heart: devise it, search it, weigh its way;\
 > Hold it to the mirror's light by day.\
 > Hear, question, look, and listen where you should;\
-> The heart acts there—among the herd/deer? of good.
+> The heart acts there - among the herd/deer? of good.
 
-The last line is comic because the model refuses to choose between “herd” and “deer” while still forcing the uncertainty into a rhyme with “should.” It is also useful. The awkwardness exposes precisely what a fluent translation could conceal. Two other AI profiles make different decisions about the same passage:
+This is not a candidate critical translation. Its usefulness is diagnostic: the pressure to complete the rhyme makes the unresolved lexical choice impossible to miss.
 
-> **Diplomatic literal:** “Calm the heart and plan it; examine it; measure it; take mirror-warning from it. Hear, inquire, look, listen—being in the gathering/herd (?) of the good; the heart therein does it.”
+# 4. Corpora and Implementation
 
-> **Alliterative mnemonic:** “Settle the heart and seek it out: counsel it, check it, calculate it, compare it in the mirror; hear and ask, look and listen. Where goodness gathers—like a herd, perhaps—there the heart is, and there it acts.”
+## 4.1 Ancient Greek
 
-Other rhymes were funny for different reasons. Chinese passage 9 achieved the cleanest compact couplet: “Heart's collapse—perhaps to death, / Heart's collapse—perhaps to breath.” Passage 6 overcommitted to its scheme with “the mind/heart's eye,” “pair thereby,” and “finished—aye.” On the Greek side, the two-line Καταννοί entry produced the driest possible scholarly rhyme: “The Katannoi: a people by the Caspian sea, / So Hecataeus says in his *Asia*, faithfully.” The Κώμη profile, by contrast, forced a doubtful English gloss into its rhyme: “For sleeping there, says Philoxenus—hence the name was *kōmē*, ‘room.’” These are not candidate translations. They are stress tests that show where form pressures the model into invention, awkward disclosure, or unexpected clarity.
+The Greek corpus uses entries from Stephanos of Byzantium's *Ethnica*, a late-antique geographical lexicon preserved incompletely and without a complete published English translation (Meineke 1849; Billerbeck 2006-present). From a pool of 100 entries with approved human translations, we drew a reproducible seeded sample of twenty (seed 20260623). The entries are compressed, entity-heavy, and varied in length. The project's automated scholarly rendering is the focal translation; the approved human translation is hidden during review.
 
-Two non-rhyming Greek variants are especially useful as examples of productive oddity. The mnemonic Κώμη translation turns an etymological notice into a memorable scene: “Kōmē—the little night-stop on the long road. Picture travellers on the long roads: when night comes down, they do not press on. They build middle-places, halfway shelters, so that everyone may sleep there.” The adversarial Καβασσός translation does the opposite: it declines to repair the entry's strange logic and retains “the expectation of marriage also agrees with the licentiousness of the Thracians,” then explains that smoothing the line would hide the evidential problem. Together they show two useful forms of plurality: an image that supports memory, and an awkward rendering that protects uncertainty.
+Model-development results provide context for why inspection remains necessary. A companion operational benchmark contains 100 Kappa entries, each with one approved project translation, crossed with twelve dated OpenAI releases and three prompt conditions. Across the resulting 3,600 model-entry comparisons, the mean of BLEU-4, chrF++, METEOR, and ROUGE-L (Papineni et al. 2002; Popović 2017; Banerjee and Lavie 2005; Lin 2004) rose from 43.0% to 47.2% under a minimal prompt, from 60.9% to 70.0% under a reviewed prompt, and from 58.9% to 72.9% under a detailed prompt-plus-guidance workflow: gains of 4.2, 9.1, and 14.0 percentage points. These are within-project reference-similarity trends, not calibrated measures of philological correctness or human equivalence. They show that model progress interacts with task specification; they do not support a calendar forecast for human-quality translation.
 
-# 3. Why This Makes Sense Now
+XCOMET-XL, a learned metric combining sentence scoring with error-span detection, gives a direct within-workflow calibration (Guerreiro et al. 2024). Seventy-nine retained initial expert drafts score 0.5741 on average against their approved revisions (95% CI 0.5213-0.6270). On those same entries GPT-5.6 scores 0.5944 under the reviewed prompt and 0.6013 under the detailed prompt. The paired model-minus-draft difference is inconclusive for the reviewed prompt (0.0203, p=0.087) and small but positive for the detailed prompt (0.0272, p=0.023). This means that the current production workflow has reached the reference similarity of the retained pre-review drafts on this metric. It does not establish human parity: the human comparison is a draft before expert review, the approved version is the scoring reference, and the prompts encode conventions learned during the same editorial process.
 
-Model outputs are now good enough to be tempting. Early machine translation for ancient texts was easy to dismiss because it failed visibly. Current outputs often fail less visibly. They may preserve enough local meaning to sound plausible while still mishandling syntax, named entities, quotation, cultural categories, or textual uncertainty. That makes the problem sharper: the reader may trust a translation at exactly the point where they should be asking what has been hidden.
+## 4.2 Classical Chinese
 
-Our parallel 100-entry Stephanos benchmark follows twelve dated OpenAI releases from GPT-4 Turbo in April 2024 to GPT-5.6 Sol in July 2026. Across that full span, the four-metric mean rose from 43.0% to 47.2% under the minimal prompt, from 60.9% to 70.0% under the reviewed house-style prompt, and from 58.9% to 72.9% under the more detailed prompt: gains of 4.2, 9.1, and 14.1 percentage points. The recent window is less uniform. From GPT-5.2 to GPT-5.6 Sol, the reviewed score rose from 67.5% to 70.0% and the detailed score from 67.7% to 72.9%, while the minimal-prompt score fell from 48.6% to 47.2%. Newer models can be markedly better, but the improvement depends on how the translation task is specified.
+The Chinese corpus is *Xin shi wei zhong* 心是謂中, a Warring States bamboo manuscript published in volume 8 of the Tsinghua collection (Shen 2018). Shirley Chan supplied the project working transcription and approved a ten-part segmentation in July 2026. After Greta's anticipated-divergence review had been completed, Shirley supplied an English reference translation for each of the ten passages. These references are recorded as the Chinese ground-truth set in the analysis database, but we treat them in the paper as expert reference translations rather than as uniquely correct renderings.
 
-![Reference-similarity trends for twelve dated OpenAI models under three prompt versions. Claude observations are shown at their release dates but excluded from the fitted lines. Similarity is the mean of BLEU-4, chrF++, METEOR and ROUGE-L on the same 100 Kappa entries. The horizontal 90% line is the Stephanos paper's provisional human-quality proxy, not a validated equivalence threshold.](analysis/stephanos-model-quality-over-time.pdf){width=100%}
+If Parallage works across both traditions, it is a candidate general method; if it works in only one, disciplinary design must remain local.
 
-Across the full OpenAI timeline, the fitted improvement was 2.24 percentage points per year under the minimal prompt, 4.02 under the reviewed house-style prompt, and 4.92 under the detailed prompt. The sequence is not monotonic: six of eleven minimal-prompt transitions went backwards, and GPT-5.6 Sol's detailed-prompt score was 1.26 points below GPT-5.5's. Model progress and task specification interact; a newer model label does not guarantee a better translation under the prompt actually in use.
+## 4.3 Generation and Review Infrastructure
 
-COMET-22 and BLEURT-20 independently reproduce the release-date trends for the reviewed and detailed prompts while finding no release-date trend under the minimal prompt. That robustness check supports the claim that model progress interacts with prompt scaffolding, but the learned metrics are not calibrated measures of philological correctness or human equivalence.
+All focal and helper translations used in the review interface were generated with `gpt-5.5`. The Greek focal translation used version 3 of the project's reviewed scholarly profile; the Chinese focal profile requested one clear scholarly translation without commentary. The twenty-seven helper profiles were version 1. For Chinese, each of the ten passages was generated once under each profile through the Responses API with a maximum of 2,400 output tokens. Temperature and seed were not supplied, so the stored outputs are reproducible as versioned artifacts rather than as deterministic regenerations. Each record stores passage, profile and version, model, run identifier, status, output text, response identifier, usage metadata, and completion time.
 
-Following the convention used in the Stephanos paper, 90% reference similarity is treated as the provisional point at which agreement would be on a par with a human translation. The composite fits for the reviewed and detailed prompts reach that line around August 2031 and February 2030; across their individual BLEU-4, chrF++, METEOR and ROUGE-L projections, the range is October 2028 to May 2033. Broadly speaking, the Stephanos result therefore suggests that projects using guided prompts should expect human-level AI translation of Byzantine Greek within that interval.
+The Chinese assignment was created with seed 20260704. Five passages were assigned to show the focal translation plus all available helpers and five to show the focal translation alone; display order was also seeded. This is a within-reviewer pilot assignment, not participant-level randomisation. The Greek review set used a twenty-entry sample drawn with Python's `random.Random(seed).sample` from the sorted pool of entries with approved human translations (seed 20260623). Reviewers completed overlapping subsets rather than a controlled interface comparison.
 
-This is a naive projection, not a validated equivalence threshold. The 90% point is arbitrary, two competent human translations would not score 100% against one another, and the 95.2/100 expert score reported by Zainaldin et al. (2026) is an MQM human rating rather than BLEU or ROUGE. The sample also covers one provider and one 100-entry corpus, release date is only a proxy for changing model systems, and the fitted slopes need not continue. The relevant near-term possibility is that ordinary passages become increasingly fluent and reference-like while difficult entities, quotations, formulae, and interpretive cruxes remain uneven. Single outputs would then become harder to dismiss by eye before they become safe to trust. That is precisely the environment in which visible alternatives become more valuable.
+The browser interface logs each saved rating and an exposure record for helper cards entering the tracked viewport. Viewport exposure is an interaction trace, not proof that a card was read. The database keeps focal and helper run identifiers, prompt versions, treatment assignment, display order, and later expert-reference records separately. Human attention and expert adjudication, rather than model generation, remain the limiting resources.
 
-People are already using general AI systems to translate texts: lazy students, diligent but overwhelmed academics in the field, and random computer scientists who secretly wish they had studied classics. They often do this without the background knowledge needed to see when the output has become too smooth.
+# 5. Pilot Method
 
-Translation is also no longer expensive enough to force scarcity. A project can generate literal, readable, interpretive, uncertainty-focused, and adversarial versions for the same passage at a cost that would have been implausible a few years ago.
+## 5.1 Anticipated Divergence
 
-This gives us a way to measure whether visible disagreement improves human judgement when users cannot directly verify the source. We can compare generated outputs with human-approved Stephanos translations, ask expert reviewers to rate likely divergence, and test whether non-readers or semi-experts make better judgements with packs than with single outputs. We can also ask translation scholars whether the pack resembles useful draft-stage work or merely adds cognitive load.
+The review interface asks one question on an eleven-point scale:
 
-# 4. Corpora and Current Project State
+> How different would you expect the human translation to be to this translation?\
+> 0 = will be the same; 10 = will be very different.
 
-We are using two ancient traditions.
+## 5.2 Reviewers, Materials, and Analysis
 
-The Greek side uses Stephanos of Byzantium's *Ethnica*, especially short geographical and ethnographic entries. The material is compressed, entity-heavy, and not available as a complete modern English translation for the passages used here. We made a small Greek dataset with human-approved translations for selected passages, generated AI translations, automatic metric comparisons, and reviewer data.
+The pilot observations came from three co-authors and internal collaborators. Vanessa Enriquez Raido, a Translation Studies scholar, reviewed ten Greek passages. Shirley Chan, a scholar of Chinese language and culture, reviewed nineteen Greek passages. Nine passages overlap between their sets. Greta Hawes, an ancient-world scholar who does not read Classical Chinese, reviewed five Chinese passages with a full pack and five with a single translation. These are formative co-design observations, not an independent participant sample or evidence of efficacy. Greg Baker developed the system and conducted the analysis but did not contribute review ratings.
 
-The Classical Chinese side began from a plan to use a geography micro-corpus associated with the *Hanshu Dili zhi*. That has also become a useful warning about leakage: some material that looked suitable for a clean experiment appears to have visible translation material online, including AI-mediated material, which can spoil the experimental contrast. Shirley Chan therefore supplied and approved a separate ten-segment Classical Chinese text in July 2026.
+For the Greek passages we compared ratings with sentence-aligned BLEU-4 (Papineni et al. 2002), ROUGE-L (Lin 2004), character 3-gram F1, and character 3-gram Jaccard against the approved human rendering. Because all four measures decline with reference length in the wider 101-translation population, we fitted a per-metric log-length model and expressed each observed score as residual badness: standard deviations worse than expected for a passage of that length. We also report a composite of the four residual measures. Greek correlations are Spearman coefficients with two-sided p-values.
 
-If Parallage only works for Greek, it may be a local tool for one Classics workflow. If it also works for Classical Chinese, it begins to look like a more general method for AI-mediated ancient translation where the reader cannot inspect the source.
+For Chinese, all 280 completed translations (twenty-eight profiles by ten passages) were scored against Shirley's reference set using BLEU-4, chrF++, METEOR, ROUGE-L, word unigram F1, word trigram F1, character trigram F1, and word-edit similarity (Papineni et al. 2002; Popović 2017; Banerjee and Lavie 2005; Lin 2004). The ten focal translations were additionally scored with BERTScore, COMET, XCOMET-XL, and BLEURT (Zhang et al. 2020; Rei et al. 2020; Guerreiro et al. 2024; Sellam et al. 2020). The primary divergence composite is the mean within-sample badness percentile, scaled from 0 to 10, across BLEU-4, chrF++, METEOR, ROUGE-L, BERTScore, COMET, XCOMET-XL, and BLEURT. It is a transparent rank aggregate rather than a calibrated quality score.
 
-# 5. Preliminary Evidence From the Greek Pilot
+The overall Chinese directional diagnostic asks whether a higher anticipated-divergence rating predicts greater metric-derived divergence; we report its exact one-sided permutation p-value over the 226,800 unique permutations of Greta's tied ratings. Individual-metric and five-passage condition analyses use exact two-sided permutation p-values. Pairwise ordering accuracy considers every comparable pair: a pair is concordant when the passage Greta expects to differ more also has greater composite divergence.
 
-The current evidence is very preliminary. We have only tried this using small datasets and with academics. It supports the existence of a measurable judgement problem, not a claim that Parallage already improves translation outcomes.
+For the Chinese length diagnostic, source length is the number of Han-script characters, avoiding an unvalidated word segmentation; Shirley-reference word count is a sensitivity measure. We first collapsed the balanced 280-row translation grid to ten passage means and tested whether longer passages had lower mean lexical similarity. We then fitted each of the eight focal primary metrics against log source length, converted its negative residual to standardised badness, and averaged the eight residuals. Unlike the Greek adjustment, these Chinese length models are fitted on the same ten passages and therefore remain exploratory.
 
-The first Greek pilot compares reviewer ratings with automatic overlap metrics. Vanessa and Shirley each reviewed Stephanos passages and rated how different they expected the hidden human translation to be from one AI-generated translation. Vanessa reviewed ten passages and Shirley nineteen. Those ratings were then compared with sentence-aligned lexical metrics against the approved human translation: BLEU, ROUGE-L, and 3-gram F1. Vanessa's passages ranged from 18 to 268 reference words.
+The interface captured page-load-to-first-save latency. Later saves for the same reviewer-passage pair were treated as revisions rather than independent observations. Helper-card viewport time can overlap and does not prove active reading.
 
-\needspace{12\baselineskip}
+All pilot analyses are exploratory and were performed after the observations had been collected. Exact tests enumerate the unique permutations of Greta's tied ratings. The directional composite test is reported one-sided because the diagnostic asks whether greater anticipated divergence predicts greater measured divergence; metric-specific and condition-specific tests are two-sided. Confidence intervals and effect estimates are emphasised because the sample sizes are too small for stable threshold decisions.
 
-It seems to work. Higher human divergence ratings tend to coincide with lower overlap against the human translation. For Vanessa's ten passages, the Spearman correlations between rating and raw metric score were approximately:
+# 6. Formative Results
 
-| Metric | Rating vs raw score | Interpretation |
-|---|---:|---|
-| BLEU | -0.37 | Higher expected divergence tends to mean lower overlap. |
-| ROUGE-L | -0.49 | Same direction, modest sample. |
-| 3-gram F1 | -0.48 | Same direction, modest sample. |
+## 6.1 Judgement Signal and the Length Confound
 
-The useful question is what Vanessa and Shirley were picking up on. Across the broader Stephanos v3 metric population, longer passages tend to score worse on overlap metrics, and Vanessa's ratings in this first set also rise with length. That creates a confound: a raw metric decline may mean the translation is worse, but it may also mean the passage is longer.
+The raw Vanessa associations point in the expected direction, but none is statistically significant. After adjustment for passage length, the residual associations remain weak and inconclusive.
 
-After adjusting expected metric score by reference length, the correlations with residual badness were:
+| Metric | Rating vs raw score | p | Rating vs residual badness | p |
+|---|---:|---:|---:|---:|
+| BLEU-4 | -0.37 | 0.29 | 0.20 | 0.58 |
+| ROUGE-L | -0.49 | 0.15 | 0.22 | 0.55 |
+| 3-gram F1 | -0.48 | 0.16 | 0.40 | 0.25 |
+| 3-gram Jaccard | -0.48 | 0.16 | 0.32 | 0.37 |
 
-| Metric | Rating vs length-adjusted residual badness | Interpretation |
-|---|---:|---|
-| BLEU | 0.20 | Weak positive residual signal. |
-| ROUGE-L | 0.22 | Weak positive residual signal. |
-| 3-gram F1 | 0.35 | Most suggestive of the three, still n=10. |
+The strongest pilot association is instead between Vanessa's rating and log reference length (rho = 0.69, p = 0.027). Her rating versus composite length-adjusted badness is only rho = 0.22 (p = 0.55). Shirley's ratings occupy a narrower 5-9 range; rating versus log reference length is rho = 0.22 (p = 0.37), and rating versus composite residual badness is rho = 0.13 (p = 0.60). Across the nine passages rated by both reviewers, inter-reviewer association is moderate but uncertain (rho = 0.44, p = 0.24).
 
-This is not saying that Parallage does not work. It says the pilot is doing what a pilot should do: showing what the real experiment must control. Expert judgement, automatic overlap, passage length, and source difficulty are not the same thing. A good experiment has to separate them.
+![Vanessa's anticipated-divergence ratings rise with reference length, while their association with composite length-adjusted residual badness is weak.](analysis/vanessa-set1-length-and-composite-scatter.png){width=100%}
 
-![Raw automatic overlap metrics against Vanessa's divergence ratings.](analysis/vanessa-set1-raw-metric-scatter.png){width=92%}
+The result is not that the pack works. It is that anticipated divergence is measurable, non-trivial, and vulnerable to surface heuristics. The controlled study must separate source difficulty, passage length, lexical difference, and expert-adjudicated error.
 
-![Length-adjusted residual badness against Vanessa's ratings.](analysis/vanessa-set1-length-adjusted-residual-scatter.png){width=92%}
+## 6.2 Chinese Reference-Based Validation
 
-Shirley's Greek-side review data tell a similar story. Across the latest nineteen Shirley ratings, the mean rating was 6.42 on a 5 to 9 observed range. Rating versus log reference length was weak and not statistically significant (Spearman rho about 0.22, p about 0.37). Rating versus composite length-adjusted residual badness was also weak (rho about 0.13, p about 0.60).
+Across all ten Chinese passages, Greta's anticipated-divergence rating has a modest positive association with the eight-metric composite divergence rank (Spearman rho = 0.472; exact one-sided p = 0.0848; bootstrap 95% interval -0.272 to 0.851). Kendall's tau is 0.303 (two-sided p = 0.237). Of the 41 passage pairs without a tied rating or composite score, 27 are ordered correctly (65.9%). Greta identifies two of the three most divergent translations, but only one of the three closest translations.
 
-\clearpage
+![Greta's anticipated-divergence ratings against the eight-metric composite for the ten focal Chinese translations. Colours show the review condition, not independent samples.](analysis/greta-chinese-prediction-scatter.png){width=100%}
 
-# 6. Review Time, Passage Length, and the Chinese Conditions
+The metric-level signs are consistent: higher predicted divergence generally corresponds to lower reference similarity. XCOMET-XL gives the strongest individual association (rho = -0.730, exact two-sided p = 0.0203). BLEURT is next strongest (rho = -0.626, p = 0.0584), while the remaining metric estimates are directionally compatible but statistically inconclusive. These twelve metrics are dependent measures of the same ten translations. The XCOMET association is therefore a promising convergence with one learned metric, not a confirmatory result from twelve independent tests.
 
-The review interface also captured browser timing. For Greek, we define a first-evaluation latency as the elapsed time from page load to the earliest saved rating for each reviewer–passage pair. This yields 29 exact observations: nineteen from Shirley and ten from Vanessa. Seventeen later save rows were excluded as rating revisions. The pooled median was 15.6 seconds (IQR 10.5–18.5); 25 of 29 first ratings occurred within 30 seconds. The range was 5.2–351.2 seconds, so the mean of 30.0 seconds is not a useful description of the typical observation.
+| Metric | Rating vs similarity rho | Exact p (two-sided) |
+|---|---:|---:|
+| BLEU-4 | -0.417 | 0.2301 |
+| chrF++ | -0.564 | 0.0936 |
+| METEOR | -0.295 | 0.4067 |
+| ROUGE-L | -0.337 | 0.3388 |
+| Word unigram F1 | -0.393 | 0.2606 |
+| Word trigram F1 | -0.540 | 0.1112 |
+| Character trigram F1 | -0.564 | 0.0936 |
+| Word-edit similarity | -0.522 | 0.1252 |
+| BERTScore F1 | -0.399 | 0.2526 |
+| COMET | -0.540 | 0.1112 |
+| XCOMET-XL | -0.730 | 0.0203 |
+| BLEURT | -0.626 | 0.0584 |
 
-Across the 29 observations, Greek source word count had almost no monotonic relationship with first-rating latency (Spearman rho 0.05, two-sided p=0.78). Removing the longest duration produced the same conclusion (rho 0.02, p=0.91). The reviewer-specific patterns differed. Shirley's nineteen observations showed no positive association (rho -0.08, p=0.75); Vanessa's ten showed a positive coefficient (rho 0.66, p=0.036), which fell to rho 0.59 (p=0.096) when her longest duration was removed. These exploratory coefficients are too unstable for a general speed model.
+The five-passage condition estimates do not distinguish the interface treatments. Within the Parallage passages, composite rho is 0.500 (exact two-sided p = 0.450); within the single-output passages it is 0.200 (p = 0.783). Each condition has six concordant and four discordant pairs, hence the same 60% pairwise ordering accuracy despite different Spearman coefficients. Spearman correlation reflects the full rank distances, whereas the pairwise measure counts only concordant versus discordant orderings. XCOMET produces a stronger inverse association in the Parallage condition (rho = -0.800, p = 0.133) than in the single condition (rho = -0.600, p = 0.350), but five observations per condition cannot support a treatment claim.
 
-![First-rating latency by reviewer and Greek source-word count.](analysis/review-timing-distribution-and-length.png){width=96%}
+| Condition | n | Composite rho (exact p) | XCOMET rho (exact p) | Concordant pairs |
+|---|---:|---:|---:|---:|
+| Pack | 5 | 0.500 (0.450) | -0.800 (0.133) | 6/10 |
+| Single | 5 | 0.200 (0.783) | -0.600 (0.350) | 6/10 |
 
-There is an additional behavioural difference. Shirley brought at least one helper card into the tracked viewport on seventeen of nineteen first evaluations, whereas Vanessa did so on only one of ten. Viewport time can overlap across cards and is not equivalent to active reading. The pooled latency therefore mixes different strategies and should not be presented as a clean estimate of “time needed to use Parallage.” What the pilot supports is narrower: first-rating latency was usually short, and source length alone did not explain the pooled variation.
+Passage length does not account for the Chinese result. Across all twenty-eight profiles, source Han-character length versus the ten passage-average lexical similarity scores is rho = 0.122 (p = 0.738); the weak positive sign is opposite to a length penalty. A doubling of source length corresponds to a +0.021 change on the 0-1 similarity scale (95% CI -0.109 to +0.151). Shirley-reference word count gives the same conclusion (rho = 0.164, p = 0.651). The individual all-profile lexical correlations range only from -0.116 to +0.219, with no p-value below 0.54.
 
-Greta's Chinese session is closer to a direct Parallage observation. All five Parallage passages recorded exact page-load-to-rating time and non-zero helper exposure. Their median was 312 seconds, or 5.2 minutes (IQR 181.9–319.7; range 74.1–823.8). Within these five passages, Han-character count was not positively associated with duration (rho -0.21, p=0.74), but five observations cannot establish a length effect.
+Controlling for source length slightly strengthens, rather than attenuates, Greta's association. The partial rank correlation between rating and the unadjusted composite is rho = 0.507 (approximate two-sided p = 0.164). The Greek-style residual composite gives rho = 0.546 (exact one-sided p = 0.0534), compared with rho = 0.472 before adjustment. Within conditions, the adjusted Parallage estimate remains 0.500 (p = 0.450), while the adjusted single-output estimate rises from 0.200 to 0.600 (p = 0.350). That change is too unstable at n = 5 to interpret as evidence of a subgroup effect.
 
-The requested Parallage-versus-single comparison cannot be estimated exactly from this pilot. The single-output pages contained no helper cards, and the timing function returned before creating an exposure record; all five exact single-output durations are therefore structurally missing.
+| Chinese estimator | Spearman rho | p-value |
+|---|---:|---:|
+| Unadjusted eight-metric divergence rank | 0.472 | 0.0848, exact one-sided |
+| Partial rank correlation controlling source length | 0.507 | 0.1636, approximate two-sided |
+| Eight-metric residual badness composite | 0.546 | 0.0534, exact one-sided |
 
-| Greta timing quantity | n | Median | Range | Interpretation |
-|---|---:|---:|---:|---|
-| Parallage page-load-to-rating time | 5 | 312 s | 74–824 s | Exact elapsed browser time. |
-| Gap between successive later single saves | 4 | 29 s | 22–33 s | Not an exact evaluation duration. |
+The Chinese pilot is compatible with preliminary criterion-related validity for the anticipated-divergence instrument: Greta's judgements contain information about subsequent expert-reference divergence, especially as measured by XCOMET. It does not show that the full pack is superior to a single translation. The treatment groups are only five passages each, passage assignment is not an independent participant randomisation, and metric agreement with one expert reference is not the same as expert-adjudicated correctness.
 
-The later single saves occurred much faster than the measured Parallage decisions, but this is not a treatment-effect estimate. The first single save came 569 seconds after the final Parallage save, with no recorded page-load time. Greta also saved all five Parallage passages first and all five single passages second, so condition is confounded with sequence, familiarity, and fatigue. A confirmatory interface must start timing in both conditions, distinguish active from hidden-tab time, and counterbalance condition order.
+## 6.3 Timing and Interface Instrumentation
 
-# 7. Why Public Preregistration Matters Here
+For Greek, nineteen first ratings from Shirley and ten from Vanessa yielded a pooled median latency of 15.6 seconds (IQR 10.5-18.5); 25 of 29 occurred within 30 seconds. The pooled relationship between source-word count and latency was negligible (rho = 0.05, p = 0.78), but reviewer behaviour differed. Shirley brought at least one helper card into the tracked viewport on 17 of 19 first evaluations; Vanessa did so on only 1 of 10. The pooled timing is therefore not an estimate of time required to use a Parallage pack.
 
-One lesson of the scientific replication crisis is the need to separate exploratory analysis from confirmatory testing. Large-scale replication work made clear that published evidence can be hard to reproduce even in fields with mature experimental traditions (Open Science Collaboration 2015). A major reason is undisclosed flexibility: researchers can make many reasonable-looking choices about data collection, exclusion, outcome selection, and analysis, and those choices can make false-positive findings easier to present as significant (Simmons, Nelson, and Simonsohn 2011). Preregistration is one response: it records research questions and analysis plans before the outcomes are known, helping distinguish prediction from postdiction (Nosek et al. 2018).
+Greta's five Chinese pack passages recorded exact page-load-to-rating durations with non-zero helper exposure: median 312 seconds, range 74-824 seconds. Exact durations are structurally missing for all five single-output passages because the exposure tracker returned before starting timing when no helper cards existed. All pack passages were completed before all single passages. The apparent later speed difference is confounded by missing timing, order, familiarity, and fatigue and is not a treatment-effect estimate.
 
-Preregistration is especially important for this project because the early data are small, multidimensional, and tempting to over-interpret. There are many possible metrics: BLEU, chrF, METEOR, ROUGE-L, n-gram F1, reviewer ratings, time, confidence, qualitative usefulness, and downstream translation quality. Without a public plan, it would be too easy to report whichever metric looks best after the fact.
+These failures are useful design findings. The next interface must time both conditions from the same event, record page visibility, counterbalance condition order, and distinguish exposure from active engagement.
 
-It should also make negative or mixed results interpretable. A pack might improve expert workflow but overload non-readers. It might improve error detection but slow participants down. It might help on Greek and not Chinese, or vice versa. Those outcomes are informative if the hypotheses and analyses are declared in advance.
+# 7. Planned Preregistered Controlled Study
 
-# 8. What the Real Experiment Will Test
+This section records the intended confirmatory design. It is not itself a completed preregistration. After ethics approval and before recruiting or inspecting student outcome data, the final materials, allocation procedure, power or precision analysis, exclusions, models, and adjudication rubric will be frozen in a timestamped registration. The funded pilot can support approximately 15--25 students, so feasibility and interval width may be more informative than a binary null-hypothesis decision unless additional recruitment becomes available.
 
-We need to run a study to test whether Parallage packs let non-readers identify poorly translated passages.
+The primary target population is readers who do not know the relevant source language. Semi-experts and professional translators will contribute a separate qualitative workflow track rather than being pooled into the primary efficacy estimate.
 
-The planned participant groups are:
+The controlled study will compare:
 
-1. Non-readers of the relevant source language, such as ancient-history students working with Greek or Classical Chinese material they cannot read directly.
-2. Semi-experts, including students or translators with partial language, historical, or translation-studies expertise.
-3. Expert translators and domain specialists, who can evaluate whether the pack is useful in real draft-stage work.
+1. **Single translation:** one fluent focal translation.
+2. **Full Parallage pack:** the same focal translation plus role-based helper variants and audit scaffolding.
 
-The planned conditions are:
+The primary outcome will be the proportion of predefined, expert-adjudicated material translation issues correctly identified. Secondary outcomes will be false reassurance (high confidence when a material issue is missed), confidence calibration, time to decision, distrusted spans, and component use. Passages will be assigned to conditions within participant under a counterbalanced schedule so that each passage appears equally often in each condition and no participant sees the same passage twice.
 
-1. Single output: one fluent AI translation.
-2. Full Parallage pack: multiple role-based translations plus segmentation, uncertainty cues, named-entity notes, disagreement summaries, and review prompts.
+The primary analysis will be a mixed-effects logistic model for issue detection, with condition as the fixed effect of interest and random intercepts for participant and passage. Language and declared prior knowledge will be fixed covariates; any condition-by-language interaction will be secondary. The preregistration will specify exclusions, missing-data handling, confidence thresholds, multiplicity handling, and the exact adjudication rubric before outcome data are inspected.
 
-The primary hypotheses are:
+The hypotheses to be fixed in that registration are:
 
-1. Participants in the full-pack condition will identify more fragile or incorrect translation claims than participants in the single-output condition.
-2. Participants in the full-pack condition will be better calibrated: confidence should fall when the source evidence is unstable, rather than rising with fluency.
-3. The full pack will reduce false reassurance, defined as high confidence in a translation that expert adjudication later marks as materially fragile or wrong.
-4. The full pack may increase time-on-task, which is a cost to measure, not a failure.
-5. Expert translators will report that some variants are wrong but useful, because they expose a decision point or alternative interpretation.
+1. Full packs improve detection of expert-adjudicated material issues relative to a single translation.
+2. Full packs reduce false reassurance and improve confidence calibration.
+3. Full packs increase time on task, which is a measured cost rather than a design failure.
+4. Creative mnemonic and rhyming profiles do not improve error detection.
 
-The primary outcomes will include error-detection accuracy, confidence calibration, false reassurance rate, time-to-decision, distrust or uncertainty marks, and qualitative comments about which pack components were used. The analysis will use mixed-effects models with participant, passage, language, and condition as structured sources of variation. Passage length will be included because the pilot shows it cannot be ignored.
+# 8. Limitations and Contribution
 
-Two additional issues should be part of the design. First, leakage is not all-or-nothing. Ancient texts may lack complete English translations while still having translated fragments, quotations, derivative summaries, or AI-mediated versions online. Second, expert translators may not want the same interface as students. A pack that supports professional draft work may need to foreground decision logs and alternatives, while a non-reader pack may need simpler confidence and disagreement cues.
+The current evidence has severe limits. The samples are small; the reviewers are co-authors; the Greek task is not a controlled pack comparison; the Chinese condition groups contain only five passages each; the Chinese timing comparison is incomplete and order-confounded; reference similarity is not correctness; and all variants may share model-family errors. Shirley's reference set permits reproducible scoring but does not make one English rendering uniquely correct. XCOMET was trained for modern machine-translation evaluation rather than Ancient Greek lexicography or Classical Chinese manuscript translation, and its raw score is not a calibrated measure of philological correctness. The Chinese composite and its length adjustment are fitted within the same ten passages, the metric-level comparisons are dependent, and the exploratory analyses were not preregistered. The corpora cover only one Greek lexicographical tradition and one short Classical Chinese manuscript. The pilot therefore supports instrument and interface development, not a claim that Parallage has already improved translation judgement.
 
-# 9. Contribution
+Parallage responds to a change in the translation environment: alternative renderings are inexpensive, but verification is not. The system turns model multiplicity into an inspectable interface object, records the provenance of every role-conditioned output, and makes the resulting human judgement testable against later expert adjudication. The pilot shows why the controlled comparison is needed rather than supplying its answer.
 
-Parallage begins from a practical change in the translation environment. AI has made translation abundant and quite good, including in ancient-language domains. The response should not be to present more fluent single answers. It should be to design interfaces and research protocols that make translation fragility visible and make good translations inspectable.
+# Data and Code Availability
 
-This is our contribution to AI for ancient studies: a way to turn AI-generated multiplicity into an object that humans can inspect, annotate, and evaluate. The point is not to say that AI has solved ancient translation. The point is to give readers and translators a better way to see where a translation is stable, where it is fragile, and where further expert judgement is needed.
+The versioned prompt library, review-site generator, aggregate pilot outputs, and analysis scripts are maintained in the Variantum repository: https://github.com/solresol/variantum. The release accompanying this preprint contains text-free metric tables for the ten focal Chinese comparisons and all 280 profile-passage comparisons, stored neural-metric outputs, treatment summaries, exact-permutation code, length diagnostics, and the seeded Greek and Chinese assignment procedures. Full model outputs, Shirley's expert reference translations, and raw review logs are excluded from the public bundle pending co-author agreement on release terms; the logs also contain collaborator identifiers. No student-participant data have been collected.
 
 # References
 
-Guerreiro, Nuno M., Elena Voita, and Andre F. T. Martins. 2023. "Looking for a Needle in a Haystack: A Comprehensive Study of Hallucinations in Neural Machine Translation." *Proceedings of the 17th Conference of the European Chapter of the Association for Computational Linguistics*, 1059-1075. https://aclanthology.org/2023.eacl-main.75/
+Banerjee, Satanjeev, and Alon Lavie. 2005. ["METEOR: An Automatic Metric for MT Evaluation with Improved Correlation with Human Judgments."](https://aclanthology.org/W05-0909/) *Proceedings of the ACL Workshop on Intrinsic and Extrinsic Evaluation Measures for Machine Translation and/or Summarization*, 65-72.
 
-Nosek, Brian A., Charles R. Ebersole, Alexander C. DeHaven, and David T. Mellor. 2018. "The Preregistration Revolution." *Proceedings of the National Academy of Sciences* 115 (11): 2600-2606. https://doi.org/10.1073/pnas.1708274114
+Billerbeck, Margarethe, ed. 2006-present. *Stephani Byzantii Ethnica*. Berlin: De Gruyter.
 
-Open Science Collaboration. 2015. "Estimating the Reproducibility of Psychological Science." *Science* 349 (6251): aac4716. https://doi.org/10.1126/science.aac4716
+Du, Yilun, Shuang Li, Antonio Torralba, Joshua B. Tenenbaum, and Igor Mordatch. 2024. ["Improving Factuality and Reasoning in Language Models through Multiagent Debate."](https://proceedings.mlr.press/v235/du24e.html) *Proceedings of the 41st International Conference on Machine Learning*, 11733-11763.
 
-Simmons, Joseph P., Leif D. Nelson, and Uri Simonsohn. 2011. "False-Positive Psychology: Undisclosed Flexibility in Data Collection and Analysis Allows Presenting Anything as Significant." *Psychological Science* 22 (11): 1359-1366. https://doi.org/10.1177/0956797611417632
+Farquhar, Sebastian, Jannik Kossen, Lorenz Kuhn, and Yarin Gal. 2024. ["Detecting Hallucinations in Large Language Models Using Semantic Entropy."](https://doi.org/10.1038/s41586-024-07421-0) *Nature* 630: 625-630.
 
-Zainaldin, James L., Cameron Pattison, Manuela Marai, Jacob Wu, and Mark J. Schiefsky. 2026. "Terminology Rarity Predicts Catastrophic Failure in LLM Translation of Low-Resource Ancient Languages: Evidence from Ancient Greek." arXiv:2602.24119. https://arxiv.org/abs/2602.24119
+Fomicheva, Marina, Lucia Specia, and Francisco Guzmán. 2020. ["Multi-Hypothesis Machine Translation Evaluation."](https://doi.org/10.18653/v1/2020.acl-main.113) *Proceedings of the 58th Annual Meeting of the Association for Computational Linguistics*, 1218-1232.
 
-Variantum project repository. Project README, task list, reviewer metric summary, and generated pilot plots, consulted July 2026.
+Freitag, Markus, David Grangier, Qijun Tan, and Bowen Liang. 2022. ["High Quality Rather than High Model Probability: Minimum Bayes Risk Decoding with Neural Metrics."](https://doi.org/10.1162/tacl_a_00491) *Transactions of the Association for Computational Linguistics* 10: 811-825.
+
+Guerreiro, Nuno M., Elena Voita, and André F. T. Martins. 2023. ["Looking for a Needle in a Haystack: A Comprehensive Study of Hallucinations in Neural Machine Translation."](https://aclanthology.org/2023.eacl-main.75/) *Proceedings of EACL 2023*, 1059-1075.
+
+Guerreiro, Nuno M., Ricardo Rei, Daan van Stigt, Luisa Coheur, Pierre Colombo, and André F. T. Martins. 2024. ["xCOMET: Transparent Machine Translation Evaluation through Fine-grained Error Detection."](https://aclanthology.org/2024.tacl-1.54/) *Transactions of the Association for Computational Linguistics* 12: 979-995.
+
+Lin, Chin-Yew. 2004. ["ROUGE: A Package for Automatic Evaluation of Summaries."](https://aclanthology.org/W04-1013/) *Text Summarization Branches Out*, 74-81.
+
+Manakul, Potsawee, Adian Liusie, and Mark J. F. Gales. 2023. ["SelfCheckGPT: Zero-Resource Black-Box Hallucination Detection for Generative Large Language Models."](https://doi.org/10.18653/v1/2023.emnlp-main.557) *Proceedings of EMNLP 2023*, 9004-9017.
+
+Mehandru, Nikita, Sweta Agrawal, Yimin Xiao, Ge Gao, Elaine Khoong, Marine Carpuat, and Niloufar Salehi. 2023. ["Physician Detection of Clinical Harm in Machine Translation: Quality Estimation Aids in Reliance and Backtranslation Identifies Critical Errors."](https://doi.org/10.18653/v1/2023.emnlp-main.712) *Proceedings of EMNLP 2023*, 11633-11647.
+
+Meineke, August, ed. 1849. *Stephani Byzantii Ethnicorum quae supersunt*. Berlin: Reimer.
+
+Papineni, Kishore, Salim Roukos, Todd Ward, and Wei-Jing Zhu. 2002. ["BLEU: A Method for Automatic Evaluation of Machine Translation."](https://aclanthology.org/P02-1040/) *Proceedings of the 40th Annual Meeting of the Association for Computational Linguistics*, 311-318.
+
+Popović, Maja. 2017. ["chrF++: Words Helping Character n-grams."](https://aclanthology.org/W17-4770/) *Proceedings of the Second Conference on Machine Translation*, 612-618.
+
+Rei, Ricardo, Craig Stewart, Ana C. Farinha, and Alon Lavie. 2020. ["COMET: A Neural Framework for MT Evaluation."](https://aclanthology.org/2020.emnlp-main.213/) *Proceedings of EMNLP 2020*, 2685-2702.
+
+Sellam, Thibault, Dipanjan Das, and Ankur Parikh. 2020. ["BLEURT: Learning Robust Metrics for Text Generation."](https://aclanthology.org/2020.acl-main.704/) *Proceedings of the 58th Annual Meeting of the Association for Computational Linguistics*, 7881-7892.
+
+Shen, Jianhua. 2018. "Xin shi wei zhong" 心是謂中. In *Qinghua daxue cang Zhanguo zhujian (ba)* 清華大學藏戰國竹簡（捌）, edited by the Research and Conservation Center for Unearthed Texts, Tsinghua University. Shanghai: Zhongxi Shuju.
+
+Wang, Xuezhi, Jason Wei, Dale Schuurmans, Quoc V. Le, Ed H. Chi, Sharan Narang, Aakanksha Chowdhery, and Denny Zhou. 2023. "Self-Consistency Improves Chain of Thought Reasoning in Language Models." *Proceedings of the Eleventh International Conference on Learning Representations*.
+
+Zhang, Tianyi, Varsha Kishore, Felix Wu, Kilian Q. Weinberger, and Yoav Artzi. 2020. ["BERTScore: Evaluating Text Generation with BERT."](https://openreview.net/forum?id=SkeHuCVFDr) *Proceedings of the Eighth International Conference on Learning Representations*.
+
+Zainaldin, James L., Cameron Pattison, Manuela Marai, Jacob Wu, and Mark J. Schiefsky. 2026. ["Evaluating LLM-Based Translation of a Low-Resource Technical Language: The Medical and Philosophical Greek of Galen."](https://doi.org/10.48550/arXiv.2602.24119) arXiv:2602.24119 [cs.CL].

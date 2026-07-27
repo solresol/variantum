@@ -1,0 +1,399 @@
+{
+  "question": "Do longer Chinese passages receive worse translation scores, and does length explain Greta's predictive signal?",
+  "population": {
+    "passages": 10,
+    "translation_profiles_per_passage": 28,
+    "lexical_translation_rows": 280,
+    "focal_translations_with_neural_metrics": 10,
+    "source_length_range_han_characters": [
+      16,
+      43
+    ],
+    "reference_length_range_words": [
+      28,
+      68
+    ]
+  },
+  "definitions": {
+    "primary_length": "Count of Han-script characters in the source passage; no Chinese word segmentation is imposed.",
+    "secondary_length": "Word count in Shirley's English reference translation.",
+    "passage_mean_primary_lexical_similarity": "For each passage, mean BLEU-4, chrF++, METEOR and ROUGE-L after first averaging each metric over the same 28 profiles.",
+    "source_length_adjusted_composite_badness": "For each of eight focal similarity metrics, negative residual from score ~ log(source Han characters), standardized by residual SD, then averaged. Higher means worse than expected for the passage length."
+  },
+  "length_measures_association": {
+    "n": 10,
+    "pearson_r": 0.9534148447212416,
+    "pearson_p_two_sided": 1.9475148855362744e-05,
+    "spearman_rho": 0.857146816588891,
+    "spearman_p_two_sided_asymptotic": 0.001527839837337562,
+    "kendall_tau": 0.7191465199607915,
+    "kendall_p_two_sided": 0.004057136032371292
+  },
+  "longer_passages_vs_passage_mean_primary_lexical_similarity": {
+    "source_han_characters": {
+      "n": 10,
+      "pearson_r": 0.10637781565899763,
+      "pearson_p_two_sided": 0.7699140025734532,
+      "spearman_rho": 0.12158110873601292,
+      "spearman_p_two_sided_asymptotic": 0.7379379712336096,
+      "kendall_tau": 0.04494665749754947,
+      "kendall_p_two_sided": 0.8574624419592412,
+      "similarity_change_per_length_doubling": 0.020908365842224993,
+      "ci_95_low": -0.10940417578944675,
+      "ci_95_high": 0.15122090747389674,
+      "p_two_sided": 0.7209907252849781
+    },
+    "reference_words": {
+      "n": 10,
+      "pearson_r": 0.13516329058207863,
+      "pearson_p_two_sided": 0.7096729734231036,
+      "spearman_rho": 0.16363636363636364,
+      "spearman_p_two_sided_asymptotic": 0.6514773427962428,
+      "kendall_tau": 0.06666666666666667,
+      "kendall_p_two_sided": 0.8618005952380953,
+      "similarity_change_per_length_doubling": 0.02524535564854782,
+      "ci_95_low": -0.12394530832232392,
+      "ci_95_high": 0.17443601961941957,
+      "p_two_sided": 0.7065644268705807
+    }
+  },
+  "source_length_vs_all_profile_lexical_metrics": [
+    {
+      "metric": "bleu4",
+      "label": "BLEU-4",
+      "n": 10,
+      "pearson_r": 0.18367728113194204,
+      "pearson_p_two_sided": 0.6114892204568019,
+      "spearman_rho": 0.21884599572482327,
+      "spearman_p_two_sided_asymptotic": 0.5435509174040241,
+      "kendall_tau": 0.17978662999019787,
+      "kendall_p_two_sided": 0.47249761400068846
+    },
+    {
+      "metric": "chrfpp",
+      "label": "chrF++",
+      "n": 10,
+      "pearson_r": 0.21836216909820239,
+      "pearson_p_two_sided": 0.5444646920539522,
+      "spearman_rho": 0.18237166310401937,
+      "spearman_p_two_sided_asymptotic": 0.6140677514955035,
+      "kendall_tau": 0.13483997249264842,
+      "kendall_p_two_sided": 0.590013887163346
+    },
+    {
+      "metric": "meteor",
+      "label": "METEOR",
+      "n": 10,
+      "pearson_r": -0.10342216145241698,
+      "pearson_p_two_sided": 0.7761683840019217,
+      "spearman_rho": -0.11550205329921227,
+      "spearman_p_two_sided_asymptotic": 0.750683041040583,
+      "kendall_tau": -0.04494665749754947,
+      "kendall_p_two_sided": 0.8574624419592412
+    },
+    {
+      "metric": "rouge_l",
+      "label": "ROUGE-L",
+      "n": 10,
+      "pearson_r": 0.12358268697781954,
+      "pearson_p_two_sided": 0.7337539479458638,
+      "spearman_rho": 0.12158110873601292,
+      "spearman_p_two_sided_asymptotic": 0.7379379712336096,
+      "kendall_tau": 0.04494665749754947,
+      "kendall_p_two_sided": 0.8574624419592412
+    },
+    {
+      "metric": "unigram_f1",
+      "label": "word unigram F1",
+      "n": 10,
+      "pearson_r": 0.16600698169782765,
+      "pearson_p_two_sided": 0.6467028738942046,
+      "spearman_rho": 0.16413449679361744,
+      "spearman_p_two_sided_asymptotic": 0.6504731396988412,
+      "kendall_tau": 0.08989331499509894,
+      "kendall_p_two_sided": 0.7194375444233914
+    },
+    {
+      "metric": "trigram_f1",
+      "label": "word trigram F1",
+      "n": 10,
+      "pearson_r": 0.047900115943841935,
+      "pearson_p_two_sided": 0.8954585784821891,
+      "spearman_rho": -0.07294866524160776,
+      "spearman_p_two_sided_asymptotic": 0.8412712675592938,
+      "kendall_tau": 0.0,
+      "kendall_p_two_sided": 1.0
+    },
+    {
+      "metric": "char_trigram_f1",
+      "label": "character trigram F1",
+      "n": 10,
+      "pearson_r": 0.18828347778532725,
+      "pearson_p_two_sided": 0.602423013585786,
+      "spearman_rho": 0.18237166310401937,
+      "spearman_p_two_sided_asymptotic": 0.6140677514955035,
+      "kendall_tau": 0.13483997249264842,
+      "kendall_p_two_sided": 0.590013887163346
+    },
+    {
+      "metric": "word_edit_similarity",
+      "label": "word edit similarity",
+      "n": 10,
+      "pearson_r": 0.03383194148604481,
+      "pearson_p_two_sided": 0.9260772786980451,
+      "spearman_rho": -0.048632443494405174,
+      "spearman_p_two_sided_asymptotic": 0.8938677821006588,
+      "kendall_tau": -0.04494665749754947,
+      "kendall_p_two_sided": 0.8574624419592412
+    }
+  ],
+  "source_length_vs_focal_metrics": [
+    {
+      "metric": "bleu4",
+      "label": "BLEU-4",
+      "n": 10,
+      "pearson_r": 0.12325932034558035,
+      "pearson_p_two_sided": 0.7344294770322852,
+      "spearman_rho": 0.2553203283456271,
+      "spearman_p_two_sided_asymptotic": 0.47649345335133597,
+      "kendall_tau": 0.13483997249264842,
+      "kendall_p_two_sided": 0.590013887163346
+    },
+    {
+      "metric": "chrfpp",
+      "label": "chrF++",
+      "n": 10,
+      "pearson_r": 0.013108216984542079,
+      "pearson_p_two_sided": 0.9713307017971484,
+      "spearman_rho": 0.048632443494405174,
+      "spearman_p_two_sided_asymptotic": 0.8938677821006588,
+      "kendall_tau": 0.04494665749754947,
+      "kendall_p_two_sided": 0.8574624419592412
+    },
+    {
+      "metric": "meteor",
+      "label": "METEOR",
+      "n": 10,
+      "pearson_r": 0.08957963032064892,
+      "pearson_p_two_sided": 0.8056094487025092,
+      "spearman_rho": 0.18237166310401937,
+      "spearman_p_two_sided_asymptotic": 0.6140677514955035,
+      "kendall_tau": 0.08989331499509894,
+      "kendall_p_two_sided": 0.7194375444233914
+    },
+    {
+      "metric": "rouge_l",
+      "label": "ROUGE-L",
+      "n": 10,
+      "pearson_r": 0.10475491979433195,
+      "pearson_p_two_sided": 0.7733467137045034,
+      "spearman_rho": 0.24316221747202585,
+      "spearman_p_two_sided_asymptotic": 0.4984337109977794,
+      "kendall_tau": 0.13483997249264842,
+      "kendall_p_two_sided": 0.590013887163346
+    },
+    {
+      "metric": "bertscore",
+      "label": "BERTScore F1",
+      "n": 10,
+      "pearson_r": 0.29919305100595217,
+      "pearson_p_two_sided": 0.4010227340111379,
+      "spearman_rho": 0.2857156055296304,
+      "spearman_p_two_sided_asymptotic": 0.423567783826546,
+      "kendall_tau": 0.17978662999019787,
+      "kendall_p_two_sided": 0.47249761400068846
+    },
+    {
+      "metric": "comet",
+      "label": "COMET",
+      "n": 10,
+      "pearson_r": 0.02380817647104006,
+      "pearson_p_two_sided": 0.9479491246180733,
+      "spearman_rho": 0.09726488698881035,
+      "spearman_p_two_sided_asymptotic": 0.7892345325825415,
+      "kendall_tau": 0.08989331499509894,
+      "kendall_p_two_sided": 0.7194375444233914
+    },
+    {
+      "metric": "xcomet",
+      "label": "XCOMET-XL",
+      "n": 10,
+      "pearson_r": 0.2368110870743489,
+      "pearson_p_two_sided": 0.5100618514754516,
+      "spearman_rho": 0.1580554413568168,
+      "spearman_p_two_sided_asymptotic": 0.6627622972444477,
+      "kendall_tau": 0.13483997249264842,
+      "kendall_p_two_sided": 0.590013887163346
+    },
+    {
+      "metric": "bleurt",
+      "label": "BLEURT",
+      "n": 10,
+      "pearson_r": 0.20403304950328807,
+      "pearson_p_two_sided": 0.57179838192994,
+      "spearman_rho": 0.14589733048321551,
+      "spearman_p_two_sided_asymptotic": 0.6875567115411831,
+      "kendall_tau": 0.08989331499509894,
+      "kendall_p_two_sided": 0.7194375444233914
+    }
+  ],
+  "greta_prediction_association": {
+    "unadjusted": {
+      "n": 10,
+      "pearson_r": 0.5716341116532584,
+      "pearson_p_two_sided": 0.08427635642915848,
+      "spearman_rho": 0.4724282017376836,
+      "spearman_p_two_sided_asymptotic": 0.16796855541167924,
+      "kendall_tau": 0.3026531281668172,
+      "kendall_p_two_sided": 0.23727785186827832,
+      "exact_permutation_p_one_sided": 0.08482804232804232,
+      "unique_rating_permutations": 226800
+    },
+    "length_adjusted": {
+      "source_han_characters": {
+        "residual_composite_association": {
+          "n": 10,
+          "pearson_r": 0.5952166793672851,
+          "pearson_p_two_sided": 0.06946797024883485,
+          "spearman_rho": 0.5460533760344654,
+          "spearman_p_two_sided_asymptotic": 0.10247883425571191,
+          "kendall_tau": 0.3026531281668172,
+          "kendall_p_two_sided": 0.23727785186827832
+        },
+        "exact_permutation_p_one_sided": 0.05343033509700176,
+        "unique_rating_permutations": 226800,
+        "partial_rank_association": {
+          "n": 10,
+          "controls": 1,
+          "partial_spearman_rho": 0.5070334903095282,
+          "t_statistic": 1.5563795161016842,
+          "degrees_freedom": 7,
+          "p_two_sided_approximate": 0.16357250028586276
+        },
+        "metric_length_models": {
+          "bleu4": {
+            "intercept": 0.07107110589257341,
+            "slope_per_natural_log_unit": 0.13534766813062912,
+            "residual_sd": 0.26655707124595107
+          },
+          "chrfpp": {
+            "intercept": 0.5870379286235359,
+            "slope_per_natural_log_unit": 0.02768269644110096,
+            "residual_sd": 0.18153173652116084
+          },
+          "meteor": {
+            "intercept": 0.52223100038379,
+            "slope_per_natural_log_unit": 0.07046943321767754,
+            "residual_sd": 0.16515994320043528
+          },
+          "rouge_l": {
+            "intercept": 0.4959210646784894,
+            "slope_per_natural_log_unit": 0.08165324311003523,
+            "residual_sd": 0.17451741427314127
+          },
+          "bertscore": {
+            "intercept": 0.829321389139034,
+            "slope_per_natural_log_unit": 0.038446210163640054,
+            "residual_sd": 0.035944818892468464
+          },
+          "comet": {
+            "intercept": 0.7494769791118452,
+            "slope_per_natural_log_unit": 0.005441283733477476,
+            "residual_sd": 0.06796505560542873
+          },
+          "xcomet": {
+            "intercept": 0.2270720201532507,
+            "slope_per_natural_log_unit": 0.1324152150914891,
+            "residual_sd": 0.16107013691169214
+          },
+          "bleurt": {
+            "intercept": 0.49628587939909985,
+            "slope_per_natural_log_unit": 0.07474523940704501,
+            "residual_sd": 0.11454878275035923
+          }
+        }
+      },
+      "reference_words": {
+        "residual_composite_association": {
+          "n": 10,
+          "pearson_r": 0.5820397023125554,
+          "pearson_p_two_sided": 0.07751372061212154,
+          "spearman_rho": 0.5644596696086609,
+          "spearman_p_two_sided_asymptotic": 0.08915310781357491,
+          "kendall_tau": 0.3492151478847891,
+          "kendall_p_two_sided": 0.17268204141874843
+        },
+        "exact_permutation_p_one_sided": 0.04679012345679012,
+        "unique_rating_permutations": 226800,
+        "partial_rank_association": {
+          "n": 10,
+          "controls": 1,
+          "partial_spearman_rho": 0.4936861277566424,
+          "t_statistic": 1.501966882837548,
+          "degrees_freedom": 7,
+          "p_two_sided_approximate": 0.17680243098078613
+        },
+        "metric_length_models": {
+          "bleu4": {
+            "intercept": 0.42512881098285077,
+            "slope_per_natural_log_unit": 0.019140425617171542,
+            "residual_sd": 0.2696519936457058
+          },
+          "chrfpp": {
+            "intercept": 0.8854979709432852,
+            "slope_per_natural_log_unit": -0.057851405988441525,
+            "residual_sd": 0.18107959674899393
+          },
+          "meteor": {
+            "intercept": 0.8046437742659329,
+            "slope_per_natural_log_unit": -0.016832109225914736,
+            "residual_sd": 0.16647757695013263
+          },
+          "rouge_l": {
+            "intercept": 0.7346287399092261,
+            "slope_per_natural_log_unit": 0.0046859045783355004,
+            "residual_sd": 0.17626150856351488
+          },
+          "bertscore": {
+            "intercept": 0.8228418017162556,
+            "slope_per_natural_log_unit": 0.03468854708412835,
+            "residual_sd": 0.03665666353662399
+          },
+          "comet": {
+            "intercept": 0.7491448732448797,
+            "slope_per_natural_log_unit": 0.004749626455752302,
+            "residual_sd": 0.06797346643185445
+          },
+          "xcomet": {
+            "intercept": 0.025796683831189104,
+            "slope_per_natural_log_unit": 0.16837324805489304,
+            "residual_sd": 0.15990816522239587
+          },
+          "bleurt": {
+            "intercept": 0.39995851925397763,
+            "slope_per_natural_log_unit": 0.09031884329284837,
+            "residual_sd": 0.1142975155625811
+          }
+        }
+      }
+    },
+    "by_treatment_source_length_adjusted": {
+      "parallage": {
+        "n": 5,
+        "raw_spearman_rho": 0.49999999999999994,
+        "raw_exact_p_two_sided": 0.45,
+        "source_length_adjusted_spearman_rho": 0.49999999999999994,
+        "source_length_adjusted_exact_p_two_sided": 0.45,
+        "unique_permutations": 120
+      },
+      "single": {
+        "n": 5,
+        "raw_spearman_rho": 0.19999999999999998,
+        "raw_exact_p_two_sided": 0.7833333333333333,
+        "source_length_adjusted_spearman_rho": 0.6,
+        "source_length_adjusted_exact_p_two_sided": 0.35,
+        "unique_permutations": 120
+      }
+    }
+  }
+}

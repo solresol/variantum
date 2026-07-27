@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-16T11:13:03+10:00",
+  "generated_at": "2026-07-27T15:58:15+10:00",
   "method": {
     "greek_timing_unit": "Earliest saved rating per reviewer/passage; captured_at_ms from page load.",
     "greek_source_length": "assembled_lemmas.word_count in the live Stephanos database.",
@@ -38,12 +38,12 @@
     "overall_length_correlation": {
       "n": 29,
       "spearman_rho": 0.053379760802372535,
-      "p_value_two_sided": 0.7833083595041217
+      "p_value_two_sided": 0.7833083595041218
     },
     "sensitivity_excluding_longest_duration": {
       "n": 28,
       "spearman_rho": 0.021148171053670117,
-      "p_value_two_sided": 0.9149355346805591
+      "p_value_two_sided": 0.9149355346805592
     },
     "by_reviewer": {
       "shirley": {
@@ -59,7 +59,7 @@
         "length_correlation": {
           "n": 19,
           "spearman_rho": -0.07817310254385794,
-          "p_value_two_sided": 0.7504070436668402
+          "p_value_two_sided": 0.7504070436668403
         },
         "sensitivity_excluding_longest_duration": {
           "n": 18,
@@ -80,12 +80,12 @@
         "length_correlation": {
           "n": 10,
           "spearman_rho": 0.6646465023178235,
-          "p_value_two_sided": 0.03602846122522851
+          "p_value_two_sided": 0.036028461225228535
         },
         "sensitivity_excluding_longest_duration": {
           "n": 9,
           "spearman_rho": 0.5882560647712126,
-          "p_value_two_sided": 0.09567914828619992
+          "p_value_two_sided": 0.09567914828620004
         }
       }
     },

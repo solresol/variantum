@@ -12,9 +12,10 @@ from pathlib import Path
 from typing import Iterable
 
 import psycopg2
+from scipy import stats
 
 
-ROOT = Path("/Users/gregb/Documents/devel/variantum")
+ROOT = Path(__file__).resolve().parents[1]
 OUT = ROOT / "analysis"
 SELECTION = ROOT / "data" / "stephanos-review-selection-v1.json"
 PACK_SLUG = "stephanos-review-v1"
@@ -79,6 +80,7 @@ WITH ranked AS (
     ) AS row_rank
   FROM variant_ratings
   WHERE pack_slug = '{PACK_SLUG}'
+    AND variant_id NOT LIKE 'cc-%'
 )
 SELECT
   id, pack_slug, passage_id, variant_id, reviewer_username, rating,
@@ -185,31 +187,11 @@ def simple_linear_regression(xs: list[float], ys: list[float]) -> tuple[float, f
     return slope, intercept
 
 
-def rank(values: list[float]) -> list[float]:
-    order = sorted(range(len(values)), key=lambda i: values[i])
-    out = [0.0] * len(values)
-    i = 0
-    while i < len(order):
-        j = i
-        while j + 1 < len(order) and values[order[j + 1]] == values[order[i]]:
-            j += 1
-        r = (i + j + 2) / 2
-        for k in range(i, j + 1):
-            out[order[k]] = r
-        i = j + 1
-    return out
-
-
 def spearman(xs: list[float], ys: list[float]) -> tuple[float, float | None]:
     if len(xs) < 3 or len(set(xs)) < 2 or len(set(ys)) < 2:
         return float("nan"), None
-    rx = rank(xs)
-    ry = rank(ys)
-    mx = sum(rx) / len(rx)
-    my = sum(ry) / len(ry)
-    num = sum((x - mx) * (y - my) for x, y in zip(rx, ry))
-    den = math.sqrt(sum((x - mx) ** 2 for x in rx) * sum((y - my) ** 2 for y in ry))
-    return (num / den if den else float("nan")), None
+    result = stats.spearmanr(xs, ys)
+    return float(result.statistic), float(result.pvalue)
 
 
 def annotate_joined_rows(
@@ -312,7 +294,11 @@ def write_csv(path: Path, rows: Iterable[dict[str, object]]) -> None:
         return
     path.parent.mkdir(parents=True, exist_ok=True)
     with path.open("w", newline="", encoding="utf-8") as handle:
-        writer = csv.DictWriter(handle, fieldnames=list(rows[0].keys()))
+        writer = csv.DictWriter(
+            handle,
+            fieldnames=list(rows[0].keys()),
+            lineterminator="\n",
+        )
         writer.writeheader()
         writer.writerows(rows)
 
