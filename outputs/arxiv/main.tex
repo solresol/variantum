@@ -156,7 +156,12 @@ Verification}\label{abundant-translation-scarce-verification}
 
 Generative AI can produce fluent but incorrect translations quickly and
 cheaply, making it attractive for fragmentary, specialised, or
-under-translated ancient texts. Its failures can be concentrated rather
+under-translated ancient texts. The economics are stark: professional
+human translation is conventionally budgeted at roughly
+\$0.10--\$0.15 per source word, while generating this project's full
+set of twenty-seven helper renderings cost about 0.7 cents per source
+word, and web dissemination costs almost nothing. The failures of
+generated translation, however, can be concentrated rather
 than gradual. In a reference-free expert evaluation of Ancient Greek
 technical prose, Zainaldin et al.~(2026) found high average performance
 but catastrophic failures on two terminology-dense passages, with
@@ -172,14 +177,20 @@ The verification problem is especially acute when no stable complete
 translation exists. Readers of New Testament Greek can triangulate with
 dictionaries, parallel translations, and extensive commentary. Readers
 of Stephanos of Byzantium's \emph{Ethnica} or the Tsinghua bamboo
-manuscript \emph{Xin shi wei zhong} often cannot. A non-reader of Greek
+manuscript \emph{Xin shi wei zhong} often cannot: no complete prior
+English translation exists, the author cannot be asked what they meant,
+and no native speaker raised in the source culture survives to consult.
+A non-reader of Greek
 or Classical Chinese cannot independently inspect the source script. If
 one of the translations sounds fluent, how can they tell if there are
 problems?
 
 The central question is not whether a candidate can be made to look
 reliable, but whether a reader can be given useful evidence about where
-it may not be. Parallage uses a set of role-conditioned translations for
+it may not be. The design premise is deliberately inverted from
+conventional translation delivery: rather than trying to remove
+ambiguity and uncertainty, Parallage tries to make them obvious. It uses
+a set of role-conditioned translations for
 that purpose. The outputs are not votes, and the most fluent or central
 output is not automatically selected as correct. The set is presented to
 a person who must decide where to distrust, investigate, or seek expert
@@ -340,12 +351,34 @@ one variant is correct. The method's claim is therefore narrower than
 ensemble corroboration: contrasting renderings can expose decisions that
 a single fluent output concealed.
 
-\subsection{3.1 A Playful Variant as a Diagnostic
-Probe}\label{a-playful-variant-as-a-diagnostic-probe}
+\subsection{3.1 A Worked Crux: the Graph
+麏}\label{a-worked-crux-the-graph-jun}
 
-In Chinese passage 7, a rhyming profile encounters the difficult phrase
-在善之麏. The working transcription permits uncertainty around 麏, which
-can denote a deer and may refer here to a herd, cluster, or gathering:
+Chinese passage 7 reads:
+
+\begin{quote}
+寧心謀之、稽之、度之、鑒之，聞訊視聽，在善之麏，心焉為之。\\
+\emph{Níng xīn móu zhī, jī zhī, duó zhī, jiàn zhī; wén xùn shì tīng,
+zài shàn zhī jūn; xīn yān wéi zhī.}
+\end{quote}
+
+The phrase 在善之麏 is genuinely difficult. The graph 麏 ordinarily
+denotes a deer; here it may stand for a herd, cluster, or gathering,
+and scholars generally read it as 攈, ``to gather, glean''. The focal
+translation keeps the animal image, rendering the phrase ``amid the
+gathered `herd' of what is good''---fluent, and silent about the
+problem. The helpers are not silent: twenty-two of the twenty-seven
+helper profiles mark the graph as uncertain somewhere in their output.
+The scholarly-readable profile translates cautiously and then flags the
+crux in its glossary:
+
+\begin{quote}
+善之麏: uncertain. 麏 may suggest a ``herd/cluster/gathering,'' so
+translated cautiously as ``the gathered forms of what is good.''
+\end{quote}
+
+Even the rhyming profile, built for play rather than criticism, is
+forced to disclose the unresolved choice in its final line:
 
 \begin{quote}
 Calm the heart: devise it, search it, weigh its way;\\
@@ -354,9 +387,22 @@ Hear, question, look, and listen where you should;\\
 The heart acts there---among the herd/deer? of good.
 \end{quote}
 
-This is not a candidate critical translation. Its usefulness is
+The rhyme is not a candidate critical translation. Its usefulness is
 diagnostic: the pressure to complete the rhyme makes the unresolved
-lexical choice impossible to miss.
+lexical choice impossible to miss. A reader might pass over the odd
+herd image in the focal translation alone; against the pack, the
+problem is unmissable. Shirley Chan's expert reference translation,
+recorded after the pilot review, resolves the crux with the gather
+reading: ``The tranquil heart-mind deliberates on it, examines it,
+measures it, and reflects on it. In hearing, questioning, looking and
+listening, lies within the gathered goodness (for which) the heart-mind
+thereby acts for it.''
+
+The pack helps with smaller decisions in the same passage. Most
+profiles render 寧心 as an imperative (``calm the mind'', ``settle the
+heart-mind''), while the forked-lattice and decision-log profiles
+record ``with a tranquil mind'' as a live alternative---a fork that a
+single fluent output would have closed silently.
 
 \section{4. Corpora and
 Implementation}\label{corpora-and-implementation}
@@ -376,7 +422,17 @@ review.
 Model-development results provide context for why inspection remains
 necessary. A companion operational benchmark contains 100 Kappa entries,
 each with one approved project translation, crossed with twelve dated
-OpenAI releases and three prompt conditions. Across the resulting 3,600
+OpenAI releases and three prompt conditions. The minimal condition
+simply asks the model to act as a classical translator. The reviewed
+prompt was written by Anthropic's Claude when shown twenty
+project-corrected translations alongside the model's earlier attempts,
+and encodes recurring constructions, named-entity handling, and
+editorial conventions. The detailed condition is its later, more
+modular revision, supplying guidance only for constructions present in
+an entry, and is the basis of the Greek focal profile (Section 4.3).
+Twenty prompt-development entries remain inside the benchmark, so these
+are retrospective measurements of the project workflow rather than
+scores on an untouched test set. Across the resulting 3,600
 model-entry comparisons, the mean of BLEU-4, chrF++, METEOR, and ROUGE-L
 (Papineni et al.~2002; Popović 2017; Banerjee and Lavie 2005; Lin 2004)
 rose from 43.0\% to 47.2\% under a minimal prompt, from 60.9\% to 70.0\%
@@ -434,7 +490,13 @@ encode conventions learned during the same editorial process.
 
 The Chinese corpus is \emph{Xin shi wei zhong} 心是謂中, a Warring
 States bamboo manuscript published in volume 8 of the Tsinghua
-collection (Shen 2018). Shirley Chan supplied the project working
+collection (Shen 2018). The manuscript concerns the heart-mind (xin
+心), deliberation, and ethical judgement. The two corpora were chosen
+to differ: where the \emph{Ethnica} is concrete, cataloguing particular
+places and peoples, \emph{Xin shi wei zhong} is abstract and
+philosophical, equally compressed in syntax, and adds
+textual-reconstruction problems of its own. Shirley
+Chan supplied the project working
 transcription and approved a ten-part segmentation in July 2026. After
 Greta's anticipated-divergence review had been completed, Shirley
 supplied an English reference translation for each of the ten passages.
@@ -451,7 +513,10 @@ Infrastructure}\label{generation-and-review-infrastructure}
 All focal and helper translations used in the review interface were
 generated with \texttt{gpt-5.5}. The Greek focal translation used
 version 3 of the project's reviewed scholarly profile; the Chinese focal
-profile requested one clear scholarly translation without commentary.
+profile requested one clear scholarly translation without commentary, a
+minimal instruction comparable to the benchmark's minimal condition, so
+the Chinese focal translations should be expected to carry more errors
+than the prompt-engineered Greek ones.
 The twenty-seven helper profiles were version 1. For Chinese, each of
 the ten passages was generated once under each profile through the
 Responses API with a maximum of 2,400 output tokens. Temperature and
@@ -500,7 +565,9 @@ reviewed ten Greek passages. Shirley Chan, a scholar of Chinese language
 and culture, reviewed nineteen Greek passages. Nine passages overlap
 between their sets. Greta Hawes, an ancient-world scholar who does not
 read Classical Chinese, reviewed five Chinese passages with a full pack
-and five with a single translation. These are formative co-design
+and five with a single translation. Neither Vanessa nor Shirley reads
+Ancient Greek, so every reviewer judged translations from a language
+they could not read. These are formative co-design
 observations, not an independent participant sample or evidence of
 efficacy. Greg Baker developed the system and conducted the analysis but
 did not contribute review ratings.
@@ -828,7 +895,12 @@ and interval width may be more informative than a binary null-hypothesis
 decision unless additional recruitment becomes available.
 
 The primary target population is readers who do not know the relevant
-source language. Semi-experts and professional translators will
+source language. The design also answers a teaching question: students
+will consult AI translations whatever they are advised, so the study
+asks what to give them so that a fluent-but-wrong rendering does not
+fool them---whether structured multiplicity can instil well-founded
+scepticism where scepticism is warranted. Semi-experts and professional
+translators will
 contribute a separate qualitative workflow track rather than being
 pooled into the primary efficacy estimate.
 
@@ -888,7 +960,10 @@ The hypotheses to be fixed in that registration are:
 Contribution}\label{limitations-and-contribution}
 
 The current evidence has severe limits. The samples are small; the
-reviewers are co-authors; the Greek task is not a controlled pack
+reviewers are co-authors; the reviewers' professional experience with
+translation may supply cues, such as expectations about how English
+renderings behave, that student participants will not have; the Greek
+task is not a controlled pack
 comparison; the Chinese condition groups contain only five passages
 each; the Chinese timing comparison is incomplete and order-confounded;
 reference similarity is not correctness; and all variants may share
