@@ -13,3 +13,6 @@ cgi/*/review-*
 !cgi/review-save/
 !cgi/review-state/
 !cgi/review-status/
+
+# Local bridge to the private sibling administration repository.
+/admin/
