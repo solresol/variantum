@@ -1,0 +1,190 @@
+{
+  "metrics": [
+    "xcomet"
+  ],
+  "xcomet_model": "Unbabel/XCOMET-XL",
+  "comet_batch_size": 8,
+  "use_gpu": false,
+  "rows": [
+    {
+      "row_index": 0,
+      "translation_run_id": 2347,
+      "lemma_id": 2080,
+      "lemma": "Καλαβρία",
+      "source": "Καλαβρία, χώρα πλησίον τῆς Ἰταλίας. ὁ οἰκήτωρ Καλαβρός, καὶ Καλαβρά θηλυκὸν καὶ Καλαβρίς.",
+      "candidate": "Kalabria: a country near Italy. The inhabitant is 'Kalabros', and the feminine is 'Kalabra' and 'Kalabris'.",
+      "reference": "Kalabria: a region near Italy. An inhabitant is a 'Kalabros'; the feminine is 'Kalabra' as well as 'Kalabris'."
+    },
+    {
+      "row_index": 1,
+      "translation_run_id": 2361,
+      "lemma_id": 2329,
+      "lemma": "Κάλπη",
+      "source": "Κάλπη, πόλις Βιθυνῶν. Θεόπομπος ὀγδόῳ Ἑλληνικῶν. ἔστι καὶ λιμὴν Κάλπης· τὸ ἐθνικὸν Καλπεύς ὡς Σινωπεύς. καὶ Καλπῖνος ἔστιν ὡς Πεύκη Πευκῖνος. τοῦ δὲ λιμένος ὡς Καλπολιμενίτης. .... καὶ τὴν πόλιν Κάρπειαν .... τινὲς τούτους Καρπητανοὺς ὡς Καλπειανούς φασι.",
+      "candidate": "Kalpe: a city of the Bithynians. Theopompos, book 8 of his *Hellenika*. There is also a harbour of Kalpe. The ethnonym is 'Kalpeus', as in 'Sinopeus'. And there is also 'Kalpinos', as 'Peukinos' from 'Peuke'. For the harbour, it is as 'Kalpolimenites'. ... and the city Karpeia ... some say that these are 'Karpetanoi', as in 'Kalpeianoi'.",
+      "reference": "Kalpe: a city of the Bithynians. Theopompos, in book 8 of his *Hellenika*. There is also a harbour of Kalpe. The ethnonym is 'Kalpeus', as in 'Sinopeus'. And there is also 'Kalpinos', just as 'Peukinos' is from 'Peuke'. And the harbour's is thus: 'Kalpolimenites'. ... and the city Karpeia ... some say that these are 'Karpetanoi', as in 'Kalpeianoi'."
+    },
+    {
+      "row_index": 2,
+      "translation_run_id": 3226,
+      "lemma_id": 2054,
+      "lemma": "Καβαλίς",
+      "source": "Καβαλίς, πόλις πλησίον Κιβύρας πρὸς νότον Μαιάνδρου. [Στράβων τρισκαιδεκάτῃ.] ἡ γενικὴ Καβαλίδος. ὁ πολίτης Καβαλεύς. Ἑκαταῖος Ἀσίᾳ. καὶ θηλυκῶς, ὡς Στράβων ἐν τῇ εἰρημένῃ “ἀπόγονοι δὲ Λυδῶν οἱ Κιβυρᾶται τῶν κατασχόντων τὴν Καβαλίδα”. ὁ δὲ πολυίστωρ Ἀλέξανδρος Καβάλισσαν φησὶ τὸ θηλυκόν. εἶναι δὲ τὸ γένος αὐτὴν Ὀλβίαν.",
+      "candidate": "Kabalis: a city near Kibyra, to the south of the Maiandros. [Strabo, book 13.] The genitive is 'Kabalidos'. The citizen is a 'Kabaleus'. Hekataios in his *Asia*. Also in the feminine, as per Strabo in the aforementioned book: 'the Kibyratai are descendants of the Lydians who occupied Kabalis'. Alexander Polyhistor says that the feminine is 'Kabalissa', and that by descent she is Olbian.",
+      "reference": "Kabalis: a city near Kibyra, to the south of the Maiandros. [Strabo, book 13.] The genitive is 'Kabalidos'. A citizen is a 'Kabaleus'. Hekataios in his *Asia*. Also in the feminine, as per Strabo in the aforementioned: 'The Kibyratai are descendants of the Lydians who gained possession of Kabalis.' However, Alexander Polyhistor says that the feminine is 'Kabalissa', and that they are Olbian by descent."
+    },
+    {
+      "row_index": 3,
+      "translation_run_id": 3229,
+      "lemma_id": 2055,
+      "lemma": "Καβασσός",
+      "source": "Καβασσός, πόλις ἐν Καππαδοκίᾳ, πατρὶς Ὀθρυονέως. Ὅμηρος “Καβησσόθεν ἔνδον ἐόντα”. Ἑκαταῖος δ´ ὁ Μιλήσιος Καβησσὸν πόλιν εἶναί φησιν ὑπερβάντι τὸν Θρᾴκιον Αἷμον. καὶ συμφωνεῖ καὶ ἡ τοῦ γάμου ἐλπὶς τῶν Θρᾳκῶν ἀκολασίᾳ. Ἑλλάνικος δὲ τῆς Λυκίας πόλιν Καβησσόν. Ἀπίων δὲ ἀληθέστερόν φησι κώμην εἶναι Καππαδοκίας μεταξὺ Ταρσοῦ καὶ Μαζάκων. Μάζακα δὲ ἡ Καππαδοκίας ἐκαλεῖτο Καισάρεια. ἐθνικῶς ἀρκεῖ τὸ Ὁμηρικὸν Καβησσόθεν. πολλὰ γὰρ τοιαῦτα, ὡς τὸ Καμειρόθεν, τὰ τοπικὰ ἐθνικῶς. δύναται δὲ Καβήσσιος ἢ Καβησσίτης.",
+      "candidate": "Kabassos: a city in Kappadokia, the fatherland of Othryoneus. Homer: 'being within from Kabessos'. Hekataios of Miletos says that Kabessos is a city for one who has crossed the Thracian Haimos. The hope of marriage too agrees with the licentiousness of the Thracians. Hellanikos says that Kabessos is a city in Lykia. Apion says more truly that it is a village in Kappadokia between Tarsos and Mazaka. Mazaka in Kappadokia was called Kaisareia. For the ethnonym the Homeric 'Kabessothen' is sufficient; for there are many such forms, with locative terms used as ethnonyms, as in 'Kameirothen'. It can also be 'Kabessios' or 'Kabessites'.",
+      "reference": "Kabassos: a city in Kappadokia, homeland of Othryoneus. Homer: 'who was there from Kabessos'. Hekataios of Miletos says that Kabessos is a city after one has crossed Thracian Haimos. The expectation of marriage also accords with the shamelessness of the Thracians. Hellanikos, however, states that Kabessos is a city in Lykia, and Apion says more correctly that it is a village in Kappadokia between Tarsos and Mazaka. The Mazaka in Kappadokia used to be called 'Kaisareia'. The Homeric form 'Kabesothen' is sufficient as an ethnonym, for there are many of this type such as the form 'Kameirothen' (the locative terms functioning as ethnonyms). 'Kabesios' or 'Kabesites' is also possible."
+    },
+    {
+      "row_index": 4,
+      "translation_run_id": 3290,
+      "lemma_id": 2325,
+      "lemma": "Καλλίαι",
+      "source": "Καλλίαι, πόλις μία τῆς ἐν Ἀρκαδίᾳ τριπόλεως. ὁ πολίτης Καλλιεύς, ὡς Παυσανίας. ἔστι καὶ χωρίον πλησίον Τάραντος.",
+      "candidate": "Kalliai: one city of the Tripolis in Arkadia. The citizen is 'Kallieus', as per Pausanias. There is also a locality near Taras.",
+      "reference": "Kalliai: a city, one of the Tripolis in Arkadia. A citizen is a 'Kallieus', as per Pausanias. There also is a locality near Taras."
+    },
+    {
+      "row_index": 5,
+      "translation_run_id": 3302,
+      "lemma_id": 2330,
+      "lemma": "Καλύβη",
+      "source": "Καλύβη, πόλις Θρᾴκης, ἄποικος Μακεδόνων. τὸ ἐθνικὸν Καλυβῖται ἢ Καλυβεῖς, ὡς τῆς Ἀλύβης Ἀλυβεῖς.",
+      "candidate": "Kalybe: a city in Thrace, a settlement of Macedonians. The ethnonym is 'Kalybitai' or 'Kalybeis', just as 'Alybeis' is from 'Alybe'.",
+      "reference": "Kalybe: a city in Thrace, a settlement of the Macedonians. The ethnonym is 'Kalybitai' or 'Kalybeis', just as 'Alybeis' is from the form 'Alybe'."
+    },
+    {
+      "row_index": 6,
+      "translation_run_id": 3331,
+      "lemma_id": 2477,
+      "lemma": "Καρδαμύλη",
+      "source": "Καρδαμύλη, [πόλις Μεσσηνίας.] Ὅμηρος “Καρδαμύλην Ἐνόπην τε”. Ἡρόδοτος δὲ Λακ��νικὴν αὐτήν φησιν. ἔοικε δ´ ἑτέρα εἶναι πλησίον Χίου. τὸ ἐθνικὸν Καρδαμυλίτης ὡς Σινωπίτης. παρὰ δὲ τῶν ἐγχωρίων Σκαρδαμυλίτης λέγεται. ἔστι δὲ καὶ Καρδαμυλησσός κώμη.",
+      "candidate": "Kardamyle: [a city of the Messenians.] Homer: ‘Kardamyle and Enope.’ Herodotus, however, says that it is Lakonian. It seems that there is another near Chios. The ethnonym is ‘Kardamylites’, as in ‘Sinopites’. Among the locals it is called ‘Skardamylites’. There is also Kardamylessos, a village.",
+      "reference": "Kardamyle: [a city in Messenia.] Homer: ‘Kardamyle and Enope’. Herodotos says that it is Lakonian. There appears to be another one near Chios. The ethnonym is ‘Kardamylites’, as in ‘Sinopites’. It is called ‘Skardamylites’ among the locals. There is also a village Kardamylessos."
+    },
+    {
+      "row_index": 7,
+      "translation_run_id": 3358,
+      "lemma_id": 2609,
+      "lemma": "Κάσπειρος",
+      "source": "Κάσπειρος, πόλις Πάρθων προσεχὴς τῇ Ἰνδικῇ. Ἡρόδοτος γʹ. τὸ ἐθνικὸν Κάσπειροι, ὡς Διονύσιος ἐν γʹ Βασσαρικῶν “ἐν δέ τε Κάσπειροι ποσσικλυτοί, ἐν δ´ Ἀριηνοί”. καὶ πάλιν Κοσσαῖος γενεὴν Κασπειρόθεν, οἵ ῥά τε πάντων Ἰνδῶν ὅσσοι ἔασιν ἀφάρτερα γούνατ´ ἔχουσιν· ὅσσον γάρ τ´ ἐν ὄρεσσιν ἀριστεύουσι λέοντες, ἢ ὁπόσον δελφῖνες ἔσω ἁλὸς ἠχηέσσης, αἰετὸς εἰν ὄρνισι μεταπρέπει ἀγρομένοισιν, ἵπποι τε πλακόεντος ἔσω πεδίοιο θέοντες, τόσσον ἐλαφρότατοισι περιπροφέρουσι πόδεσσιν Κάσπειροι μετὰ φῦλα τά τ´ ἄφθιτος ἔλλαχεν ἠώς. ἔδει οὖν ὡς Στάγειρος Σταγειρίτης, οὕτως Κάσπειρος Κασπειρίτης. ἀλλ´ οἱ βάρβαροι Ἑλληνικὴν ἀναλογίαν οὐ φυλάττουσι.",
+      "candidate": "Kaspeiros: a city of the Parthians, adjoining India. Herodotus, book 3. The ethnonym is 'Kaspeiroi', as per Dionysios in book 3 of his *Bassarika*:\n\n'And among them the Kaspeiroi, famed for their feet, and among them the Arienoi.'\n\nAnd again:\n\n'Kossaios, of lineage from Kaspeiros, who of all\nIndians, as many as there are, have the nimblest knees;\nfor by as much as lions excel in the mountains,\nor as dolphins within the echoing sea,\nas the eagle stands out among gathered birds,\nand horses running within the level plain,\nby so much with lightest feet do the Kaspeiroi surpass\namong the tribes that immortal Dawn has obtained.'\n\nThe form therefore ought to have been, just as 'Stageirites' is from Stageiros, so 'Kaspeirites' from Kaspeiros. But barbarians do not observe Greek analogy.",
+      "reference": "Kaspeiros: a city of the Parthians situated on the border with India. Herodotos, book 3. The ethnonym is 'Kaspeiroi', as per Dionysios in book 3 of his *Bassarika*: 'and among them the far-famed Kaspeiroi, and the Arienoi.' And again: \r\n\r\n'a Kossaian by descent, from Kaspeiros, who, \r\nout of all the Indians that exist have the swiftest knees; \r\nfor as much as lions excel in the mountains, \r\nor as much as dolphins within the resounding sea, \r\nas the eagle stands out among the birds that flock together, \r\nand as horses dashing across the flat plain, \r\nso much do the Kaspeiroi surpass with the lightest feet, \r\namong the tribes who the undying Dawn takes as her charge.' \r\n\r\nAs 'Stageirites' is from 'Stageiros', it should therefore be 'Kaspeirites' from 'Kaspeiros'. But barbarians do not observe Greek analogy."
+    },
+    {
+      "row_index": 8,
+      "translation_run_id": 3370,
+      "lemma_id": 2624,
+      "lemma": "Κατάβαθμος",
+      "source": "Κατάβαθμος, τόπος ἐν Λιβύῃ μεταξὺ τοῦ Ἄμμωνος καὶ τοῦ Παραιτονίου. ὁ οἰκήτωρ Καταβαθμίτης, ὡς Φελλός Φελλίτης.",
+      "candidate": "Katabathmos: a place in Libya between Ammon and Paraitonion. The inhabitant is 'Katabathmites', as 'Phellites' is from Phellos.",
+      "reference": "Katabathmos: a place in Libya between Ammon and Paraitonion. An inhabitant is a 'Katabathmites', just as 'Phellites' is from Phellos."
+    },
+    {
+      "row_index": 9,
+      "translation_run_id": 3385,
+      "lemma_id": 2629,
+      "lemma": "Καταννοί",
+      "source": "Καταννοί, ἔθνος πρὸς τῇ Κασπίᾳ θαλάσσῃ. Ἑκαταῖος Ἀσίᾳ.",
+      "candidate": "Katannoi: a people near the Caspian Sea. Hekataios in his *Asia*.",
+      "reference": "Katannoi: a people on the Caspian Sea. Hekataios in his *Asia*."
+    },
+    {
+      "row_index": 10,
+      "translation_run_id": 3403,
+      "lemma_id": 7242,
+      "lemma": "Κύρβη",
+      "source": "Κύρβη, πόλις Παμφυλίας. Ἑκαταῖος Ἀσίᾳ. ὁ πολίτης Κυρβαῖος.",
+      "candidate": "Kyrbe: a city in Pamphylia. Hekataios in *Asia*. A citizen is a 'Kyrbaios'.",
+      "reference": "Kyrbe: a city in Pamphylia. Hekataios in his *Asia*. A citizen is a 'Kyrbaios'."
+    },
+    {
+      "row_index": 11,
+      "translation_run_id": 3423,
+      "lemma_id": 7249,
+      "lemma": "Κύρρος",
+      "source": "Κύρρος, πόλις Συρίας, ἧς ἀκρόπολις Γίνδαρος. ὁ πολίτης Κυρρέστης, ὡς Πολύβιος πέμπτῳ, καὶ Κυρρεστίς ἡ Ἀθηνᾶ. καὶ ἡ χώρα Κυρρεστική. Στράβων ἑκκαιδεκάτῃ. Δημήτριος δὲ ὁ Ἀντιγόνου τὸ Κυρήστης διὰ τοῦ « η » φησὶ καθύ...",
+      "candidate": "Kyrros: a city in Syria, whose acropolis is Gindaros. A citizen is a 'Kyrrestes', as per Polybius, book 5, and Athena is 'Kyrrestis'. The territory too is 'Kyrrestike'. Strabo, book 16. Demetrios son of Antigonos says that 'Kyrestes' is written with η ...",
+      "reference": "Kyrros: a city in Syria, the acropolis of which is Gindaros. A citizen is a 'Kyrrestes', as per Polybios, book 5; there is also Athena Kyrrestis. The surrounding territory is 'Kyrrestike'. Strabo, book 16. Demetrios son of Antigonos says that 'Kyrrestes' is spelled with η — through..."
+    },
+    {
+      "row_index": 12,
+      "translation_run_id": 3431,
+      "lemma_id": 7252,
+      "lemma": "Κύρτωνες",
+      "source": "Κύρτωνες, πόλις Βοιωτίας. Παυσανίας ἐνάτῳ. τὸ δὲ ἀρχαῖον [τῷ] πολίσματι ὄν[ομα] Κυρτώνη· τὸ ἐθνικὸν Κυρτώνιος, τοῦ δὲ πολιχνίου Κύρτωνες.",
+      "candidate": "Kyrtones: a city in Boiotia. Pausanias, book 9. In antiquity the name for the town was 'Kyrtone'; the ethnonym is 'Kyrtonios', and that of the town is 'Kyrtones'.",
+      "reference": "Kyrtones: a city in Boiotia. Pausanias, book 9. The ancient name for the town was 'Kyrtone'. The ethnonym is 'Kyrtonios', but that of the town was 'Kyrtones'."
+    },
+    {
+      "row_index": 13,
+      "translation_run_id": 3434,
+      "lemma_id": 7253,
+      "lemma": "Κυρτώνιος",
+      "source": "Κυρτώνιος, πόλις Ἰταλίας. Πολύβιος τρίτῳ. τὸ ἐθνικὸν τῷ τῆς χώρας ἔθει Κυρτωνῖνος ὡς Σατορνῖνος.",
+      "candidate": "Kyrtonios: a city in Italy. Polybius, book 3. The ethnonym, according to the usage of the region, is 'Kyrtoninos', as in 'Satorninos'.",
+      "reference": "Kyrtonios: a city in Italy. Polybios, book 3. In local usage, the ethnonym is 'Kyrtoninos' (as in 'Saturninos')."
+    },
+    {
+      "row_index": 14,
+      "translation_run_id": 3440,
+      "lemma_id": 7255,
+      "lemma": "Κυτέριον",
+      "source": "Κυτέριον, πόλις Οἰνώτρων ἐν τῇ μεσογείᾳ. Ἑκαταῖος Εὐρώπῃ. τὸ ἐθνικὸν Κυτεριώτης. δύναται καὶ τῷ τῆς χώρας ἔθει Κυτερῖνος.",
+      "candidate": "Kyterion: a city of the Oinotrians in the interior. Hekataios in his *Europe*. The ethnonym is 'Kyteriotes'. By the usage of the region it can also be 'Kyterinos'.",
+      "reference": "Kyterion: a city of the Oinotroi in the interior. Hekataios in his *Europe*. In local usage, the ethnonym can also be 'Kyterinos'."
+    },
+    {
+      "row_index": 15,
+      "translation_run_id": 3452,
+      "lemma_id": 7260,
+      "lemma": "Κυχρεῖος πάγος",
+      "source": "Κυχρεῖος πάγος, περὶ Σαλαμῖνα. Σοφοκλῆς Τεύκρῳ. ἀπὸ Κυχρέως τοῦ Σαλαμῖνος καὶ Ποσειδῶνος, ὃς ὄφις ἐπεκλήθη διὰ τὴν τραχύτητα τῶν τρόπων, ὃν λυμαινόμενον τὴν νῆσον ἀπήλασεν Εὐρύλοχος, ἐδέξατο δ´ ἐν Ἐλευσῖνι Δημήτηρ καὶ ἀμφίπολον ἐποίησεν. ἀπ´ αὐτοῦ δὲ καὶ ἡ Σαλαμὶς Κυχρεία ἐκλήθη, ὡς Στράβων. τὸ ἐθνικὸν Κυχρεοπαγίτης.",
+      "candidate": "Kychreios pagos: a hill near Salamis. Sophokles in his *Teukros*. It is named after Kychreus, son of Salamis and Poseidon, who was called 'Snake' because of the roughness of his ways; when he was ravaging the island, Eurylochos drove him away, but Demeter received him at Eleusis and made him an attendant. After him Salamis too was called 'Kychreia', as per Strabo. The ethnonym is 'Kychreopagites'.",
+      "reference": "Kychreios outcrop: near Salamis. Sophokles in his *Teukros*. After Kychreus son of Salamis and Poseidon, who was named 'Snake' because he was very wild by disposition. Eurylochos drove him out because he was ravaging the island, and Demeter received him at Eleusis and made him her attendant. Salamis was also called 'Kychreia' after him, as per Strabo, book 9. The ethnonym is 'Kychreopagites'."
+    },
+    {
+      "row_index": 16,
+      "translation_run_id": 3470,
+      "lemma_id": 7266,
+      "lemma": "Κώμη",
+      "source": "Κώμη, ἐν ταῖς μακραῖς ὁδοῖς μέσα χωρία ἔκτισαν πρὸς τὸ κοιμᾶσθαι νυκτὸς ἐπιγενομένης, ὅθεν καὶ ἐπικέκληται, ὡς Φιλόξενος. ὁ οἰκήτωρ ἐγκώμιος. Ἡσίοδος “εἰ γάρ τοι καὶ χρῆμ´ ἐγκώμιον ἄλλο γένοιτο”. καὶ κωμαῖος καὶ κωμήτης ἀρσενικῶς καὶ θηλυκῶς διὰ τοῦ « ι ». καὶ ὁ δῆμος κώμη. εἴρηται ἀπὸ τοῦ ἐν αὐταῖς κοιμᾶσθαί τε καὶ αὐλίζεσθαι. λέγεται καὶ κωμήτωρ.",
+      "candidate": "Kome: on long roads they built halfway points for sleeping when night came on; hence it has also been so called, as per Philoxenos. The resident is 'enkomios'. Hesiod: 'for if some other local matter should arise for you'. Also 'komaios' and 'kometes', in masculine and feminine, with ι. And the deme is a 'kome'. It is said to be from sleeping and lodging in them. The form 'kometor' is also used.",
+      "reference": "Kome: along long routes they established halfway points for the purpose of sleeping when night fell, after which they are now named, as per Philoxenos. An inhabitant is an 'enkomios'. Hesiod: 'For if some matter were to arise for you as an enkomios'. And also a 'komaios', and 'kometes' in the masculine, which in the feminine is written with ι. A deme is also a kome, named after the practice of taking shelter and sleeping there. 'Kometor' is also said."
+    },
+    {
+      "row_index": 17,
+      "translation_run_id": 3534,
+      "lemma_id": 2059,
+      "lemma": "Καδμεία",
+      "source": "Καδμεία πόλις, Θηβῶν ἀκρόπολις, ἀφ´ ἧς οἱ Θηβαῖοι Καδμεῖοι καὶ Καδμείωνες καὶ Καδμεῖαι, καὶ τὸ τεῖχος Καδμεία.",
+      "candidate": "Kadmeia: a city, the acropolis of Thebes, from which the Thebans are called 'Kadmeioi', 'Kadmeiones', and 'Kadmeiai'; the fortification too is 'Kadmeia'.",
+      "reference": "Kadmeia: a city, the acropolis of Thebes, after which Thebans are 'Kadmeioi', 'Kadmeiones' and 'Kadmeiai' and its walls are 'Kadmeia'."
+    },
+    {
+      "row_index": 18,
+      "translation_run_id": 3612,
+      "lemma_id": 2484,
+      "lemma": "Καρία",
+      "source": "Καρία, ἡ χώρα. τὸ ἐθνικὸν Κάρ, ὁμωνύμως τῷ οἰκιστῇ. τὸ θηλυκὸν κατὰ τέχνην [Καῖρα, καὶ ἐν διαλύσει] Κάιρα. ἡ χρῆσις δὲ τὴν « ει » δίφθογγον ἔχει. Ἀπολλώνιος δὲ διὰ τοῦ « ι » φησὶ μακροῦ, ὡς ἐν τῷ εʹ περὶ παθῶν καὶ ἐν τῷ περὶ γενῶν. ἡ δὲ ἔκτασις ἀναγκαία διὰ τὴν παραλήγουσαν. τὰ γὰρ εἰς « α » βραχὺ λήγοντα παρασχηματιζόμενα ἐκτείνει τὴν παραλήγουσαν φύσει ἢ θέσει. Ἡρωδιανὸς δὲ ἐν μὲν τῇ ὀρθογραφίᾳ ἀμφιβολεῖ, ἐν δὲ τῇ καθόλου χρήσει ἑπόμενος διὰ διφθόγγου φησίν, ὑπομνηματίζων δὲ τὸ περὶ γενῶν Ἀπολλωνίου διὰ τοῦ « ι » μακροῦ. “ἔστι γὰρ ὅτε μετὰ τὴν διαίρεσιν ἔκτασις γίγνεται, ὀίομαι ὄιγον ὄιδα παρ´ Αἰολεῦσιν, ἀντὶ τοῦ οἶδα. ἡ χρῆσις δὲ διὰ διφθόγγου κατὰ συνεκδρομὴν τοῦ σώτειρα ὀλέτειρα”. λέγεται καὶ Κάριος· οὕτως γὰρ ὁ Ζεὺς παρὰ Μυλασεῦσι τιμᾶται. τὸ θηλυκὸν Καρία. ἐκαλεῖτο δὲ καὶ ἡ Μεγάρων ἀκρόπολις Καρία ἀπὸ Καρὸς τοῦ Φορωνέως, καὶ ὁ οἰκήτωρ Κάριος. ἔστι καὶ Καρίνη. ἔστι καὶ Καριάτης. ἔστι καὶ Καριᾶτις, καὶ Καρίς ἀπὸ τῆς Καρός γενικῆς. Καρίς δὲ ἐλέγετο ἡ Κῶς, ὡς Ἑλλάνικος. ἔστι καὶ Φρυγίας πόλις Καρίς καὶ Καρίδες, τὸ ἐθνικὸν Καριδεύς ὡς Ἀρκαδεύς, τὸ ἀπὸ τῆς τέχνης Καρίτης. τῶν Καρῶν τὸ κτητικὸν Καρικός. Ἡρόδοτος ἐν πρώτῃ “τὸ Καρικὸν ἔθνος δοκιμώτατον”.",
+      "candidate": "Karia, the region. The ethnonym is 'Kar', homonymous with the founder. The feminine according to the grammatical rule is [Καῖρα, and in separation] Κάιρα. But common usage has the ει diphthong. Apollonios, however, says it with long ι, as in book 5 of his *On Affections* and in his *On Genders*. The lengthening is necessary because of the penult; for forms ending in short α, when they undergo secondary formation, lengthen the penult either by nature or by position. Herodianos in his *Orthography* is undecided, but, following general usage, says it is with a diphthong; when commenting on Apollonios' *On Genders*, however, he gives it with long ι: 'For there are times when lengthening occurs after separation: ὀίομαι, ὄιγον, ὄιδα among the Aiolians, instead of οἶδα. Common usage, however, has it with a diphthong by association with σώτειρα, ὀλέτειρα.' There is also 'Karios'; for Zeus is honoured under this name among the Mylaseis. The feminine is 'Karia'. The acropolis of Megara also used to be called 'Karia' after Kar son of Phoroneus, and the inhabitant is 'Karios'. There is also 'Karine'. There is also 'Kariates'. There is also 'Kariatis', and 'Karis' from the genitive 'Karos'. Kos used to be called 'Karis', as per Hellanikos. There is also 'Karis', a city in Phrygia, and 'Karides'; the ethnonym is 'Karideus', as in 'Arkadeus'; the form according to the grammatical rule is 'Karites'. The possessive of the 'Kares' is 'Karikos'. Herodotus in book 1: 'the Karian people were most highly regarded'.",
+      "reference": "Karia: the country. The ethnonym is 'Kar', homonymous with the founder. According to the grammatical rule the feminine is ['Kaira', also with hiatus] 'Kaïra'. The common usage, however, is with the diphthong ει. Apollonios says that it is with long ι, as per book 5 of his *On Modifications of Forms* and in his *On Genders*. The lengthening is necessary because of the penult, for words ending in short α when modified in form lengthen their penult either by nature or by position. While Herodian says that this is doubtful in his *Orthography* (and in his *General Prosody* he says that it uses the diphthong following the common usage), he does say when commenting on Apollonios’ *On Genders* that it is with long ι: 'for there is occasion when lengthening occurs after diaresis: 'oïomai' (ὀίομαι), 'oïgon' (ὄιγον), 'oïda' (ὄιδα) among the Aiolians rather than 'oida' (οἶδα). The common usage, however, is with the diphthong, according to the analogy of 'soteira', 'oleteira'.'\r\n\r\n'Karios' is also said, for Zeus is honoured in this way among the Mylasians. The feminine is 'Karia'. The acropolis of Megara also used to be called Karia, after Kar, son of Phoroneus, and an inhabitant is a 'Karios'. There is also 'Karine'. There is also 'Kariates'. There is also 'Kariatis' as well as 'Karis', from the genitive of Kar. Kos also used to be called 'Karis', as per Hellanikos. There is also a city in Phrygia: 'Karis' and 'Karides'. The ethnonym is 'Karideus' (as in 'Arkideus'); the form according to the grammatical rule is 'Karites'. The possessive for the Karians is 'Karikos'. Herodotos in book 1: 'The Karikos people are most esteemed.'"
+    },
+    {
+      "row_index": 19,
+      "translation_run_id": 4054,
+      "lemma_id": 2115,
+      "lemma": "Καλὴ ἀκτή",
+      "source": "Καλὴ ἀκτή, πόλις Σικελῶν. Εὔδοξος τετάρτῳ γῆς περιόδου. ἔστι δὲ [ὡς] Μεγάλη κώμη. ἐκ τῶν δύο δὲ ἡ παραγωγή, Μεγαλοκωμήτης Καλακτίτης ἢ Καλοακτίτης διὰ τοῦ « ι ». ἐπεὶ καὶ παρὰ τὸ Ἀκτή Ἀκτίτης [καὶ Ἀττικός· Ἀκτή γὰρ ἡ Ἀττική]. ἢ Καλοακταῖος καὶ Καλοακταία θηλυκόν, ἢ Καλοάκτιος ὡς Πανάκτιος καὶ ἐπάκτιος.",
+      "candidate": "Kale Akte: a city of the Sikels. Eudoxos, in the fourth book of his *Circuit of the Earth*. It is like 'Megale Kome'. From both are derived 'Megalokometes', and 'Kalaktites' and 'Kaloaktites' (with ι), since 'Aktites' derives from the form 'Akte' (as well as 'Attikos', because 'Akte' is actually Attika). Alternatively there is 'Kaloaktaios' and the feminine 'Kaloaktaia', or 'Kaloaktios' (as in 'Panaktios' and 'epaktios').",
+      "reference": "Kale Akte: a city of the Sikels. Eudoxos, in the fourth book of his *Circuit of the Earth*. It is like 'Megale Kome'. From both are derived 'Megalokometes', and 'Kalaktites' and 'Kaloaktites' (with ι), since 'Aktites' derives from the form 'Akte' (as well as 'Attikos', because 'Akte' is actually Attika). Alternatively there is 'Kaloaktaios' and the feminine 'Kaloaktaia', or 'Kaloaktios' (as in 'Panaktios' and 'epaktios')."
+    }
+  ]
+}

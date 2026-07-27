@@ -3,6 +3,7 @@ PAPER_SOURCE := outputs/arxiv/main.tex
 PAPER_PDF := outputs/arxiv/into-the-parallage-arxiv.pdf
 PAPER_ASSETS := \
 	analysis/vanessa-set1-length-and-composite-scatter.png \
+	analysis/greek-xcomet-confound-scatter.png \
 	analysis/greta-chinese-prediction-scatter.png \
 	outputs/ai4as-2026-parallage/pptx_render/slide-3.png
 ARXIV_PDF := outputs/arxiv/into-the-parallage-arxiv.pdf
@@ -37,6 +38,7 @@ arxiv-check: arxiv
 	@unzip -Z1 $(ARXIV_SOURCE) | grep -Fxq "main.tex"
 	@unzip -Z1 $(ARXIV_SOURCE) | grep -Fxq "generated/coauthor-rating-records.tex"
 	@unzip -Z1 $(ARXIV_SOURCE) | grep -Fxq "generated/chinese-focal-metrics.tex"
+	@unzip -Z1 $(ARXIV_SOURCE) | grep -Fxq "generated/greek-xcomet-metrics.tex"
 	@! unzip -Z1 $(ARXIV_SOURCE) | grep -Eq '(^|/)(README|.*\.(aux|log|out|pdf))$$'
 	@echo "Validated $(ARXIV_PDF) and $(ARXIV_SOURCE)"
 

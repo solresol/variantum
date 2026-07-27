@@ -26,7 +26,8 @@ Please confirm:
 - `data/chinese-analysis/` - the full Chinese outputs, expert references,
   lexical and neural metric inputs and outputs, and derived analyses;
 - `data/review-logs/` - all saved co-author pilot ratings and exposure records,
-  including revisions; and
+  including revisions, plus the text-free Greek XCOMET and length series used
+  in the length-confound analysis; and
 - `code/analysis/` - the scripts used to produce the reported analyses.
 
 `MANIFEST.sha256` records a checksum for every bundled file.

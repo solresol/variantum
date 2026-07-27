@@ -15,7 +15,13 @@ on:
       - analysis/review-timing-distribution-and-length.png
       - analysis/greta-chinese-prediction-scatter.png
       - analysis/vanessa-set1-length-and-composite-scatter.png
+      - analysis/greek-xcomet-confound-scatter.png
+      - analysis/build_ai4as_reviewer_charts.py
+      - analysis/plot_greek_xcomet_confound.py
       - outputs/ai4as-2026-parallage/pptx_render/slide-3.png
+      - outputs/ai4as-2026-parallage/charts/data/reviewer-xcomet-chart-data.csv
+      - outputs/ai4as-2026-parallage/charts/data/reviewer-metric-selection.csv
+      - outputs/ai4as-2026-parallage/charts/data/greek-xcomet-quality-vs-length.csv
   pull_request:
     paths:
       - .github/workflows/build-paper.yml
@@ -30,7 +36,13 @@ on:
       - analysis/review-timing-distribution-and-length.png
       - analysis/greta-chinese-prediction-scatter.png
       - analysis/vanessa-set1-length-and-composite-scatter.png
+      - analysis/greek-xcomet-confound-scatter.png
+      - analysis/build_ai4as_reviewer_charts.py
+      - analysis/plot_greek_xcomet_confound.py
       - outputs/ai4as-2026-parallage/pptx_render/slide-3.png
+      - outputs/ai4as-2026-parallage/charts/data/reviewer-xcomet-chart-data.csv
+      - outputs/ai4as-2026-parallage/charts/data/reviewer-metric-selection.csv
+      - outputs/ai4as-2026-parallage/charts/data/greek-xcomet-quality-vs-length.csv
   workflow_dispatch:
 
 permissions:

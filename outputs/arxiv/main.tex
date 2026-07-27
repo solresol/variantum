@@ -131,18 +131,24 @@ We implement the method for Ancient Greek and Classical Chinese, release
 a versioned library of twenty-seven helper profiles, and define an
 anticipated-divergence judgement that can be elicited before an expert
 reference is revealed. Formative co-author reviews show both possible
-signal and serious confounding. In ten Chinese passages, anticipated
-divergence correlates modestly with an eight-metric reference-divergence
-composite (Spearman rho = 0.47, exact one-sided p = 0.085); XCOMET-XL
-alone gives rho = -0.73 (exact two-sided p = 0.020). Source length does
-not explain the Chinese pattern. In Greek, however, one reviewer's
-ratings track passage length, and length-adjusted overlap measures
-remain weak and inconclusive. The five-pack/five-single Chinese split is
-too small and order-confounded to estimate a treatment effect, while
-timing instrumentation fails in the single-output condition. We
-therefore make no efficacy claim. The contribution is a reproducible way
-to generate and expose translation multiplicity, an auditable pilot, and
-a controlled-study protocol for testing whether structured alternatives
+signal and serious confounding. In Greek, one reviewer's ratings track
+the focal translation's XCOMET-XL divergence from the hidden human
+rendering strongly (Spearman rho = 0.80, exact two-sided p = 0.008),
+which taken alone would read as a successful pilot. But XCOMET
+similarity falls steeply with passage length in this corpus, the same
+ratings rise with length, and controlling for length attenuates the
+association (partial rank r = 0.51, p = 0.130): a reader could have
+scored almost as well by distrusting long passages. In ten Chinese
+passages, where scores are not length-patterned, anticipated divergence
+correlates modestly with an eight-metric reference-divergence composite
+(Spearman rho = 0.47, exact one-sided p = 0.085) and most strongly with
+XCOMET-XL (rho = -0.73, exact two-sided p = 0.020). The
+five-pack/five-single Chinese split is too small and order-confounded to
+estimate a treatment effect, and timing instrumentation failed in the
+single-output condition. We therefore make no efficacy claim. The
+contribution is a reproducible way to generate and expose translation
+multiplicity, an auditable pilot with its confounds documented, and a
+controlled-study protocol for testing whether structured alternatives
 improve issue detection and confidence calibration.
 
 \section{1. Abundant Translation, Scarce
@@ -345,7 +351,7 @@ can denote a deer and may refer here to a herd, cluster, or gathering:
 Calm the heart: devise it, search it, weigh its way;\\
 Hold it to the mirror's light by day.\\
 Hear, question, look, and listen where you should;\\
-The heart acts there - among the herd/deer? of good.
+The heart acts there---among the herd/deer? of good.
 \end{quote}
 
 This is not a candidate critical translation. Its usefulness is
@@ -376,8 +382,12 @@ model-entry comparisons, the mean of BLEU-4, chrF++, METEOR, and ROUGE-L
 rose from 43.0\% to 47.2\% under a minimal prompt, from 60.9\% to 70.0\%
 under a reviewed prompt, and from 58.9\% to 72.9\% under a detailed
 prompt-plus-guidance workflow: gains of 4.2, 9.1, and 14.0 percentage
-points. These are within-project reference-similarity trends, not
-calibrated measures of philological correctness or human equivalence.
+points. Even the strongest 2026 cell remains more than eleven points
+below the 84.3\% mean overlap of retained expert first drafts against
+their approved revisions, so expert verification remains binding under
+every prompt condition. These are within-project reference-similarity
+trends, not calibrated measures of philological correctness or human
+equivalence.
 They show that model progress interacts with task specification; they do
 not support a calendar forecast for human-quality translation.
 
@@ -388,9 +398,9 @@ average against their approved revisions (95\% CI 0.5213-0.6270). On
 those same entries GPT-5.6 scores 0.5944 under the reviewed prompt and
 0.6013 under the detailed prompt. The paired model-minus-draft
 difference is inconclusive for the reviewed prompt (0.0203, p=0.087) and
-small but positive for the detailed prompt (0.0272, p=0.023). This means
-that the current production workflow has reached the reference
-similarity of the retained pre-review drafts on this metric. It does not
+small but positive for the detailed prompt (0.0272, p=0.023). On this
+metric, the current production workflow has reached the reference
+similarity of the retained pre-review drafts. It does not
 establish human parity: the human comparison is a draft before expert
 review, the approved version is the scoring reference, and the prompts
 encode conventions learned during the same editorial process.
@@ -472,13 +482,21 @@ did not contribute review ratings.
 
 For the Greek passages we compared ratings with sentence-aligned BLEU-4
 (Papineni et al.~2002), ROUGE-L (Lin 2004), character 3-gram F1, and
-character 3-gram Jaccard against the approved human rendering. Because
-all four measures decline with reference length in the wider
-101-translation population, we fitted a per-metric log-length model and
-expressed each observed score as residual badness: standard deviations
-worse than expected for a passage of that length. We also report a
-composite of the four residual measures. Greek correlations are Spearman
-coefficients with two-sided p-values.
+character 3-gram Jaccard against the approved human rendering, and with
+XCOMET-XL scored on the same focal-reference pairs. Because the overlap
+measures decline with reference length in the wider 101-translation
+population, we fitted a per-metric log-length model and expressed each
+observed score as residual badness: standard deviations worse than
+expected for a passage of that length. We also report a composite of the
+four residual measures and a population-standardised lexical ensemble,
+the mean of the four per-metric z-scores against the same population.
+Overlap-metric correlations are Spearman coefficients with asymptotic
+two-sided p-values. XCOMET and ensemble correlations use permutation
+tests instead: exact enumeration of the 151,200 unique orderings of
+Vanessa's tied ratings, and a seeded 999,999-draw Monte Carlo
+permutation for Shirley's nineteen. Length-controlled Greek estimates
+are partial rank correlations between rating and XCOMET divergence given
+log source length, with approximate p-values.
 
 For Chinese, all 280 completed translations (twenty-eight profiles by
 ten passages) were scored against Shirley's reference set using BLEU-4,
@@ -531,9 +549,42 @@ are too small for stable threshold decisions.
 \subsection{6.1 Judgement Signal and the Length
 Confound}\label{judgement-signal-and-the-length-confound}
 
-The raw Vanessa associations point in the expected direction, but none
-is statistically significant. After adjustment for passage length, the
-residual associations remain weak and inconclusive.
+Judged against XCOMET-XL, the Greek pilot at first looks like a
+success. Across her ten passages, Vanessa's ratings track the focal
+translation's XCOMET divergence from the hidden human rendering at rho =
+0.796 (exact two-sided p = 0.0085). Shirley's nineteen ratings trend the
+same way but remain inconclusive (rho = 0.345, Monte Carlo p = 0.147).
+Taken alone, the Vanessa association would usually be reported as a
+successful experiment.
+
+\begin{figure}
+\centering
+\includegraphics[width=1\textwidth,height=\textheight]{figures/greek-xcomet-confound.png}
+\caption{Vanessa's anticipated-divergence ratings track XCOMET
+divergence (left; point labels give source word counts), but XCOMET
+similarity itself falls steeply with source length (right; grey points
+are per-entry means across the companion benchmark grid, dark points the
+twenty rated focal translations). A strong raw association is compatible
+with a length heuristic.}
+\end{figure}
+
+The corpus embeds a confound that blocks that reading. Among the twenty
+rated focal translations, XCOMET similarity falls steeply with source
+length (rho = -0.80, p \textless{} 0.001), and the same gradient holds
+across per-entry means of the companion benchmark grid (rho = -0.88 over
+the same 100 entries). Vanessa's ratings in turn rise with reference
+length (rho = 0.69, p = 0.027). A reader who understands neither the
+source nor the target language could therefore score well on this
+criterion simply by distrusting longer passages. Controlling for log
+source length attenuates Vanessa's XCOMET association to a partial rank
+correlation of 0.51 (p = 0.130); Shirley's becomes 0.19 (p = 0.43).
+XCOMET was also selected for this comparison after inspection because it
+was the strongest available measure; the overlap-metric results below
+keep that selection visible.
+
+The raw overlap-metric associations point in the expected direction, but
+none is statistically significant. After adjustment for passage length,
+the residual associations remain weak and inconclusive.
 
 \begin{longtable}[]{@{}lrrrr@{}}
 \toprule\noalign{}
@@ -548,10 +599,10 @@ ROUGE-L & -0.49 & 0.15 & 0.22 & 0.55 \\
 3-gram Jaccard & -0.48 & 0.16 & 0.32 & 0.37 \\
 \end{longtable}
 
-The strongest pilot association is instead between Vanessa's rating and
-log reference length (rho = 0.69, p = 0.027). Her rating versus
-composite length-adjusted badness is only rho = 0.22 (p = 0.55).
-Shirley's ratings occupy a narrower 5-9 range; rating versus log
+The population-standardised lexical ensemble behaves the same way:
+Vanessa's rating versus ensemble divergence is rho = 0.48 (exact p =
+0.17), and versus composite length-adjusted badness only rho = 0.22 (p =
+0.55). Shirley's ratings occupy a narrower 5-9 range; rating versus log
 reference length is rho = 0.22 (p = 0.37), and rating versus composite
 residual badness is rho = 0.13 (p = 0.60). Across the nine passages
 rated by both reviewers, inter-reviewer association is moderate but
@@ -565,10 +616,12 @@ length, while their association with composite length-adjusted residual
 badness is weak.}
 \end{figure}
 
-The result is not that the pack works. It is that anticipated divergence
-is measurable, non-trivial, and vulnerable to surface heuristics. The
-controlled study must separate source difficulty, passage length,
-lexical difference, and expert-adjudicated error.
+The result is not that the pack works, and not that the reviewers
+failed. It is that anticipated divergence is measurable, non-trivial,
+and vulnerable to surface heuristics, and that a reference-based
+criterion can reward those heuristics when the metric itself is
+length-patterned. The controlled study must separate source difficulty,
+passage length, lexical difference, and expert-adjudicated error.
 
 \subsection{6.2 Chinese Reference-Based
 Validation}\label{chinese-reference-based-validation}
@@ -674,7 +727,11 @@ attenuates, Greta's association. The partial rank correlation between
 rating and the unadjusted composite is rho = 0.507 (approximate
 two-sided p = 0.164). The Greek-style residual composite gives rho =
 0.546 (exact one-sided p = 0.0534), compared with rho = 0.472 before
-adjustment. Within conditions, the adjusted Parallage estimate remains
+adjustment. For XCOMET divergence alone, the partial rank correlation
+given source length is 0.757 (approximate p = 0.011), marginally
+stronger than the unadjusted 0.730. This contrast with Greek matters:
+here the criterion metric is not length-patterned, so the association
+cannot be reproduced by a length heuristic. Within conditions, the adjusted Parallage estimate remains
 0.500 (p = 0.450), while the adjusted single-output estimate rises from
 0.200 to 0.600 (p = 0.350). That change is too unstable at n = 5 to
 interpret as evidence of a subgroup effect.
@@ -719,10 +776,13 @@ For Greek, nineteen first ratings from Shirley and ten from Vanessa
 yielded a pooled median latency of 15.6 seconds (IQR 10.5-18.5); 25 of
 29 occurred within 30 seconds. The pooled relationship between
 source-word count and latency was negligible (rho = 0.05, p = 0.78), but
-reviewer behaviour differed. Shirley brought at least one helper card
-into the tracked viewport on 17 of 19 first evaluations; Vanessa did so
-on only 1 of 10. The pooled timing is therefore not an estimate of time
-required to use a Parallage pack.
+reviewer behaviour differed. Vanessa's latency rose with source length
+(rho = 0.66, p = 0.036) while Shirley's did not (rho = -0.08, p = 0.75),
+so the length gradient in Vanessa's ratings appears in her reading time
+as well. Shirley brought at least one helper card into the tracked
+viewport on 17 of 19 first evaluations; Vanessa did so on only 1 of 10.
+The pooled timing is therefore not an estimate of time required to use a
+Parallage pack.
 
 Greta's five Chinese pack passages recorded exact page-load-to-rating
 durations with non-zero helper exposure: median 312 seconds, range
@@ -771,10 +831,14 @@ The primary outcome will be the proportion of predefined,
 expert-adjudicated material translation issues correctly identified.
 Secondary outcomes will be false reassurance (high confidence when a
 material issue is missed), confidence calibration, time to decision,
-distrusted spans, and component use. Passages will be assigned to
-conditions within participant under a counterbalanced schedule so that
-each passage appears equally often in each condition and no participant
-sees the same passage twice.
+distrusted spans, and component use. For student participants the
+anticipated-divergence question will be reframed as a quotation-trust
+judgement (``Would you trust this translation enough to quote it in an
+essay?''), which is closer to a decision students actually face; the
+final wording will be frozen in the registration. Passages will be
+assigned to conditions within participant under a counterbalanced
+schedule so that each passage appears equally often in each condition
+and no participant sees the same passage twice.
 
 The primary analysis will be a mixed-effects logistic model for issue
 detection, with condition as the fixed effect of interest and random
@@ -816,7 +880,11 @@ scoring but does not make one English rendering uniquely correct. XCOMET
 was trained for modern machine-translation evaluation rather than
 Ancient Greek lexicography or Classical Chinese manuscript translation,
 and its raw score is not a calibrated measure of philological
-correctness. The Chinese composite and its length adjustment are fitted
+correctness. In the Greek corpus its scores are also strongly
+length-patterned, so reference-based validation there cannot separate
+genuine difficulty detection from a length heuristic; the Chinese
+sample, whose scores are not length-patterned, is the more informative
+validation setting. The Chinese composite and its length adjustment are fitted
 within the same ten passages, the metric-level comparisons are
 dependent, and the exploratory analyses were not preregistered. The
 corpora cover only one Greek lexicographical tradition and one short
@@ -836,13 +904,17 @@ supplying its answer.
 
 The versioned prompt library, review-site generator, pilot outputs, and
 analysis scripts are maintained in the Variantum repository:
-https://github.com/solresol/variantum. The proposed release accompanying
+\url{https://github.com/solresol/variantum}. The helper-profile
+catalogue, with each role's purpose and distinguishing instruction, is
+browsable at \url{https://parallage.symmachus.org/prompts.html}. The
+proposed release accompanying
 this preprint contains all 280 Chinese profile-passage outputs,
 Shirley's ten expert reference translations, lexical and neural metric
-inputs and outputs, treatment summaries, exact-permutation code, length
-diagnostics, the complete saved rating and helper-exposure history for
-the three co-author reviewers, and the seeded Greek and Chinese
-assignment procedures. The review logs identify the co-author reviewers
+inputs and outputs, the text-free Greek XCOMET and length data behind
+the confound analysis, treatment summaries, exact-permutation code,
+length diagnostics, the complete saved rating and helper-exposure
+history for the three co-author reviewers, and the seeded Greek and
+Chinese assignment procedures. The review logs identify the co-author reviewers
 and preserve revisions and timestamps; they contain no email addresses,
 IP addresses, authentication material, or student-participant data. The
 complete bundle will be made public only after all co-authors approve
@@ -880,6 +952,20 @@ each row traceable to the texts in the accompanying data release.
 
 \input{generated/chinese-focal-metrics.tex}
 \end{landscape}
+
+\clearpage
+\section{Appendix C. Ancient Greek Focal-Translation XCOMET
+Scores}\label{appendix-greek-xcomet}
+
+Table~\ref{tab:greek-xcomet-metrics} reports the per-entry XCOMET-XL
+scores behind the Greek analysis in Section 6.1, with each entry's
+source length and the co-author ratings it received. The steep length
+gradient discussed there is visible directly: every entry longer than
+thirty source words scores below 0.62. Ratings are on the eleven-point
+anticipated-divergence scale; a dash marks an entry the reviewer did not
+rate.
+
+\input{generated/greek-xcomet-metrics.tex}
 
 \section{References}\label{references}
 

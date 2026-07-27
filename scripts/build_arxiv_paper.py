@@ -21,6 +21,7 @@ CIRCULATION_ARCHIVE = OUTPUT / "into-the-parallage-coauthor-circulation.zip"
 GENERATED_TABLES = (
     GENERATED / "coauthor-rating-records.tex",
     GENERATED / "chinese-focal-metrics.tex",
+    GENERATED / "greek-xcomet-metrics.tex",
 )
 
 ASSETS = {
@@ -31,6 +32,10 @@ ASSETS = {
     "analysis/vanessa-set1-length-and-composite-scatter.png": (
         ROOT / "analysis" / "vanessa-set1-length-and-composite-scatter.png",
         FIGURES / "greek-length-confound.png",
+    ),
+    "analysis/greek-xcomet-confound-scatter.png": (
+        ROOT / "analysis" / "greek-xcomet-confound-scatter.png",
+        FIGURES / "greek-xcomet-confound.png",
     ),
     "analysis/greta-chinese-prediction-scatter.png": (
         ROOT / "analysis" / "greta-chinese-prediction-scatter.png",
@@ -65,9 +70,15 @@ CIRCULATION_FILES = {
     ROOT / "analysis" / "reviewer-metric-signal.csv": "data/review-logs/reviewer-metric-signal.csv",
     ROOT / "analysis" / "reviewer-metric-signal-summary.csv": "data/review-logs/reviewer-metric-signal-summary.csv",
     ROOT / "analysis" / "vanessa-set1-length-and-composite-scatter.png": "data/review-logs/vanessa-set1-length-and-composite-scatter.png",
+    ROOT / "analysis" / "greek-xcomet-confound-scatter.png": "data/review-logs/greek-xcomet-confound-scatter.png",
+    ROOT / "outputs" / "ai4as-2026-parallage" / "charts" / "data" / "reviewer-xcomet-chart-data.csv": "data/review-logs/reviewer-xcomet-chart-data.csv",
+    ROOT / "outputs" / "ai4as-2026-parallage" / "charts" / "data" / "reviewer-metric-selection.csv": "data/review-logs/reviewer-xcomet-statistics.csv",
+    ROOT / "outputs" / "ai4as-2026-parallage" / "charts" / "data" / "greek-xcomet-quality-vs-length.csv": "data/review-logs/greek-xcomet-quality-vs-length.csv",
     ROOT / "analysis" / "analyze_greta_chinese_length.py": "code/analysis/analyze_greta_chinese_length.py",
     ROOT / "analysis" / "analyze_greta_chinese_predictions.py": "code/analysis/analyze_greta_chinese_predictions.py",
     ROOT / "analysis" / "analyze_reviewer_metric_signal.py": "code/analysis/analyze_reviewer_metric_signal.py",
+    ROOT / "analysis" / "build_ai4as_reviewer_charts.py": "code/analysis/build_ai4as_reviewer_charts.py",
+    ROOT / "analysis" / "plot_greek_xcomet_confound.py": "code/analysis/plot_greek_xcomet_confound.py",
     ROOT / "analysis" / "export_review_ratings_release.py": "code/analysis/export_review_ratings_release.py",
     ROOT / "scripts" / "generate_paper_appendices.py": "code/paper/generate_paper_appendices.py",
 }
@@ -150,6 +161,8 @@ def validate() -> None:
         raise RuntimeError("The canonical TeX does not include the rating appendix.")
     if "\\input{generated/chinese-focal-metrics.tex}" not in tex:
         raise RuntimeError("The canonical TeX does not include the metric appendix.")
+    if "\\input{generated/greek-xcomet-metrics.tex}" not in tex:
+        raise RuntimeError("The canonical TeX does not include the Greek appendix.")
     missing_tables = [path for path in GENERATED_TABLES if not path.is_file()]
     if missing_tables:
         raise FileNotFoundError(f"Missing generated appendix tables: {missing_tables}")

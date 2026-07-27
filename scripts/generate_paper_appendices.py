@@ -5,6 +5,7 @@ from __future__ import annotations
 
 import csv
 import json
+import unicodedata
 from collections import Counter
 from pathlib import Path
 from typing import Any
@@ -17,9 +18,18 @@ OUTPUT = ROOT / "outputs" / "arxiv" / "generated"
 RATINGS_SOURCE = ANALYSIS / "review-ratings-release.json"
 GREEK_SOURCE = ANALYSIS / "reviewer-metric-signal.csv"
 CHINESE_SOURCE = ANALYSIS / "greta-chinese-ground-truth-metrics.csv"
+GREEK_XCOMET_SOURCE = (
+    ROOT
+    / "outputs"
+    / "ai4as-2026-parallage"
+    / "charts"
+    / "data"
+    / "reviewer-xcomet-chart-data.csv"
+)
 
 RATINGS_TEX = OUTPUT / "coauthor-rating-records.tex"
 CHINESE_TEX = OUTPUT / "chinese-focal-metrics.tex"
+GREEK_XCOMET_TEX = OUTPUT / "greek-xcomet-metrics.tex"
 
 REVIEWER_NAMES = {
     "greta": "Greta Hawes",
@@ -247,12 +257,94 @@ def build_chinese_metric_tables() -> str:
     return "\n".join(lines)
 
 
+def greek_sort_key(lemma: str) -> str:
+    decomposed = unicodedata.normalize("NFD", lemma)
+    return "".join(char for char in decomposed if not unicodedata.combining(char))
+
+
+def build_greek_xcomet_table() -> str:
+    rows = [
+        row
+        for row in load_csv(GREEK_XCOMET_SOURCE)
+        if row["reviewer"] in {"vanessa", "shirley"}
+    ]
+    by_run: dict[str, dict[str, Any]] = {}
+    for row in rows:
+        entry = by_run.setdefault(
+            row["translation_run_id"],
+            {
+                "lemma": row["lemma"],
+                "source_words": row["source_words"],
+                "xcomet": row["xcomet"],
+                "ratings": {},
+            },
+        )
+        entry["ratings"][row["reviewer"]] = row["rating"]
+    if len(by_run) != 20:
+        raise RuntimeError(f"Expected 20 rated Greek runs, found {len(by_run)}")
+    rating_counts = Counter(
+        reviewer for entry in by_run.values() for reviewer in entry["ratings"]
+    )
+    if rating_counts != Counter({"shirley": 19, "vanessa": 10}):
+        raise RuntimeError(f"Unexpected Greek rating counts: {dict(rating_counts)}")
+
+    lines = [
+        r"\scriptsize",
+        r"\setlength{\tabcolsep}{5pt}",
+        r"\begin{longtable}{@{}l r r r r r@{}}",
+        (
+            r"\caption{XCOMET-XL similarity of the twenty rated Greek focal "
+            r"translations to their hidden approved human renderings.}"
+        ),
+        r"\label{tab:greek-xcomet-metrics}\\",
+        r"\toprule",
+        (
+            r"Entry & Run & Source words & XCOMET-XL & Vanessa rating & "
+            r"Shirley rating \\"
+        ),
+        r"\midrule",
+        r"\endfirsthead",
+        r"\multicolumn{6}{c}{\tablename\ \thetable\ -- continued} \\",
+        r"\toprule",
+        (
+            r"Entry & Run & Source words & XCOMET-XL & Vanessa rating & "
+            r"Shirley rating \\"
+        ),
+        r"\midrule",
+        r"\endhead",
+        r"\bottomrule",
+        r"\endlastfoot",
+    ]
+    for run_id, entry in sorted(
+        by_run.items(), key=lambda item: greek_sort_key(item[1]["lemma"])
+    ):
+        ratings = entry["ratings"]
+        values = (
+            entry["lemma"],
+            run_id,
+            entry["source_words"],
+            f"{float(entry['xcomet']):.3f}",
+            f"{float(ratings['vanessa']):.0f}" if "vanessa" in ratings else "--",
+            f"{float(ratings['shirley']):.0f}" if "shirley" in ratings else "--",
+        )
+        lines.append(" & ".join(escape_tex(value) for value in values) + r" \\")
+    lines.extend(
+        [
+            r"\end{longtable}",
+            "",
+        ]
+    )
+    return "\n".join(lines)
+
+
 def main() -> None:
     OUTPUT.mkdir(parents=True, exist_ok=True)
     RATINGS_TEX.write_text(build_rating_table(), encoding="utf-8")
     CHINESE_TEX.write_text(build_chinese_metric_tables(), encoding="utf-8")
+    GREEK_XCOMET_TEX.write_text(build_greek_xcomet_table(), encoding="utf-8")
     print(RATINGS_TEX)
     print(CHINESE_TEX)
+    print(GREEK_XCOMET_TEX)
 
 
 if __name__ == "__main__":
