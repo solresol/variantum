@@ -385,11 +385,36 @@ prompt-plus-guidance workflow: gains of 4.2, 9.1, and 14.0 percentage
 points. Even the strongest 2026 cell remains more than eleven points
 below the 84.3\% mean overlap of retained expert first drafts against
 their approved revisions, so expert verification remains binding under
-every prompt condition. These are within-project reference-similarity
-trends, not calibrated measures of philological correctness or human
-equivalence.
-They show that model progress interacts with task specification; they do
-not support a calendar forecast for human-quality translation.
+every prompt condition.
+
+\begin{figure}
+\centering
+\includegraphics[width=1\textwidth,height=\textheight]{figures/model-quality-over-time.pdf}
+\caption{Mean four-metric reference similarity on the 100-entry Kappa
+benchmark by model release date under the three prompt conditions, with
+ordinary least-squares fits. Anthropic Claude observations are plotted
+for context and excluded from the fits. The dotted line is a provisional
+90\% reference-similarity proxy; no fitted trend crosses it before
+2030.}
+\end{figure}
+
+Ordinary least-squares fits of the per-release means against release
+date give slopes of 2.2, 4.0, and 4.9 percentage points per year for the
+minimal, reviewed, and detailed conditions (R\textsuperscript{2} = 0.71,
+0.93, and 0.82). Extrapolated naively, the detailed workflow does not
+reach the 84.3\% draft-overlap bar until about 2029 and the provisional
+90\% proxy until 2030; the reviewed prompt crosses the same bars around
+2030 and 2032; the minimal prompt would take until the 2040s. These
+extrapolations illustrate a verification horizon; they are not
+forecasts. The scores are within-project reference similarities rather
+than calibrated measures of philological correctness or human
+equivalence, the linear trend may saturate or jump, and crossing a
+similarity bar is necessary rather than sufficient for expert-quality
+translation. What survives those caveats is operational: unless
+capability growth breaks from its current trend, expert verification
+remains essential for ancient-language translation for the remainder of
+this decade at least, and prompt specification alone moves that horizon
+by years.
 
 XCOMET-XL, a learned metric combining sentence scoring with error-span
 detection, gives a direct within-workflow calibration (Guerreiro et
@@ -607,14 +632,6 @@ reference length is rho = 0.22 (p = 0.37), and rating versus composite
 residual badness is rho = 0.13 (p = 0.60). Across the nine passages
 rated by both reviewers, inter-reviewer association is moderate but
 uncertain (rho = 0.44, p = 0.24).
-
-\begin{figure}
-\centering
-\includegraphics[width=1\textwidth,height=\textheight]{figures/greek-length-confound.png}
-\caption{Vanessa's anticipated-divergence ratings rise with reference
-length, while their association with composite length-adjusted residual
-badness is weak.}
-\end{figure}
 
 The result is not that the pack works, and not that the reviewers
 failed. It is that anticipated divergence is measurable, non-trivial,
@@ -911,10 +928,11 @@ proposed release accompanying
 this preprint contains all 280 Chinese profile-passage outputs,
 Shirley's ten expert reference translations, lexical and neural metric
 inputs and outputs, the text-free Greek XCOMET and length data behind
-the confound analysis, treatment summaries, exact-permutation code,
-length diagnostics, the complete saved rating and helper-exposure
-history for the three co-author reviewers, and the seeded Greek and
-Chinese assignment procedures. The review logs identify the co-author reviewers
+the confound analysis, the benchmark trend cells and projection code
+behind the verification-horizon extrapolation, treatment summaries,
+exact-permutation code, length diagnostics, the complete saved rating
+and helper-exposure history for the three co-author reviewers, and the
+seeded Greek and Chinese assignment procedures. The review logs identify the co-author reviewers
 and preserve revisions and timestamps; they contain no email addresses,
 IP addresses, authentication material, or student-participant data. The
 complete bundle will be made public only after all co-authors approve

@@ -5,6 +5,7 @@ PAPER_ASSETS := \
 	analysis/vanessa-set1-length-and-composite-scatter.png \
 	analysis/greek-xcomet-confound-scatter.png \
 	analysis/greta-chinese-prediction-scatter.png \
+	analysis/stephanos-model-quality-over-time.pdf \
 	outputs/ai4as-2026-parallage/pptx_render/slide-3.png
 ARXIV_PDF := outputs/arxiv/into-the-parallage-arxiv.pdf
 ARXIV_SOURCE := outputs/arxiv/into-the-parallage-arxiv-source.zip
@@ -39,18 +40,14 @@ arxiv-check: arxiv
 	@unzip -Z1 $(ARXIV_SOURCE) | grep -Fxq "generated/coauthor-rating-records.tex"
 	@unzip -Z1 $(ARXIV_SOURCE) | grep -Fxq "generated/chinese-focal-metrics.tex"
 	@unzip -Z1 $(ARXIV_SOURCE) | grep -Fxq "generated/greek-xcomet-metrics.tex"
-	@! unzip -Z1 $(ARXIV_SOURCE) | grep -Eq '(^|/)(README|.*\.(aux|log|out|pdf))$$'
+	@! unzip -Z1 $(ARXIV_SOURCE) | grep -Eq '(^|/)(README|.*\.(aux|log|out))$$|^[^/]+\.pdf$$'
 	@echo "Validated $(ARXIV_PDF) and $(ARXIV_SOURCE)"
 
 circulation: arxiv
 
 circulation-check: arxiv-check
 	@unzip -tq $(CIRCULATION_ARCHIVE)
-	@unzip -Z1 $(CIRCULATION_ARCHIVE) | grep -Fxq "README.md"
-	@unzip -Z1 $(CIRCULATION_ARCHIVE) | grep -Fxq "MANIFEST.sha256"
-	@unzip -Z1 $(CIRCULATION_ARCHIVE) | grep -Fxq "data/chinese-analysis/chinese-all-translation-metrics.csv"
-	@unzip -Z1 $(CIRCULATION_ARCHIVE) | grep -Fxq "data/review-logs/review-ratings-release.json"
-	@! unzip -Z1 $(CIRCULATION_ARCHIVE) | grep -Eq '\.(docx|pptx)$$'
+	@test "$$(unzip -Z1 $(CIRCULATION_ARCHIVE))" = "Parallage-preprint-for-coauthor-review.pdf"
 	@echo "Validated $(CIRCULATION_ARCHIVE)"
 
 presentation-sync:

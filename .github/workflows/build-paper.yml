@@ -8,7 +8,6 @@ on:
       - scripts/build_arxiv_paper.py
       - scripts/generate_paper_appendices.py
       - outputs/arxiv/main.tex
-      - outputs/arxiv/COAUTHOR_CIRCULATION.md
       - analysis/greta-chinese-ground-truth-metrics.csv
       - analysis/review-ratings-release.json
       - analysis/reviewer-metric-signal.csv
@@ -18,6 +17,10 @@ on:
       - analysis/greek-xcomet-confound-scatter.png
       - analysis/build_ai4as_reviewer_charts.py
       - analysis/plot_greek_xcomet_confound.py
+      - analysis/stephanos-model-quality-over-time.pdf
+      - analysis/stephanos-benchmark-cells.csv
+      - analysis/model-trend-projections.json
+      - analysis/compute_model_trend_projections.py
       - outputs/ai4as-2026-parallage/pptx_render/slide-3.png
       - outputs/ai4as-2026-parallage/charts/data/reviewer-xcomet-chart-data.csv
       - outputs/ai4as-2026-parallage/charts/data/reviewer-metric-selection.csv
@@ -29,7 +32,6 @@ on:
       - scripts/build_arxiv_paper.py
       - scripts/generate_paper_appendices.py
       - outputs/arxiv/main.tex
-      - outputs/arxiv/COAUTHOR_CIRCULATION.md
       - analysis/greta-chinese-ground-truth-metrics.csv
       - analysis/review-ratings-release.json
       - analysis/reviewer-metric-signal.csv
@@ -39,6 +41,10 @@ on:
       - analysis/greek-xcomet-confound-scatter.png
       - analysis/build_ai4as_reviewer_charts.py
       - analysis/plot_greek_xcomet_confound.py
+      - analysis/stephanos-model-quality-over-time.pdf
+      - analysis/stephanos-benchmark-cells.csv
+      - analysis/model-trend-projections.json
+      - analysis/compute_model_trend_projections.py
       - outputs/ai4as-2026-parallage/pptx_render/slide-3.png
       - outputs/ai4as-2026-parallage/charts/data/reviewer-xcomet-chart-data.csv
       - outputs/ai4as-2026-parallage/charts/data/reviewer-metric-selection.csv

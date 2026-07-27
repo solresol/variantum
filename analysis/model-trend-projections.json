@@ -1,0 +1,43 @@
+{
+  "description": "Naive linear extrapolations of the OpenAI benchmark trends; illustrations of a verification horizon, not forecasts.",
+  "draft_overlap_bar_pct": 84.27,
+  "proxy_bar_pct": 90.0,
+  "projections": [
+    {
+      "prompt_version": 1,
+      "label": "minimal",
+      "n_releases": 12,
+      "first_release": "2024-04-09",
+      "last_release": "2026-07-09",
+      "latest_mean_lexical_pct": 47.17,
+      "slope_pct_per_year": 2.24,
+      "r_squared": 0.714,
+      "crosses_draft_overlap_bar": 2042.22,
+      "crosses_90pct_proxy": 2044.78
+    },
+    {
+      "prompt_version": 2,
+      "label": "reviewed",
+      "n_releases": 12,
+      "first_release": "2024-04-09",
+      "last_release": "2026-07-09",
+      "latest_mean_lexical_pct": 69.98,
+      "slope_pct_per_year": 4.022,
+      "r_squared": 0.927,
+      "crosses_draft_overlap_bar": 2030.2,
+      "crosses_90pct_proxy": 2031.62
+    },
+    {
+      "prompt_version": 3,
+      "label": "detailed",
+      "n_releases": 12,
+      "first_release": "2024-04-09",
+      "last_release": "2026-07-09",
+      "latest_mean_lexical_pct": 72.93,
+      "slope_pct_per_year": 4.92,
+      "r_squared": 0.817,
+      "crosses_draft_overlap_bar": 2028.92,
+      "crosses_90pct_proxy": 2030.09
+    }
+  ]
+}
