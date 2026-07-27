@@ -28,10 +28,10 @@ make
 ```
 
 The build regenerates the data-backed appendix tables, compiles the multilingual
-manuscript with XeLaTeX, creates the arXiv source archive, creates the co-author
-circulation archive, and validates both archives. It expects Python 3, XeLaTeX,
-the TeX Live fonts named in `main.tex`, Poppler, and standard ZIP tools. The
-`Build paper` GitHub Actions workflow rebuilds and checks the same artifacts.
+manuscript with XeLaTeX, creates the arXiv source archive, and validates the PDF
+and source archive. It expects Python 3, XeLaTeX, the TeX Live fonts named in
+`main.tex`, Poppler, and standard ZIP tools. The `Build paper` GitHub Actions
+workflow rebuilds and checks the same artifacts.
 
 ### Preparing the arXiv package
 
@@ -40,15 +40,12 @@ The arXiv source tree, review PDF, and upload-ready source archive live under
 
 ```bash
 make arxiv-check
-make circulation-check
 ```
 
 This produces `outputs/arxiv/into-the-parallage-arxiv.pdf` for review and
-`outputs/arxiv/into-the-parallage-arxiv-source.zip` for submission. It also
-produces `outputs/arxiv/into-the-parallage-coauthor-circulation.zip`, containing
-the paper, complete proposed data release, analysis code, and checksums for
-co-author review. The Word talk and PowerPoint deck are not included. See
-`outputs/arxiv/README.md` for the remaining approval and submission checks.
+`outputs/arxiv/into-the-parallage-arxiv-source.zip` for submission. Circulate
+the PDF directly for co-author review. See `outputs/arxiv/README.md` for the
+remaining approval and submission checks.
 
 ### Conference presentation sources
 

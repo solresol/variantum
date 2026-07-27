@@ -9,13 +9,12 @@ PAPER_ASSETS := \
 	outputs/ai4as-2026-parallage/pptx_render/slide-3.png
 ARXIV_PDF := outputs/arxiv/into-the-parallage-arxiv.pdf
 ARXIV_SOURCE := outputs/arxiv/into-the-parallage-arxiv-source.zip
-CIRCULATION_ARCHIVE := outputs/arxiv/into-the-parallage-coauthor-circulation.zip
 
 .DEFAULT_GOAL := all
 
-.PHONY: all appendices paper paper-check arxiv arxiv-check circulation circulation-check presentation-sync presentation-check
+.PHONY: all appendices paper paper-check arxiv arxiv-check presentation-sync presentation-check
 
-all: circulation-check
+all: arxiv-check
 
 appendices:
 	$(PYTHON) scripts/generate_paper_appendices.py
@@ -42,13 +41,6 @@ arxiv-check: arxiv
 	@unzip -Z1 $(ARXIV_SOURCE) | grep -Fxq "generated/greek-xcomet-metrics.tex"
 	@! unzip -Z1 $(ARXIV_SOURCE) | grep -Eq '(^|/)(README|.*\.(aux|log|out))$$|^[^/]+\.pdf$$'
 	@echo "Validated $(ARXIV_PDF) and $(ARXIV_SOURCE)"
-
-circulation: arxiv
-
-circulation-check: arxiv-check
-	@unzip -tq $(CIRCULATION_ARCHIVE)
-	@test "$$(unzip -Z1 $(CIRCULATION_ARCHIVE))" = "Parallage-preprint-for-coauthor-review.pdf"
-	@echo "Validated $(CIRCULATION_ARCHIVE)"
 
 presentation-sync:
 	uv run python scripts/sync_ai4as_presentation_sources.py

@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Build the arXiv source archive and the co-author review packet."""
+"""Build the arXiv review PDF and source archive."""
 
 from __future__ import annotations
 
@@ -16,7 +16,6 @@ GENERATED = OUTPUT / "generated"
 TEX = OUTPUT / "main.tex"
 PDF = OUTPUT / "into-the-parallage-arxiv.pdf"
 ARCHIVE = OUTPUT / "into-the-parallage-arxiv-source.zip"
-CIRCULATION_ARCHIVE = OUTPUT / "into-the-parallage-coauthor-circulation.zip"
 GENERATED_TABLES = (
     GENERATED / "coauthor-rating-records.tex",
     GENERATED / "chinese-focal-metrics.tex",
@@ -41,11 +40,6 @@ ASSETS = {
         FIGURES / "chinese-prediction-scatter.png",
     ),
 }
-
-CIRCULATION_FILES = {
-    PDF: "Parallage-preprint-for-coauthor-review.pdf",
-}
-
 
 def run(command: list[str], *, cwd: Path = ROOT) -> None:
     subprocess.run(command, cwd=cwd, check=True)
@@ -95,20 +89,6 @@ def build_archive() -> None:
             archive.write(path, path.relative_to(OUTPUT).as_posix())
 
 
-def build_circulation_archive() -> None:
-    missing = [path for path in CIRCULATION_FILES if not path.is_file()]
-    if missing:
-        raise FileNotFoundError(f"Missing circulation files: {missing}")
-    with ZipFile(
-        CIRCULATION_ARCHIVE,
-        "w",
-        compression=ZIP_DEFLATED,
-        compresslevel=9,
-    ) as archive:
-        for path, archive_name in CIRCULATION_FILES.items():
-            archive.write(path, archive_name)
-
-
 def validate() -> None:
     tex = TEX.read_text(encoding="utf-8")
     if str(ROOT) in tex:
@@ -138,24 +118,13 @@ def validate() -> None:
     ]
     if members != expected:
         raise RuntimeError(f"Unexpected archive contents: {members}")
-    with ZipFile(CIRCULATION_ARCHIVE) as archive:
-        circulation_members = archive.namelist()
-        expected_circulation = list(CIRCULATION_FILES.values())
-        if circulation_members != expected_circulation:
-            raise RuntimeError(
-                f"Unexpected circulation archive contents: {circulation_members}"
-            )
-
-
 def main() -> None:
     sync_figures()
     build_pdf()
     build_archive()
-    build_circulation_archive()
     validate()
     print(PDF)
     print(ARCHIVE)
-    print(CIRCULATION_ARCHIVE)
 
 
 if __name__ == "__main__":
